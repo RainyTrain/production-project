@@ -1,0 +1,8 @@
+/.vscode
+/build
+/node_modules
+
+# System files
+.DS_Store
+Thumbs.db
+.Trash
