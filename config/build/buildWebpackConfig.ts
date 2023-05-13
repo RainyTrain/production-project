@@ -13,7 +13,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     module: {
       rules: buildLoaders(options),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(options),
     plugins: buildPlugins(options),
     output: {
       filename: '[name].[contenthash].js',
