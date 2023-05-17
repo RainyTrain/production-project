@@ -1,4 +1,4 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from 'shared/ui/ThemeProvider';
 import { classNames } from 'shared';
 import cls from './ThemeSwitcher.module.scss';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
