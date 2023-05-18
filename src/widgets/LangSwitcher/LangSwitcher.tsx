@@ -19,7 +19,6 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
       onClick={toggleLanguage}
       className={classNames(cls.LangSwitcher, {}, [className])}>
       {t('translate')}
-      {t('shopa')}
     </Button>
   );
 };
