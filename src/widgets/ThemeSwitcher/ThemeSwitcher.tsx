@@ -1,8 +1,8 @@
 import { useTheme } from 'shared/ui/ThemeProvider';
 import { classNames } from 'shared';
-import cls from './ThemeSwitcher.module.scss';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarlIcon from 'shared/assets/icons/theme-dark.svg';
+import cls from './ThemeSwitcher.module.scss';
 import { Button, ThemButton } from '../../shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
