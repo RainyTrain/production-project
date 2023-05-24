@@ -1,5 +1,7 @@
 {
   "translate": "translate",
   "test": "test",
-  "Page is not found": "Page is not found"
+  "Page is not found": "Page is not found",
+  "Error has occured": "Error has occured",
+  "Reload page": "Reload page"
 }
