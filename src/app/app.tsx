@@ -4,13 +4,10 @@ import { classNames } from "shared";
 import { AppRouter } from "app/providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 
 const App = () => {
   const { theme } = useTheme();
-  useEffect(() => {
-    throw new Error("ERROR 404 ");
-  }, []);
   return (
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback="">
