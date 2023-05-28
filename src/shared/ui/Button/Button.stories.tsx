@@ -14,13 +14,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "text",
+    children: "Text",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: "text",
+    children: "Text",
     theme: ThemButton.CLEAR,
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    children: "Text",
+    theme: ThemButton.OUTLINE,
   },
 };
