@@ -4,7 +4,6 @@
  */
 
 import path from "path";
-import jestEmptyComponent from "./JestEmptyComponent";
 
 export default {
   // All imported modules in your tests should be mocked automatically
