@@ -3,6 +3,7 @@
   "plugins": ["stylelint-prettier"],
   "rules": {
     "prettier/prettier": true,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "color-function-notation": null
   }
 }
