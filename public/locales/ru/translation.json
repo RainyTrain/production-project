@@ -3,5 +3,7 @@
   "test": "тест",
   "Page is not found": "Страница не найдена",
   "Error has occured": "Произошла ошибка",
-  "Reload page": "Перезагрузить страницу"
+  "Reload page": "Перезагрузить страницу",
+  "English": "Русский",
+  "Eng": "Ru"
 }
