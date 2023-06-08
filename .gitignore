@@ -1,8 +1,12 @@
 /.vscode
 /build
 /node_modules
+/extractedTranslations
+/storybook-static
 
 # System files
 .DS_Store
 Thumbs.db
 .Trash
+
+
