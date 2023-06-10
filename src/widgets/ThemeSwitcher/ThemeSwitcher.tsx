@@ -16,7 +16,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       className={classNames("", {}, [className])}
       theme={ThemButton.CLEAR}
     >
-      {theme === "light" ? <LightIcon /> : <DarlIcon />}
+      {theme === "app_light_theme" ? <LightIcon /> : <DarlIcon />}
     </Button>
   );
 };
