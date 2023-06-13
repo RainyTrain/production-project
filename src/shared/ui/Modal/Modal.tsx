@@ -7,6 +7,7 @@ import cls from "./Modal.module.scss";
 interface ModalProps {
   className?: string;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
@@ -15,15 +16,18 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   isOpen,
   onClose,
+  lazy,
 }) => {
+  const [isOpening, setIsOpening] = useState<boolean>(false);
   const [isClosing, setIsClosing] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   const { theme } = useTheme();
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen,
+    [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
   };
 
@@ -52,17 +56,34 @@ export const Modal: React.FC<ModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+    return () => setIsMounted(false);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      timerRef.current = setTimeout(() => {
+        setIsOpening(true);
+      }, 0);
       window.addEventListener("keydown", onKeyDown);
     }
     return () => {
+      setIsOpening(false);
       clearTimeout(timerRef.current);
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onKeyDown]);
 
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+      <div
+        className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
+      >
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}

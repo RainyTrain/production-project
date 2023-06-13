@@ -6,5 +6,7 @@
   "Reload page": "Перезагрузить страницу",
   "English": "Русский",
   "Eng": "Ru",
-  "Sign in": "Войти"
+  "Sign in": "Войти",
+  "Password": "Пароль",
+  "Username": "Логин"
 }
