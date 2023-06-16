@@ -8,5 +8,7 @@
   "Eng": "Ru",
   "Sign in": "Войти",
   "Password": "Пароль",
-  "Username": "Логин"
+  "Username": "Логин",
+  "Authorisation form": "Форма авторизации",
+  "Invalid username or password": "Неверный логин или пароль"
 }

@@ -72,3 +72,11 @@ export const XL: Story = {
     size: ButtonSize.Xl,
   },
 };
+
+export const DISABLED: Story = {
+  args: {
+    children: "T",
+    theme: ThemButton.OUTLINE,
+    disabled: true,
+  },
+};
