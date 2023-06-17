@@ -10,5 +10,6 @@
   "Username": "Username",
   "Password": "Password",
   "Authorisation form": "Authorisation form",
-  "Invalid username or password": "Invalid username or password"
+  "Invalid username or password": "Invalid username or password",
+  "Sign out": "Sign out"
 }

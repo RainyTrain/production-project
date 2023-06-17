@@ -6,6 +6,7 @@ const initialState: LoginShema = {
   username: "",
   password: "",
   isLoading: false,
+  error: "",
 };
 
 export const userSlice = createSlice({

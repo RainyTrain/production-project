@@ -3,11 +3,19 @@ import { classNames } from "shared";
 import { AppRouter } from "app/providers/router";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Counter } from "entities/Counter";
+import { useDispatch } from "react-redux";
+import { userActions } from "entities/User";
 
 const App = () => {
   const { theme } = useTheme();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData);
+  }, [dispatch]);
+
   return (
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback="">
