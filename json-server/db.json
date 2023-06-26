@@ -8,5 +8,11 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typecode" }
+  "profile": {
+    "first": "admin",
+    "second": "admin",
+    "age": 21,
+    "username": "admin",
+    "avatar": "https://icon2.cleanpng.com/20180419/bhw/kisspng-computer-icons-laborer-female-5ad87e2b6e0a39.9384034615241375154507.jpg"
+  }
 }

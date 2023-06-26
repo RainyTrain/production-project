@@ -1,24 +1,30 @@
-import { useState } from "react";
-import { AppLink, classNames } from "shared";
+import { memo, useMemo, useState } from "react";
+import { classNames } from "shared";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher";
 import { Button, ButtonSize, ThemButton } from "shared/ui/Button/Button";
-import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
-import MainIcon from "shared/assets/icons/MainIcon.svg";
-import AboutIcon from "shared/assets/icons/AboutIcon.svg";
+import { SidebarItemsList } from "widgets/Sidebar/model/items";
 import cls from "./Sidebar.module.scss";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
+
+  const itemList = useMemo(
+    () =>
+      SidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      )),
+    [collapsed]
+  );
 
   return (
     <div
@@ -38,32 +44,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <div className={cls.items}>
-        <div>
-          <AppLink
-            to={RoutePath.main}
-            theme={AppLinkTheme.SECONDARY}
-            className={cls.item}
-          >
-            <MainIcon className={cls.icon} />
-            <span className={cls.link}>Main</span>
-          </AppLink>
-        </div>
-        <div className={cls.item}>
-          <AppLink
-            to={RoutePath.about}
-            theme={AppLinkTheme.SECONDARY}
-            className={cls.item}
-          >
-            <AboutIcon className={cls.icon} />
-            <span className={cls.link}>About</span>
-          </AppLink>
-        </div>
-      </div>
+      <div className={cls.items}>{itemList}</div>
       <div className={cls.switchers}>
         <ThemeSwitcher className="hello" />
         <LangSwitcher className={cls.lang} short={collapsed} />
       </div>
     </div>
   );
-};
+});
