@@ -24,7 +24,7 @@ export const DynamicModule: FC<DynamicModuleProps> = (props) => {
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
       store.reducerManager.add(name, reducer);
-      dispatch({ type: "@INIT login reducer" });
+      dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
@@ -32,7 +32,7 @@ export const DynamicModule: FC<DynamicModuleProps> = (props) => {
         Object.entries(reducers).forEach(
           ([name, reducer]: ReducerListEntry) => {
             store.reducerManager.remove(name);
-            dispatch({ type: "@REMOVE login reducer" });
+            dispatch({ type: `@REMOVE ${name} reducer` });
           }
         );
       }

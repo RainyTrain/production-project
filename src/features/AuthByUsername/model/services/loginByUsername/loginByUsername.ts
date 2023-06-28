@@ -24,7 +24,7 @@ export const loginByUsername = createAsyncThunk<
       throw new Error();
     }
 
-    thunkAPI.extra.navigate("/profile");
+    // thunkAPI.extra.navigate("/profile");
 
     return response.data;
   } catch (error) {
