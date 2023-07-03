@@ -23,14 +23,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
     }
   );
 
-  config.module.rules.push({
+  config!.module!.rules.push({
     test: /\.svg$/i,
     use: ["@svgr/webpack"],
   });
 
-  config.module.rules.push(buildCssLoader(true));
+  config!.module!.rules.push(buildCssLoader(true));
 
-  config.plugins.push(
+  config!.plugins!.push(
     new webpack.DefinePlugin({
       __IS_DEV__: true,
       __API__: "",

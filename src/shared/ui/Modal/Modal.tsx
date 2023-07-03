@@ -1,5 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { classNames } from "shared";
+import { Mods } from "shared/lib/classNames/classNames";
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "../ThemeProvider";
 import cls from "./Modal.module.scss";
@@ -24,9 +31,9 @@ export const Modal: React.FC<ModalProps> = ({
 
   const { theme } = useTheme();
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpening,
     [cls.isClosing]: isClosing,
   };

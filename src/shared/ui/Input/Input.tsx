@@ -46,7 +46,7 @@ export const Input = memo((props: InputProps) => {
 
   const onSelect = (event: React.SyntheticEvent<HTMLDivElement, Event>) => {
     if (event.target instanceof HTMLInputElement) {
-      setCuretPosition(event.target.selectionStart);
+      setCuretPosition(event.target.selectionStart as number);
     }
   };
 
@@ -58,7 +58,7 @@ export const Input = memo((props: InputProps) => {
   useEffect(() => {
     if (autofocus) {
       setIsFocused(true);
-      inputRef.current.focus();
+      inputRef.current?.focus();
     }
   }, [autofocus]);
 
