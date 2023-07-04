@@ -15,5 +15,9 @@
   "Profile": "Профиль",
   "Edit": "Редактировать",
   "Name": "Имя",
-  "Surname": "Фамилия"
+  "Surname": "Фамилия",
+  "Error occured while loading profile": "Произошла ошибка при загрузке профиля",
+  "Try reloading the page": "Попробуйте обновить страницу",
+  "Cancel": "Отменить",
+  "Save": "Сохранить"
 }

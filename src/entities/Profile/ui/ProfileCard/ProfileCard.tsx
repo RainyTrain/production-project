@@ -1,43 +1,72 @@
-import { getProfileData } from "entities/Profile/model/selectors/getProfileData/getProfileData";
-import { getProfileError } from "entities/Profile/model/selectors/getProfileError/getProfileError";
-import { getProfileIsLoading } from "entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { Profile } from "entities/Profile/model/types/profile";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { classNames } from "shared";
-import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { Text } from "shared/ui/Text/Text";
+import { Loader } from "shared/ui/Loader/Loader";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 import cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
   className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  readOnly?: boolean;
+  onChangeFirstName: (value: string) => void;
+  onChangeLastName: (value: string) => void;
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = ({
+  className,
+  data,
+  isLoading,
+  error,
+  readOnly,
+  onChangeFirstName,
+  onChangeLastName,
+}: ProfileCardProps) => {
   const { t } = useTranslation();
 
-  const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+  if (isLoading) {
+    return (
+      <div
+        className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
+          className,
+        ])}
+      >
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+        <Text
+          title={t("Error occured while loading profile")}
+          theme={TextTheme.ERROR}
+          text={t("Try reloading the page")}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
-      <div className={cls.header}>
-        <Text title={t("Profile")} />
-        <Button theme={ThemButton.OUTLINE} className={cls.editBtn}>
-          {t("Edit")}
-        </Button>
-      </div>
-      <div className={cls.data}>
+      <div>
         <Input
           value={data?.first}
           placeholder={t("Name")}
           className={cls.input}
+          onChange={onChangeFirstName}
+          readOnly={readOnly}
         />
         <Input
           value={data?.second}
           placeholder={t("Surname")}
           className={cls.input}
+          onChange={onChangeLastName}
+          readOnly={readOnly}
         />
       </div>
     </div>

@@ -10,7 +10,7 @@ export const fetchProfileData = createAsyncThunk<
 >("profile/loginByUsername", async (_, thunkAPI) => {
   try {
     const response = await thunkAPI.extra.api.get<Profile>("/profile");
- 
+
     return response.data;
   } catch (error) {
     console.log(error);
