@@ -1,6 +1,18 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -13,6 +25,8 @@
     "second": "admin",
     "age": 21,
     "username": "admin",
-    "avatar": "https://icon2.cleanpng.com/20180419/bhw/kisspng-computer-icons-laborer-female-5ad87e2b6e0a39.9384034615241375154507.jpg"
+    "avatar": "https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1608/tuktukdesign160800037/61010821-user-icon-man-profile-businessman-avatar-person-glyph-vector-illustration.jpg",
+    "city": "Warsaw",
+    "currency": "PLN"
   }
 }

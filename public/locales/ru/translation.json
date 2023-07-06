@@ -19,5 +19,8 @@
   "Error occured while loading profile": "Произошла ошибка при загрузке профиля",
   "Try reloading the page": "Попробуйте обновить страницу",
   "Cancel": "Отменить",
-  "Save": "Сохранить"
+  "Save": "Сохранить",
+  "Age": "Возраст",
+  "City": "Город",
+  "Avatar": "Аватар"
 }

@@ -20,5 +20,8 @@
   "Error occured while loading profile": "Error occured while loading profile",
   "Try reloading the page": "Try reloading the page",
   "Cancel": "Cancel",
-  "Save": "Save"
+  "Save": "Save",
+  "Age": "Age",
+  "City": "City",
+  "Avatar": "Avatar"
 }
