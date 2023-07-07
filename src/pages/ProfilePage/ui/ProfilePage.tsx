@@ -1,3 +1,5 @@
+import { Country } from "entities/Country/model/types/country";
+import { Currency } from "entities/Currency/model/types/currency";
 import {
   fetchProfileData,
   getProfileError,
@@ -13,7 +15,6 @@ import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared";
-import { Currency } from "shared/const/common";
 import {
   DynamicModule,
   ReducerList,
@@ -90,7 +91,16 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const onChangeCurrency = useCallback(
     (value?: string) => {
       dispatch(
-        profileActions.updateProfile({ currency: (value as Currency)})
+        profileActions.updateProfile({ currency: (value as Currency) || "" })
+      );
+    },
+    [dispatch]
+  );
+
+  const onChangeCountry = useCallback(
+    (value?: string) => {
+      dispatch(
+        profileActions.updateProfile({ country: (value as Country) || "" })
       );
     },
     [dispatch]
@@ -112,6 +122,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeAvatar={onChangeAvatar}
           onChangeCurrency={onChangeCurrency}
           readOnly={readOnly}
+          onChangeCountry={onChangeCountry}
         />
       </div>
     </DynamicModule>

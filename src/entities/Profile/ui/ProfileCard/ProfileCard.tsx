@@ -1,13 +1,12 @@
+import { CountrySelect } from "entities/Country";
+import { CurrencySelect } from "entities/Currency";
 import { Profile } from "entities/Profile/model/types/profile";
-import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared";
-import { Currency } from "shared/const/common";
 import { Mods } from "shared/lib/classNames/classNames";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
-import { Select } from "shared/ui/Select/Select";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import cls from "./ProfileCard.module.scss";
 
@@ -24,6 +23,7 @@ interface ProfileCardProps {
   onChangeUsername: (value?: string) => void;
   onChangeAvatar: (value?: string) => void;
   onChangeCurrency: (value?: string) => void;
+  onChangeCountry: (value?: string) => void;
 }
 
 export const ProfileCard = ({
@@ -39,6 +39,7 @@ export const ProfileCard = ({
   onChangeUsername,
   onChangeAvatar,
   onChangeCurrency,
+  onChangeCountry,
 }: ProfileCardProps) => {
   const { t } = useTranslation();
 
@@ -121,15 +122,17 @@ export const ProfileCard = ({
           onChange={onChangeAvatar}
           readOnly={readOnly}
         />
-        <Select
-          label={t("Currency")}
-          options={[
-            { value: Currency.EUR, content: Currency.EUR },
-            { value: Currency.PLN, content: Currency.PLN },
-            { value: Currency.USD, content: Currency.USD },
-          ]}
+        <CurrencySelect
+          className={cls.input}
           onChange={onChangeCurrency}
           value={data?.currency}
+          readOnly={readOnly}
+        />
+        <CountrySelect
+          className={cls.input}
+          onChange={onChangeCountry}
+          value={data?.country}
+          readOnly={readOnly}
         />
       </div>
     </div>
