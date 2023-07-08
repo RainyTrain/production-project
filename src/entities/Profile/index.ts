@@ -8,3 +8,4 @@ export { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 export { getProfileReadOnly } from "./model/selectors/getProfileReadOnly/getProfileReadOnly";
 export { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 export { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+export { getProfileValidateErrors } from "./model/selectors/getProfileValidateError/getProfileValidateError";

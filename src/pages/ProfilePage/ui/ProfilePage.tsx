@@ -6,6 +6,7 @@ import {
   getProfileForm,
   getProfileIsLoading,
   getProfileReadOnly,
+  getProfileValidateErrors,
   profileActions,
   ProfileCard,
   profileReducer,
@@ -20,6 +21,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
+import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 interface ProfilePageProps {
@@ -36,10 +38,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   const readOnly = useSelector(getProfileReadOnly);
-
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -110,6 +112,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     <DynamicModule reducers={initialReducers} removeAfterUnmount>
       <div className={classNames("", {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text theme={TextTheme.ERROR} text={err} align={TextAlign.LEFT} />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
