@@ -13,7 +13,8 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-  const disptach = useAppDispatch();
+  const disptach = useAppDispatch()
+  
   const authData = useSelector(getUserAuthData);
 
   const { t } = useTranslation();
