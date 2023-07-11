@@ -44,7 +44,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ === "frontend") {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstName = useCallback(

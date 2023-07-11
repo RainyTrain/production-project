@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "../../../../shared/ui/ThemeProvider";
+import { Theme } from "shared/ui/ThemeProvider";
 import { Sidebar } from "./Sidebar";
 
 const meta: Meta<typeof Sidebar> = {
@@ -14,11 +15,17 @@ export default meta;
 
 type Story = StoryObj<typeof Sidebar>;
 
-export const Light: Story = {
+export const LightWithUser: Story = {
   args: {},
+  decorators: [
+    StoreDecorator({ user: { authData: { id: "1", username: "admin" } } }),
+  ],
 };
 
-export const Dark: Story = {
+export const DarkWithoutUser: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [
+    StoreDecorator({ user: { authData: undefined } }),
+    ThemeDecorator(Theme.DARK),
+  ],
 };
