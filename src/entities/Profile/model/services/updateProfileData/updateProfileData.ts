@@ -23,6 +23,10 @@ export const updateProfileData = createAsyncThunk<
       formData
     );
 
+    if (!response.data) {
+      throw new Error();
+    }
+
     return response.data;
   } catch (error) {
     // return thunkAPI.rejectWithValue(i18n.t("Invalid username or password"));
