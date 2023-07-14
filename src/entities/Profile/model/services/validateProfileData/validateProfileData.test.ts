@@ -25,7 +25,7 @@ describe("loginByUsername.test", () => {
     expect(validateProfileData()).toEqual([ValidateProfileError.NO_DATA]);
   });
 
-  test("should return ", async () => {
+  test("ARRAY OF ERRORS", async () => {
     expect(validateProfileData({})).toEqual([
       ValidateProfileError.INCORRECT_USER_DATA,
       ValidateProfileError.INCORRECT_AGE,
