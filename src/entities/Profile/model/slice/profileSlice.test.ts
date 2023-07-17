@@ -1,7 +1,7 @@
-import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
-import { ProfileSchema } from "../types/profile";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
+import { ProfileSchema, ValidateProfileError } from "../types/profile";
 import { profileActions, profileReducer } from "./profileSlice";
 
 describe("testing profile slice", () => {
@@ -99,8 +99,59 @@ describe("testing profile slice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        fetchProfileData.rejected(null, "")
+        fetchProfileData.rejected(Error("error"), "")
       )
     ).toEqual({ error: undefined, isLoading: false });
+  });
+
+  test("updateProfileData.pending", () => {
+    const state: DeepPartial<ProfileSchema> = {};
+
+    expect(
+      profileReducer(state as ProfileSchema, updateProfileData.pending)
+    ).toEqual({ validateError: undefined, isLoading: true });
+  });
+
+  test("updateProfileData.fulfilled", () => {
+    const state: DeepPartial<ProfileSchema> = {};
+
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        updateProfileData.fulfilled({ first: "admin", second: "admin" }, "")
+      )
+    ).toEqual({
+      isLoading: false,
+      readonly: true,
+      validateError: undefined,
+      data: { first: "admin", second: "admin" },
+      form: { first: "admin", second: "admin" },
+    });
+  });
+
+  test("updateProfileData.rejected", () => {
+    const state: DeepPartial<ProfileSchema> = {};
+
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        updateProfileData.rejected(null, "", undefined, [
+          ValidateProfileError.INCORRECT_AGE,
+          ValidateProfileError.INCORRECT_CITY,
+          ValidateProfileError.INCORRECT_USER_DATA,
+          ValidateProfileError.NO_DATA,
+          ValidateProfileError.SERVER_ERROR,
+        ])
+      )
+    ).toEqual({
+      isLoading: false,
+      validateError: [
+        ValidateProfileError.INCORRECT_AGE,
+        ValidateProfileError.INCORRECT_CITY,
+        ValidateProfileError.INCORRECT_USER_DATA,
+        ValidateProfileError.NO_DATA,
+        ValidateProfileError.SERVER_ERROR,
+      ],
+    });
   });
 });
