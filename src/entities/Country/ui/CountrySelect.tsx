@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared";
 import { Select } from "shared/ui/Select/Select";
@@ -11,7 +11,7 @@ interface CountrySelectProps {
   readOnly?: boolean;
 }
 
-export const CountrySelect = ({
+export const CountrySelect = memo(({
   className,
   value,
   onChange,
@@ -45,4 +45,4 @@ export const CountrySelect = ({
       label={t('Country')}
     />
   );
-};
+});

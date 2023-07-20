@@ -14,5 +14,6 @@ export const RequiredAuth = ({ children }: RequiredAuthProps) => {
   if (!isAuth) {
     return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
   }
+
   return children;
 };
