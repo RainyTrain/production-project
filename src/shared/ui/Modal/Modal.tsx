@@ -64,19 +64,14 @@ export const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true);
-    }
-    return () => setIsMounted(false);
-  }, [isOpen]);
 
-  useEffect(() => {
-    if (isOpen) {
       timerRef.current = setTimeout(() => {
         setIsOpening(true);
-      }, 0);
+      }, 10);
       window.addEventListener("keydown", onKeyDown);
     }
     return () => {
-      setIsOpening(false);
+      setIsMounted(false);
       clearTimeout(timerRef.current);
       window.removeEventListener("keydown", onKeyDown);
     };

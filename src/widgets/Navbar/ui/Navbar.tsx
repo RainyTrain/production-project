@@ -27,6 +27,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const onShowModal = useCallback(() => {
     setIsAuthModal(true);
+    console.log(true)
   }, []);
 
   const onLogout = useCallback(() => {
