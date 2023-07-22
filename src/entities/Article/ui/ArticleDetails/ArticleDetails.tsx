@@ -14,6 +14,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
+import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import cls from "./articleDetails.module.scss";
 
@@ -43,7 +44,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = <div>Loading</div>;
+    content = (
+      <div>
+        <Skeleton
+          className={cls.avatar}
+          border="50%"
+          height="200px"
+          width="200px"
+        />
+        <Skeleton className={cls.title} height="32px" width="300px" />
+        <Skeleton className={cls.skeleton} height="24px" width="600px" />
+        <Skeleton className={cls.skeleton} height="200px" width="100%" />
+        <Skeleton className={cls.skeleton} height="200px" width="100%" />
+      </div>
+    );
   } else if (error) {
     content = (
       <Text
@@ -53,7 +67,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       />
     );
   } else {
-    content = <div>Details</div>;
+    content = (
+      <div>
+        <Skeleton
+          className={cls.avatar}
+          border="50%"
+          height="200px"
+          width="200px"
+        />
+        <Skeleton className={cls.title} height="32px" width="300px" />
+        <Skeleton className={cls.skeleton} height="24px" width="600px" />
+        <Skeleton className={cls.skeleton} height="200px" width="100%" />
+        <Skeleton className={cls.skeleton} height="200px" width="100%" />
+      </div>
+    );
   }
 
   return (
