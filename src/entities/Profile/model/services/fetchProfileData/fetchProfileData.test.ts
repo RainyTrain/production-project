@@ -4,7 +4,7 @@ import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchProfileData } from "./fetchProfileData";
 
 jest.mock("axios");
-describe("loginByUsername.test", () => {
+describe("fetchProfileData.test", () => {
   test("should return slice", async () => {
     const profileData = {
       first: "admin",
@@ -19,6 +19,7 @@ describe("loginByUsername.test", () => {
     };
 
     const thunk = new TestAsyncThunk(fetchProfileData);
+    
     thunk.getState()
     thunk.api.get.mockReturnValue(
       Promise.resolve({

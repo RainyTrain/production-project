@@ -24,7 +24,7 @@ import {
   ArticleBlock,
   ArticleBlockType,
 } from "entities/Article/model/types/article";
-import cls from "./articleDetails.module.scss";
+import cls from "./ArticleDetails.module.scss";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
@@ -48,7 +48,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(getArticleById(id));
+    if (__PROJECT__ !== "storybook") {
+      dispatch(getArticleById(id));
+    }
   }, [dispatch, id]);
 
   const renderBlock = useCallback((block: ArticleBlock) => {
@@ -117,7 +119,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           <Icon Icon={CalendarIcon} className={cls.icon} />
           <Text text={String(article?.createdAt)} align={TextAlign.LEFT} />
         </div>
-        <div>{article?.blocks.map(renderBlock)}</div>
+        <div>{article?.blocks?.map(renderBlock)}</div>
       </>
     );
   }
