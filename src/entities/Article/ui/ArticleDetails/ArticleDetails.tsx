@@ -104,20 +104,28 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           <Avatar size="200px" src={article?.img} />
         </div>
         <Text
-          text={article?.title}
-          title={article?.subtitle}
+          title={article?.title}
+          text={article?.subtitle}
           align={TextAlign.LEFT}
           className={cls.title}
-          size={TextSize.L}
+          size={TextSize.M}
         />
         <div />
         <div className={cls.articleInfo}>
           <Icon Icon={ViewIcon} className={cls.icon} />
-          <Text text={String(article?.views)} align={TextAlign.LEFT} />
+          <Text
+            text={String(article?.views)}
+            align={TextAlign.LEFT}
+            size={TextSize.M}
+          />
         </div>
         <div className={cls.articleInfo}>
           <Icon Icon={CalendarIcon} className={cls.icon} />
-          <Text text={String(article?.createdAt)} align={TextAlign.LEFT} />
+          <Text
+            text={String(article?.createdAt)}
+            align={TextAlign.LEFT}
+            size={TextSize.M}
+          />
         </div>
         <div>{article?.blocks?.map(renderBlock)}</div>
       </>

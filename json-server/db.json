@@ -6,20 +6,25 @@
       "author": "typicode"
     }
   ],
+
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1"
     }
   ],
+
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
     }
   ],
+
   "profile": {
     "first": "admin",
     "second": "admin",

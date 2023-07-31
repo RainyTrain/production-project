@@ -32,7 +32,7 @@ export const Text = ({
   text,
   size = TextSize.M,
   theme = TextTheme.PRIMARY,
-  align = TextAlign.CENTER,
+  align = TextAlign.LEFT,
 }: TextProps) => {
   const mods = {
     [cls[theme]]: true,
