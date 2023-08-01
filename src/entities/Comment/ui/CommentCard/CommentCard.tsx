@@ -23,7 +23,7 @@ export const CommentCard = ({
           <Skeleton height={30} width={30} border="50%" />
           <Skeleton height={16} width={100} className={cls.username} />
         </div>
-        <Skeleton width="100%" height={50} />
+        <Skeleton width="100%" height={50} className={cls.text} />
       </div>
     );
   }
@@ -34,13 +34,9 @@ export const CommentCard = ({
         {comment.user.avatar && (
           <Avatar size="30px" src={comment.user.avatar} />
         )}
-        <Text
-          className={cls.username}
-          title={comment.user.username}
-          align={TextAlign.LEFT}
-        />
+        <Text className={cls.username} title={comment.user.username} />
       </div>
-      <Text text={comment.text} align={TextAlign.LEFT} />
+      <Text text={comment.text} className={cls.text} />
     </div>
   );
 };
