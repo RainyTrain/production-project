@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
+import { Comment } from "entities/Comment";
 import i18n from "shared/config/i18n/i18n";
 
 export const fetchCommentsByArticleId = createAsyncThunk<
@@ -8,17 +9,13 @@ export const fetchCommentsByArticleId = createAsyncThunk<
   ThunkConfig<string>
 >("profile/loginByUsername", async (articleId, thunkAPI) => {
   try {
-    console.log("I HAVE GOT USERS");
     const response = await thunkAPI.extra.api.get<Comment[]>(`/comments`, {
       params: { articleId, _expand: "user" },
     });
 
-    console.log("I HAVE GOT USERS", response.data);
-
     if (!response.data) {
       throw new Error();
     }
-    console.log("I HAVE GOT USERS", response.data);
     return response.data;
   } catch (error) {
     console.log(error);

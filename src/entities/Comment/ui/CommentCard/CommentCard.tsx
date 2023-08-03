@@ -3,7 +3,7 @@ import { classNames } from "shared";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Text, TextAlign } from "shared/ui/Text/Text";
-import cls from "./commentCard.module.scss";
+import cls from "./CommentCard.module.scss";
 
 interface commentCardProps {
   className?: string;
