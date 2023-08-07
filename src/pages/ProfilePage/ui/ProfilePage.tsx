@@ -15,6 +15,7 @@ import {
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared";
 import {
   DynamicModule,
@@ -35,6 +36,8 @@ const initialReducers: ReducerList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation();
 
+  const { id } = useParams();
+
   const dispatch = useAppDispatch();
 
   const readOnly = useSelector(getProfileReadOnly);
@@ -44,10 +47,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    if (__PROJECT__ === "frontend") {
-      dispatch(fetchProfileData());
+    if (__PROJECT__ === "frontend" && id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const onChangeFirstName = useCallback(
     (value?: string) => {

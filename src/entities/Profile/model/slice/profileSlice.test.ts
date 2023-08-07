@@ -83,6 +83,7 @@ describe("testing profile slice", () => {
             first: "admin",
             second: "admin",
           },
+          "",
           ""
         )
       )
@@ -99,7 +100,7 @@ describe("testing profile slice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        fetchProfileData.rejected(Error("error"), "")
+        fetchProfileData.rejected(Error("error"), "", "")
       )
     ).toEqual({ error: undefined, isLoading: false });
   });
@@ -118,7 +119,7 @@ describe("testing profile slice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        updateProfileData.fulfilled({ first: "admin", second: "admin" }, "")
+        updateProfileData.fulfilled({ first: "admin", second: "admin" }, "", "")
       )
     ).toEqual({
       isLoading: false,
@@ -135,7 +136,7 @@ describe("testing profile slice", () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        updateProfileData.rejected(null, "", undefined, [
+        updateProfileData.rejected(null, "", "", [
           ValidateProfileError.INCORRECT_AGE,
           ValidateProfileError.INCORRECT_CITY,
           ValidateProfileError.INCORRECT_USER_DATA,

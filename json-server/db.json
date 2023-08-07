@@ -6,36 +6,76 @@
       "author": "typicode"
     }
   ],
-
   "comments": [
     {
       "id": 1,
       "text": "some comment",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hi",
+      "id": 2
+    },
+    {
+      "ids": "1",
+      "userId": "2",
+      "text": "ssss",
+      "id": 3
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hi",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello",
+      "id": 5
     }
   ],
-
   "users": [
     {
       "id": "1",
       "username": "admin",
       "password": "123",
       "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "123",
+      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
     }
   ],
-
-  "profile": {
-    "first": "admin",
-    "second": "admin",
-    "age": 33,
-    "username": "admin",
-    "avatar": "https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1608/tuktukdesign160800037/61010821-user-icon-man-profile-businessman-avatar-person-glyph-vector-illustration.jpg",
-    "city": "admin",
-    "currency": "USD",
-    "country": "USA"
-  },
-
+  "profile": [
+    {
+      "id": "1",
+      "first": "admin",
+      "second": "admin",
+      "age": 33,
+      "username": "admin",
+      "avatar": "https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1608/tuktukdesign160800037/61010821-user-icon-man-profile-businessman-avatar-person-glyph-vector-illustration.jpg",
+      "city": "Washington",
+      "currency": "USD",
+      "country": "USA"
+    },
+    {
+      "id": "2",
+      "first": "profile1",
+      "second": "profile1",
+      "age": 55,
+      "username": "user1",
+      "avatar": "https://png.pngtree.com/png-clipart/20190904/original/pngtree-user-cartoon-circular-pattern-png-image_4492887.jpg",
+      "city": "London",
+      "currency": "USD",
+      "country": "BELARUS"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -44,7 +84,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

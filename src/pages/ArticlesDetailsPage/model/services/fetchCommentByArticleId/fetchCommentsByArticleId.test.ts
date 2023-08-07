@@ -1,6 +1,6 @@
 import { Comment } from "entities/Comment";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { fetchCommentsByArticleId } from "./fetchCommentByArticleId/fetchCommentByArticleId";
+import { fetchCommentsByArticleId } from "./fetchCommentByArticleId";
 
 jest.mock("axios");
 describe("fetchCommentsByArticleId.test", () => {

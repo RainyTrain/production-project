@@ -1,5 +1,6 @@
 import { ArticleDetails } from "entities/Article";
 import { CommentList } from "entities/Comment";
+import { AddCommentForm } from "features/AddCommentForm";
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
@@ -20,6 +21,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Text } from "shared/ui/Text/Text";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";
 
 interface ArticlesDetailsPageProps {
@@ -50,6 +52,10 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     }
   }, [id, dispatch]);
 
+  const onSendComment = (arg: string) => {
+    dispatch(addCommentForArticle(arg));
+  };
+
   if (!id) {
     return <div>{t("Article is not found")}</div>;
   }
@@ -58,6 +64,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t("Comments")} className={cls.commentTitle} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
       </div>
     </DynamicModule>

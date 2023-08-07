@@ -1,5 +1,6 @@
 import { Comment } from "entities/Comment/model/types/Comment";
-import { classNames } from "shared";
+import { AppLink, classNames } from "shared";
+import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Text, TextAlign } from "shared/ui/Text/Text";
@@ -30,12 +31,12 @@ export const CommentCard = ({
 
   return (
     <div className={classNames(cls.CommentCard, {}, [className])}>
-      <div className={cls.header}>
+      <AppLink to={`${RoutePath.profile}${comment.id}`} className={cls.header}>
         {comment.user.avatar && (
           <Avatar size="30px" src={comment.user.avatar} />
         )}
         <Text className={cls.username} title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text text={comment.text} className={cls.text} />
     </div>
   );

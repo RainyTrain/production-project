@@ -40,7 +40,7 @@ describe("loginByUsername.test", () => {
       })
     );
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk("1");
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toEqual("fulfilled");
@@ -53,7 +53,7 @@ describe("loginByUsername.test", () => {
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk("1");
 
     expect(result.meta.requestStatus).toEqual("rejected");
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
@@ -64,7 +64,7 @@ describe("loginByUsername.test", () => {
       profile: { form: { ...newProfileData, first: "" } },
     });
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk("1");
 
     expect(result.meta.requestStatus).toEqual("rejected");
     expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
