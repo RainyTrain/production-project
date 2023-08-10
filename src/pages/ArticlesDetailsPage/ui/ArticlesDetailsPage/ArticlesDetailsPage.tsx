@@ -10,16 +10,18 @@ import {
   articleDetailsCommentSliceReducer,
   getArticleComments,
 } from "pages/ArticlesDetailsPage/model/slice/articleDetailsCommentSlice";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { classNames } from "shared";
+import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
+import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Text } from "shared/ui/Text/Text";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";
@@ -45,6 +47,8 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
   const error = useSelector(getArticleCommentsError);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (__PROJECT__ !== "storybook") {
       const status = dispatch(fetchCommentsByArticleId(id!));
@@ -56,12 +60,19 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     dispatch(addCommentForArticle(arg));
   };
 
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   if (!id) {
     return <div>{t("Article is not found")}</div>;
   }
   return (
     <DynamicModule reducers={reducerList} removeAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button theme={ThemButton.OUTLINE} onClick={onBackToList}>
+          {t("Back")}
+        </Button>
         <ArticleDetails id={id} />
         <Text title={t("Comments")} className={cls.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
