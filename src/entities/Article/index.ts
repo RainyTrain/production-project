@@ -6,3 +6,4 @@ export {
   getArticleIsLoading,
   getArticleError,
 } from "./model/selectors/getArticleSelector";
+export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";

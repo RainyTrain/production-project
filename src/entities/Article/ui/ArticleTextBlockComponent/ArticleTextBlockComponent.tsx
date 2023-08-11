@@ -13,10 +13,10 @@ export const ArticleTextBlockComponent = ({
   block,
 }: ArticleTextBlockComponentProps) => (
   <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-    {block.title && <Text text={block.title} className={cls.title} />}
+    {block.title && <Text title={block.title} className={cls.title} />}
     {block.paragraphs.map((paragraph) => (
       <Text
-        title={paragraph}
+        text={paragraph}
         key={paragraph}
         className={cls.paragraph}
         align={TextAlign.LEFT}
