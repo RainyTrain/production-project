@@ -19,19 +19,23 @@ export const ArticleList = memo((props: ArticleListProps) => {
     <ArticleListItem article={article} view={view} />
   );
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {new Array(8).fill(0).map((element) => (
-          <ArticleListItemSkeleton view={view} />
-        ))}
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+  //       {new Array(8).fill(0).map((element) => (
+  //         <ArticleListItemSkeleton view={view} />
+  //       ))}
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0 && articles.map(renderArticle)}
+      {isLoading &&
+        new Array(8)
+          .fill(0)
+          .map((element) => <ArticleListItemSkeleton view={view} />)}
     </div>
   );
 });

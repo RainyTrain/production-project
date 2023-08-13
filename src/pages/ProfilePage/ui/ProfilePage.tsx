@@ -22,6 +22,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
+import { Page } from "shared/ui/Page/Page";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
@@ -115,7 +116,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModule reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames("", {}, [className])}>
+      <Page className={classNames("", {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
@@ -135,7 +136,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           readOnly={readOnly}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModule>
   );
 };

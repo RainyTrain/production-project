@@ -22,6 +22,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
+import { Page } from "shared/ui/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";
@@ -67,9 +68,10 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   if (!id) {
     return <div>{t("Article is not found")}</div>;
   }
+
   return (
     <DynamicModule reducers={reducerList} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button theme={ThemButton.OUTLINE} onClick={onBackToList}>
           {t("Back")}
         </Button>
@@ -77,7 +79,8 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
         <Text title={t("Comments")} className={cls.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
-      </div>
+        <div>Page</div>
+      </Page>
     </DynamicModule>
   );
 };
