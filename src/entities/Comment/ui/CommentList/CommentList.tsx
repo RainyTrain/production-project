@@ -20,7 +20,13 @@ export const CommentList = ({
   return (
     <div className={classNames(cls.CommentList, {}, [className])}>
       {comments?.length ? (
-        comments.map((comment) => <CommentCard isLoading={isLoading} comment={comment} />)
+        comments.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            isLoading={isLoading}
+            comment={comment}
+          />
+        ))
       ) : (
         <Text text={t("Not found")} align={TextAlign.LEFT} />
       )}

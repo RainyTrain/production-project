@@ -18,12 +18,18 @@ export const DynamicModule: FC<DynamicModuleProps> = (props) => {
   const { reducers, children, removeAfterUnmount } = props;
 
   const store = useStore() as ReduxStoreWithManager;
+
   const dispatch = useAppDispatch();
+
+  const mountedReducers = store.reducerManager.getReducerMap();
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const isMounted = Boolean(mountedReducers[name as StateSchemaKey]);
+      if (!isMounted) {
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {

@@ -15,9 +15,11 @@ export function createReducerManager(
 
   let keysToRemove: StateSchemaKey[] = [];
 
+  const mountReducers: OptionalRecord<StateSchemaKey, boolean> = {};
+
   return {
     getReducerMap: () => reducers,
-
+    getMountReducers: () => mountReducers,
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
