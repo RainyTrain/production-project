@@ -6,6 +6,7 @@ import {
 } from "@reduxjs/toolkit";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
+import { UIReducer } from "features/UI";
 import { $api } from "shared/api/api";
 import { createReducerManager } from "./reducerManager";
 import { StateSchema, ThunkExtraArgs } from "./StateSchema";
@@ -18,6 +19,7 @@ export const createReduxStore = (
     ...asyncReducer,
     counter: counterReducer,
     user: userReducer,
+    ui: UIReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);
@@ -37,7 +39,7 @@ export const createReduxStore = (
         },
       }),
   });
-  console.log('created store')
+  console.log("created store");
   // @ts-ignore
   store.reducerManager = reducerManager;
 

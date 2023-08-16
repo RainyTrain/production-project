@@ -22,7 +22,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";

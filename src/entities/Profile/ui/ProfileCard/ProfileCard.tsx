@@ -7,7 +7,7 @@ import { Mods } from "shared/lib/classNames/classNames";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import cls from "./ProfileCard.module.scss";
 

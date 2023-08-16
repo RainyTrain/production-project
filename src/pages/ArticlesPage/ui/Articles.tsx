@@ -9,7 +9,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 import {
   getArticlesPageError,
   getArticlesPageInited,

@@ -12,12 +12,14 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentSchema } from "features/AddCommentForm";
 import { LoginShema } from "features/AuthByUsername";
+import { UISchema } from "features/UI";
 import { ArticleDetailsCommentSchema } from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  ui: UISchema;
   loginForm?: LoginShema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
