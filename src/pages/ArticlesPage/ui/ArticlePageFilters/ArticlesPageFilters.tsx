@@ -1,6 +1,7 @@
-import { ArticleViewSelector } from "entities/Article";
+import { ArticleTypeTabs, ArticleViewSelector } from "entities/Article";
 import {
   ArticleSortField,
+  ArticleType,
   ArticleView,
 } from "entities/Article/model/types/article";
 import { ArticleSortSelect } from "entities/Article/ui/ArticleSortSelect/ArticleSortSelect";
@@ -8,11 +9,12 @@ import {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView,
 } from "pages/ArticlesPage/model/selectors/getArticlesPageSelectors";
 import { fetchArticleList } from "pages/ArticlesPage/model/services/fetchArticleList";
 import { articlesPageAction } from "pages/ArticlesPage/model/slice/articlesPageSlice";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
@@ -20,6 +22,7 @@ import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card } from "shared/ui/Card/Card";
 import { Input } from "shared/ui/Input/Input";
+import { Tab, TabItem } from "shared/ui/Tab/Tab";
 import cls from "./ArticlesPageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {
@@ -33,6 +36,7 @@ export const ArticlesPageFilters = ({
   const order = useSelector(getArticlesPageOrder);
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
+  const type = useSelector(getArticlesPageType);
 
   const dispatch = useAppDispatch();
 
@@ -76,6 +80,15 @@ export const ArticlesPageFilters = ({
     [debouncedFetchData, dispatch]
   );
 
+  const onChangeType = useCallback(
+    (value: ArticleType) => {
+      dispatch(articlesPageAction.setType(value));
+      dispatch(articlesPageAction.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
   return (
     <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
       <div className={cls.sortWpapper}>
@@ -90,6 +103,7 @@ export const ArticlesPageFilters = ({
       <Card className={cls.search}>
         <Input onChange={onChangeSearch} value={search} placeholder="Search" />
       </Card>
+      <ArticleTypeTabs value={type} onCnahgeType={onChangeType} />
     </div>
   );
 };

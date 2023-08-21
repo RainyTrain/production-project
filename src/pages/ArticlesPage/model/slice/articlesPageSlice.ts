@@ -7,6 +7,7 @@ import { StateSchema } from "app/providers/StoreProvider";
 import { Article } from "entities/Article";
 import {
   ArticleSortField,
+  ArticleType,
   ArticleView,
 } from "entities/Article/model/types/article";
 import { ARTICLES_VIEW_LOCALSOTRAGE_KEY } from "shared/const/localstorage";
@@ -37,6 +38,7 @@ export const articlesPageSlice = createSlice({
     order: "asc",
     search: "",
     sort: ArticleSortField.CREATED,
+    type: ArticleType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticleView>) => {
@@ -63,6 +65,9 @@ export const articlesPageSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
     },
   },
   extraReducers: (builder) => {

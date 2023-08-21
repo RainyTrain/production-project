@@ -7,3 +7,4 @@ export {
   getArticleError,
 } from "./model/selectors/getArticleSelector";
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
+export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
