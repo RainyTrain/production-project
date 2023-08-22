@@ -7,9 +7,11 @@ import {
 describe("commentSelectors", () => {
   test("getArticleCommentsIsLoading", () => {
     const state: DeepPartial<StateSchema> = {
-      ArticleDetailsComments: {
-        error: "error",
-        isLoading: true,
+      articleDetailsPage: {
+        comments: {
+          error: "error",
+          isLoading: true,
+        },
       },
     };
     expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(true);
@@ -17,9 +19,11 @@ describe("commentSelectors", () => {
 
   test("getArticleCommentsError", () => {
     const state: DeepPartial<StateSchema> = {
-      ArticleDetailsComments: {
-        error: "error",
-        isLoading: true,
+      articleDetailsPage: {
+        comments: {
+          error: "error",
+          isLoading: true,
+        },
       },
     };
     expect(getArticleCommentsError(state as StateSchema)).toEqual("error");

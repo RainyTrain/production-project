@@ -14,7 +14,7 @@ import {
 } from "pages/ArticlesPage/model/selectors/getArticlesPageSelectors";
 import { fetchArticleList } from "pages/ArticlesPage/model/services/fetchArticleList";
 import { articlesPageAction } from "pages/ArticlesPage/model/slice/articlesPageSlice";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
@@ -22,7 +22,6 @@ import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card } from "shared/ui/Card/Card";
 import { Input } from "shared/ui/Input/Input";
-import { Tab, TabItem } from "shared/ui/Tab/Tab";
 import cls from "./ArticlesPageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {

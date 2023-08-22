@@ -1,5 +1,5 @@
 import { Article, ArticleView } from "entities/Article/model/types/article";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { classNames } from "shared";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
@@ -11,13 +11,28 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  isTarget?: boolean;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-  const { className, articles, isLoading, view = "SMALL" } = props;
+  const {
+    className,
+    articles,
+    isLoading,
+    view = "SMALL",
+    target,
+    isTarget,
+  } = props;
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem key={article.id} article={article} view={view} />
+    <ArticleListItem
+      isTarget
+      key={article.id}
+      article={article}
+      view={view}
+      target={target}
+    />
   );
 
   const getSkeletons = (view: ArticleView) =>

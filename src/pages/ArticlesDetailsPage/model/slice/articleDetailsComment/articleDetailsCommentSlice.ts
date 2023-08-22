@@ -5,15 +5,16 @@ import {
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Comment } from "entities/Comment";
-import { fetchCommentsByArticleId } from "../services/fetchCommentByArticleId/fetchCommentByArticleId";
-import { ArticleDetailsCommentSchema } from "../types/ArticleDetailsCommentSchema";
+import { fetchCommentsByArticleId } from "../../services/fetchCommentByArticleId/fetchCommentByArticleId";
+import { ArticleDetailsCommentSchema } from "../../types/ArticleDetailsCommentSchema";
 
 const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment: Comment) => comment.id,
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state) => state.ArticleDetailsComments || commentsAdapter.getInitialState()
+  (state) =>
+    state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 );
 
 const articleDetailsCommentSlice = createSlice({

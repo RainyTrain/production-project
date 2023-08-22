@@ -1,6 +1,6 @@
-import { getArticleById } from "../services/getArticleById";
-import { Article } from "../types/article";
-import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
+import { getArticleById } from "../../services/getArticleById/getArticleById";
+import { Article } from "../../types/article";
+import { ArticleDetailsSchema } from "../../types/articleDetailsSchema";
 import { articleDetailsReducer } from "./articleDetailsSlice";
 
 describe("articleDetailsSlice", () => {

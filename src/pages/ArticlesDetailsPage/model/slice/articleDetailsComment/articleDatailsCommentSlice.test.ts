@@ -1,5 +1,5 @@
-import { fetchCommentsByArticleId } from "../services/fetchCommentByArticleId/fetchCommentByArticleId";
-import { ArticleDetailsCommentSchema } from "../types/ArticleDetailsCommentSchema";
+import { fetchCommentsByArticleId } from "../../services/fetchCommentByArticleId/fetchCommentByArticleId";
+import { ArticleDetailsCommentSchema } from "../../types/ArticleDetailsCommentSchema";
 import { articleDetailsCommentSliceReducer } from "./articleDetailsCommentSlice";
 
 jest.mock("axios");

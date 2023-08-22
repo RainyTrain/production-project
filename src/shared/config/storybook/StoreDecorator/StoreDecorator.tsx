@@ -1,16 +1,16 @@
 import { StoryFn } from "@storybook/react";
 import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
+import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice/articleDetailsSlice";
 import { profileReducer } from "entities/Profile";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
-import { articleDetailsCommentSliceReducer } from "pages/ArticlesDetailsPage/model/slice/articleDetailsCommentSlice";
+import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slice";
 import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 
 const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  ArticleDetailsComments: articleDetailsCommentSliceReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator =

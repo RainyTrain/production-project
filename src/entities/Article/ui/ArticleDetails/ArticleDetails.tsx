@@ -3,8 +3,8 @@ import {
   getArticleError,
   getArticleIsLoading,
 } from "entities/Article/model/selectors/getArticleSelector";
-import { getArticleById } from "entities/Article/model/services/getArticleById";
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice";
+import { getArticleById } from "entities/Article/model/services/getArticleById/getArticleById";
+import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice/articleDetailsSlice";
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
