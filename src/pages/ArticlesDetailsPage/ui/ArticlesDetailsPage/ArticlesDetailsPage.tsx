@@ -27,6 +27,7 @@ import { fetchArticleRecommendations } from "pages/ArticlesDetailsPage/model/ser
 import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slice";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import cls from "./ArticleDetailsPage.module.scss";
+import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -55,8 +56,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
   const recommendations = useSelector(getArticleRecommendations.selectAll);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (__PROJECT__ !== "storybook") {
       const status = dispatch(fetchCommentsByArticleId(id!));
@@ -69,10 +68,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     dispatch(addCommentForArticle(arg));
   };
 
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
-
   if (!id) {
     return <div>{t("Article is not found")}</div>;
   }
@@ -80,9 +75,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   return (
     <DynamicModule reducers={reducerList} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button theme={ThemButton.OUTLINE} onClick={onBackToList}>
-          {t("Back")}
-        </Button>
+        <ArticleDetailsHeader />
         <ArticleDetails id={id} />
         <Text title={t("Recommendations")} className={cls.commentTitle} />
         <ArticleList

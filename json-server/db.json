@@ -42,6 +42,18 @@
       "userId": "1",
       "text": "hello",
       "id": 6
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "www",
+      "id": 7
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "hi",
+      "id": 8
     }
   ],
   "users": [
