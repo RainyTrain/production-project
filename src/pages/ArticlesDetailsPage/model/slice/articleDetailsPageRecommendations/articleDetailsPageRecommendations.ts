@@ -43,8 +43,8 @@ const articleDetailsPageRecommendationSlice = createSlice({
       }
     );
     builder.addCase(fetchArticleRecommendations.rejected, (state, action) => {
-      state.error = action.payload;
       state.isLoading = false;
+      state.error = action.payload;
     });
   },
 });

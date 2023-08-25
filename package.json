@@ -56,6 +56,7 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
     "concurrently": "^8.2.0",
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "deelay": "^2.0.0",
     "eslint": "^8.10.0",

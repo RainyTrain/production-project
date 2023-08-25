@@ -7,18 +7,16 @@ import {
 } from "pages/ArticlesDetailsPage/model/selectors/commentSelectors";
 import { fetchCommentsByArticleId } from "pages/ArticlesDetailsPage/model/services/fetchCommentByArticleId/fetchCommentByArticleId";
 import { getArticleComments } from "pages/ArticlesDetailsPage/model/slice/articleDetailsComment/articleDetailsCommentSlice";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared";
-import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Page } from "widgets/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { getArticleRecommendations } from "pages/ArticlesDetailsPage/model/slice/articleDetailsPageRecommendations/articleDetailsPageRecommendations";
@@ -58,9 +56,11 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
   useEffect(() => {
     if (__PROJECT__ !== "storybook") {
-      const status = dispatch(fetchCommentsByArticleId(id!));
-      dispatch(fetchArticleRecommendations());
-      console.log("fetch", status);
+      if (id) {
+        dispatch(fetchCommentsByArticleId(id));
+        const status = dispatch(fetchArticleRecommendations());
+        console.log("status", status);
+      }
     }
   }, [id, dispatch]);
 
