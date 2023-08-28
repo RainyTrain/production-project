@@ -1,6 +1,17 @@
+/* eslint-disable react/no-unstable-nested-components */
+/* eslint-disable react/no-array-index-key */
+
 import { Article, ArticleView } from "entities/Article/model/types/article";
-import { HTMLAttributeAnchorTarget, memo } from "react";
+import {
+  HTMLAttributeAnchorTarget,
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from "react-virtuoso";
 import { classNames } from "shared";
+import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItemSkeleton/ArticleListItemSkeleton";
@@ -13,6 +24,8 @@ interface ArticleListProps {
   view?: ArticleView;
   isTarget?: boolean;
   target?: HTMLAttributeAnchorTarget;
+  onLoadNextPath?: () => void;
+  height?: string;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -23,22 +36,61 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = "SMALL",
     target,
     isTarget,
+    onLoadNextPath,
+    height,
   } = props;
 
-  const renderArticle = (article: Article) => (
-    <ArticleListItem
-      isTarget
-      key={article.id}
-      article={article}
-      view={view}
-      target={target}
-    />
+  const [position, setPosition] = useState<number>(1);
+
+  const ref = useRef<VirtuosoGridHandle>(null);
+  const timeOut = useRef<any>(null);
+
+  useEffect(() => {
+    const data = sessionStorage.getItem(USE_SESSIONSTORAGE_POSITION) ?? 1;
+    setPosition(+data);
+  }, []);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    if (view === "SMALL") {
+      timeOut.current = setTimeout(() => {
+        if (ref.current) {
+          ref.current.scrollToIndex(position);
+        }
+      }, 100);
+    }
+    return () => {
+      clearTimeout(timeOut.current);
+    };
+  }, [position, view]);
+
+  const renderArticle = (index: number, article: Article) => (
+    <div key={index} style={{ marginBottom: "10px" }}>
+      {index}
+      <ArticleListItem
+        isTarget
+        key={article.title}
+        article={article}
+        view={view}
+        target={target}
+        positionIndex={index}
+      />
+    </div>
   );
 
   const getSkeletons = (view: ArticleView) =>
     new Array(view === "BIG" ? 4 : 9)
       .fill(0)
-      .map((element, index) => <ArticleListItemSkeleton view={view} />);
+      .map((element, index) => (
+        <ArticleListItemSkeleton key={index} view={view} />
+      ));
+
+  const Footer = memo(() => {
+    if (isLoading) {
+      return <div>{getSkeletons(view)}</div>;
+    }
+    return null;
+  });
 
   if (!isLoading && !articles.length) {
     return (
@@ -53,9 +105,45 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length > 0 && articles.map(renderArticle)}
-      {isLoading && getSkeletons(view)}
+    <div
+      style={{ height: height || "calc(100vh - var(--navbar-height))" }}
+      className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+    >
+      {view === "BIG" ? (
+        <Virtuoso
+          style={{
+            height: !height ? "100%" : height,
+          }}
+          data={articles}
+          components={{ Footer }}
+          endReached={onLoadNextPath}
+          totalCount={500}
+          initialTopMostItemIndex={position}
+          itemContent={renderArticle}
+        />
+      ) : (
+        <VirtuosoGrid
+          ref={ref}
+          style={{
+            height: !height ? "100%" : height,
+          }}
+          components={{
+            ScrollSeekPlaceholder: () => (
+              <div className={cls.itemContainer}>
+                <ArticleListItemSkeleton view={view} />
+              </div>
+            ),
+          }}
+          data={articles}
+          itemContent={renderArticle}
+          listClassName={cls.listContainer}
+          endReached={onLoadNextPath}
+          scrollSeekConfiguration={{
+            enter: (velocity) => Math.abs(velocity) > 200,
+            exit: (velocity) => Math.abs(velocity) < 30,
+          }}
+        />
+      )}
     </div>
   );
 });

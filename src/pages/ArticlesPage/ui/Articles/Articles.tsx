@@ -57,7 +57,7 @@ const Articles = ({ className }: ArticlesProps) => {
   return (
     <DynamicModule reducers={reducers}>
       <Page
-        onScrollEnd={isLoading ? undefined : onLoadNextPart}
+        // onScrollEnd={isLoading ? undefined : onLoadNextPart}
         className={classNames(cls.Articles, {}, [className])}
       >
         <ArticlesPageFilters />
@@ -66,6 +66,7 @@ const Articles = ({ className }: ArticlesProps) => {
           view={view}
           articles={articles}
           isLoading={isLoading}
+          onLoadNextPath={onLoadNextPart}
         />
       </Page>
     </DynamicModule>

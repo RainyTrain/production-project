@@ -1,5 +1,5 @@
 .SMALL {
-  width: 200px;
+  // width: 200px;
   transition: 0.2s;
 
   .date {
@@ -20,6 +20,7 @@
   }
 
   .imageWrapper {
+    align-self: center;
     width: 180px;
     height: 180px;
     position: relative;

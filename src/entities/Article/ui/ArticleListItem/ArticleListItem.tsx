@@ -14,6 +14,7 @@ import { Button, ThemButton } from "shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
 import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
+import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import cls from "./ArticleListIem.module.scss";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 
@@ -24,6 +25,7 @@ interface ArticleListItemProps {
   view?: ArticleView;
   isTarget?: boolean;
   target?: HTMLAttributeAnchorTarget;
+  positionIndex?: number;
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
@@ -34,9 +36,16 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     view = "SMALL",
     target,
     isTarget,
+    positionIndex,
   } = props;
 
   const { t } = useTranslation();
+
+  const setPositionIndex = () =>
+    sessionStorage.setItem(
+      USE_SESSIONSTORAGE_POSITION,
+      JSON.stringify(positionIndex)
+    );
 
   if (view === "BIG") {
     const text = article.blocks.find(
@@ -62,7 +71,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
               target={isTarget ? target : undefined}
               to={`${RoutePath.articles_details}${article.id}`}
             >
-              <Button theme={ThemButton.OUTLINE}>{t("Read")}</Button>
+              <Button onClick={setPositionIndex} theme={ThemButton.OUTLINE}>
+                {t("Read")}
+              </Button>
             </AppLink>
             <Text text={String(article.views)} className={cls.views} />
             <Icon Icon={View} />
@@ -78,6 +89,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
       to={`${RoutePath.articles_details}${article.id}`}
     >
       <div
+        onClick={setPositionIndex}
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
       >
         <Card>

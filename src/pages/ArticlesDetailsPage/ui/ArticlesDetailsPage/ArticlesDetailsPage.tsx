@@ -84,6 +84,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
           articles={recommendations}
           isLoading={isLoadingRecommends}
           className={cls.recommendations}
+          height="300px"
         />
         <Text title={t("Comments")} className={cls.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
