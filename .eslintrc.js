@@ -18,7 +18,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks",
+    "rainytrain-fsd-plugin",
+  ],
   rules: {
     "react/jsx-filename-extension": [
       2,
@@ -46,6 +52,7 @@ module.exports = {
     "react-hooks/exhaustive-deps": "error",
     "no-param-reassign": "off",
     "no-undef": "off",
+    "rainytrain-fsd-plugin/path-checker": "error",
   },
   globals: {
     __IS_DEV__: true,
