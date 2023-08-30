@@ -5,15 +5,6 @@ import {
   ArticleView,
 } from "entities/Article/model/types/article";
 import { ArticleSortSelect } from "entities/Article/ui/ArticleSortSelect/ArticleSortSelect";
-import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
-  getArticlesPageView,
-} from "pages/ArticlesPage/model/selectors/getArticlesPageSelectors";
-import { fetchArticleList } from "pages/ArticlesPage/model/services/fetchArticleList";
-import { articlesPageAction } from "pages/ArticlesPage/model/slice/articlesPageSlice";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared";
@@ -22,6 +13,15 @@ import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card } from "shared/ui/Card/Card";
 import { Input } from "shared/ui/Input/Input";
+import { articlesPageAction } from "../../model/slice/articlesPageSlice";
+import { fetchArticleList } from "../../model/services/fetchArticleList";
+import {
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView,
+} from "../../model/selectors/getArticlesPageSelectors";
 import cls from "./ArticlesPageFilters.module.scss";
 
 interface ArticlesPageFiltersProps {

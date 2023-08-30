@@ -1,9 +1,9 @@
-import { ArticleView } from "entities/Article/model/types/article";
 import { classNames } from "shared";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import Big from "shared/assets/icons/Big.svg";
 import Small from "shared/assets/icons/Small.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import { ArticleView } from "../../model/types/article";
 import cls from "./ArticleViewSelector.module.scss";
 
 interface ViewTypes {

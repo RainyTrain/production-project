@@ -1,5 +1,4 @@
 import { getArticleData } from "entities/Article";
-import { articleDetailsHeaderSelector } from "pages/ArticlesDetailsPage/model/selectors/articleDetailsHeaderSelector";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { classNames } from "shared";
 import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { Button, ThemButton } from "shared/ui/Button/Button";
+import { articleDetailsHeaderSelector } from "../../model/selectors/articleDetailsHeaderSelector";
 import cls from "./ArticleDetailsHeader.module.scss";
 
 interface ArticleDetailsHeaderProps {

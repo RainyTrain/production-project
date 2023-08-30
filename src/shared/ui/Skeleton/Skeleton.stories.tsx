@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "shared/ui/ThemeProvider";
+import { Theme } from "../ThemeProvider";
 import { Skeleton } from "./Skeleton";
 
 const meta: Meta<typeof Skeleton> = {

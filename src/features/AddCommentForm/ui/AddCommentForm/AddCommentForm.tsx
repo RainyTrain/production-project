@@ -1,8 +1,3 @@
-import { getAddCommentFormText } from "features/AddCommentForm/model/selectors/addCommentFromSelectors";
-import {
-  addCommentActions,
-  addCommentReducer,
-} from "features/AddCommentForm/model/slice/addCommentSlice";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -14,6 +9,11 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
+import {
+  addCommentActions,
+  addCommentReducer,
+} from "../../model/slice/addCommentSlice";
+import { getAddCommentFormText } from "../../model/selectors/addCommentFromSelectors";
 import cls from "./AddCommentForm.module.scss";
 
 interface AddCommentFormProps {

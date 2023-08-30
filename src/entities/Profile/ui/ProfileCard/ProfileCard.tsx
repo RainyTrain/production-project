@@ -1,6 +1,5 @@
 import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
-import { Profile } from "entities/Profile/model/types/profile";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared";
 import { Mods } from "shared/lib/classNames/classNames";
@@ -9,6 +8,7 @@ import { Input } from "shared/ui/Input/Input";
 import { Loader } from "shared/ui/Loader/Loader";
 import { Page } from "widgets/Page/Page";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Profile } from "../../model/types/profile";
 import cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {

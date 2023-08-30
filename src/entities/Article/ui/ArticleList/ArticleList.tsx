@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react/no-array-index-key */
 
-import { Article, ArticleView } from "entities/Article/model/types/article";
 import {
   HTMLAttributeAnchorTarget,
   memo,
@@ -13,6 +12,7 @@ import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from "react-virtuoso";
 import { classNames } from "shared";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
+import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItemSkeleton/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";

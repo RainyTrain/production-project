@@ -1,9 +1,3 @@
-import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock,
-  ArticleView,
-} from "entities/Article/model/types/article";
 import { AppLink, classNames } from "shared";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Text } from "shared/ui/Text/Text";
@@ -15,6 +9,12 @@ import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
 import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
+import {
+  Article,
+  ArticleBlockType,
+  ArticleTextBlock,
+  ArticleView,
+} from "../../model/types/article";
 import cls from "./ArticleListIem.module.scss";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 

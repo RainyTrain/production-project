@@ -1,7 +1,7 @@
 import { classNames } from "shared";
-import { Button, ThemButton } from "shared/ui/Button/Button";
 import CopyIcon from "shared/assets/icons/Copy.svg";
 import { memo, useCallback } from "react";
+import { Button, ThemButton } from "../Button/Button";
 import cls from "./Code.module.scss";
 
 interface CodeProps {

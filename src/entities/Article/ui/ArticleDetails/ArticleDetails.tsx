@@ -1,10 +1,3 @@
-import {
-  getArticleData,
-  getArticleError,
-  getArticleIsLoading,
-} from "entities/Article/model/selectors/getArticleSelector";
-import { getArticleById } from "entities/Article/model/services/getArticleById/getArticleById";
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice/articleDetailsSlice";
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -20,10 +13,14 @@ import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text";
 import CalendarIcon from "shared/assets/icons/Calendar.svg";
 import ViewIcon from "shared/assets/icons/View.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice/articleDetailsSlice";
+import { getArticleById } from "../../model/services/getArticleById/getArticleById";
+import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
 import {
-  ArticleBlock,
-  ArticleBlockType,
-} from "entities/Article/model/types/article";
+  getArticleData,
+  getArticleError,
+  getArticleIsLoading,
+} from "../../model/selectors/getArticleSelector";
 import cls from "./ArticleDetails.module.scss";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";

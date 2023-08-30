@@ -1,8 +1,8 @@
-import { ArticleSortField } from "entities/Article/model/types/article";
 import { useMemo } from "react";
 import { SortOrder } from "shared/types";
 import { Select, SelectOption } from "shared/ui/Select/Select";
 import { classNames } from "shared";
+import { ArticleSortField } from "../../model/types/article";
 import cls from "./ArticleSortSelect.module.scss";
 
 interface ArticleSortSelectProps {
@@ -15,7 +15,7 @@ interface ArticleSortSelectProps {
 
 export const ArticleSortSelect = (props: ArticleSortSelectProps) => {
   const { className, sort, order, onChangeOrder, onChangeSort } = props;
-  
+
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [
       {
