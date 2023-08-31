@@ -9,6 +9,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
+import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import {
   addCommentActions,
   addCommentReducer,
@@ -49,7 +50,11 @@ const AddCommentForm = memo(
 
     return (
       <DynamicModule reducers={reducers} removeAfterUnmount>
-        <div className={classNames(cls.AddCommentForm, {}, [className])}>
+        <Hstack
+          className={classNames(cls.AddCommentForm, {}, [className])}
+          align="center"
+          justify="between"
+        >
           <Input
             value={text}
             onChange={onCommentTextChange}
@@ -59,7 +64,7 @@ const AddCommentForm = memo(
           <Button theme={ThemButton.OUTLINE} onClick={sendCommentHandler}>
             {t("Add")}
           </Button>
-        </div>
+        </Hstack>
       </DynamicModule>
     );
   }

@@ -24,6 +24,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Page } from "widgets/Page/Page";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
+import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 interface ProfilePageProps {
@@ -117,25 +118,27 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   return (
     <DynamicModule reducers={initialReducers} removeAfterUnmount>
       <Page className={classNames("", {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length &&
-          validateErrors.map((err) => (
-            <Text theme={TextTheme.ERROR} text={err} align={TextAlign.LEFT} />
-          ))}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          onChangeFirstName={onChangeFirstName}
-          onChangeLastName={onChangeLastName}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          readOnly={readOnly}
-          onChangeCountry={onChangeCountry}
-        />
+        <Vstack gap="16" max justify="between">
+          <ProfilePageHeader />
+          {validateErrors?.length &&
+            validateErrors.map((err) => (
+              <Text theme={TextTheme.ERROR} text={err} align={TextAlign.LEFT} />
+            ))}
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            onChangeFirstName={onChangeFirstName}
+            onChangeLastName={onChangeLastName}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            readOnly={readOnly}
+            onChangeCountry={onChangeCountry}
+          />
+        </Vstack>
       </Page>
     </DynamicModule>
   );

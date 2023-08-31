@@ -13,6 +13,8 @@ import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text";
 import CalendarIcon from "shared/assets/icons/Calendar.svg";
 import ViewIcon from "shared/assets/icons/View.svg";
 import { Icon } from "shared/ui/Icon/Icon";
+import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
+import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice/articleDetailsSlice";
 import { getArticleById } from "../../model/services/getArticleById/getArticleById";
 import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
@@ -97,9 +99,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <Hstack className={cls.avatarWrapper} justify="center" max>
           <Avatar size="200px" src={article?.img} />
-        </div>
+        </Hstack>
         <Text
           title={article?.title}
           text={article?.subtitle}
@@ -108,22 +110,22 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           size={TextSize.M}
         />
         <div />
-        <div className={cls.articleInfo}>
+        <Hstack className={cls.articleInfo}>
           <Icon Icon={ViewIcon} className={cls.icon} />
           <Text
             text={String(article?.views)}
             align={TextAlign.LEFT}
             size={TextSize.M}
           />
-        </div>
-        <div className={cls.articleInfo}>
+        </Hstack>
+        <Hstack className={cls.articleInfo}>
           <Icon Icon={CalendarIcon} className={cls.icon} />
           <Text
             text={String(article?.createdAt)}
             align={TextAlign.LEFT}
             size={TextSize.M}
           />
-        </div>
+        </Hstack>
         <div>{article?.blocks?.map(renderBlock)}</div>
       </>
     );
@@ -131,9 +133,12 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   return (
     <DynamicModule reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <Vstack
+        gap="8"
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
-      </div>
+      </Vstack>
     </DynamicModule>
   );
 });

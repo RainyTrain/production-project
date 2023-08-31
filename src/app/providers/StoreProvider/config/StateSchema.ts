@@ -7,7 +7,6 @@ import {
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { ArticleDetailsSchema } from "entities/Article";
-import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentSchema } from "features/AddCommentForm";
@@ -17,7 +16,6 @@ import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 
 export interface StateSchema {
-  counter: CounterSchema;
   user: UserSchema;
   ui: UISchema;
   loginForm?: LoginShema;

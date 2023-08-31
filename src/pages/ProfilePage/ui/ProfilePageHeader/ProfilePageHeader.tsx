@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "shared";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
+import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Text } from "shared/ui/Text/Text";
 import cls from "./ProfilePageHeader.module.scss";
 
@@ -44,35 +45,43 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [auth?.id, dispatch]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <Hstack
+      max
+      justify="between"
+      className={classNames(cls.ProfilePageHeader, {}, [className])}
+    >
       <Text title={t("Profile")} />
-      {canEdit &&
-        (readOnly ? (
-          <Button
-            theme={ThemButton.OUTLINE}
-            className={cls.editBtn}
-            onClick={onEdit}
-          >
-            {t("Edit")}
-          </Button>
-        ) : (
-          <>
-            <Button
-              theme={ThemButton.OUTLINE_RED}
-              className={cls.editBtn}
-              onClick={onCancelEdit}
-            >
-              {t("Cancel")}
-            </Button>
+      {canEdit && (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
+          {readOnly ? (
             <Button
               theme={ThemButton.OUTLINE}
-              className={cls.saveBtn}
-              onClick={onSave}
+              className={cls.editBtn}
+              onClick={onEdit}
             >
-              {t("Save")}
+              {t("Edit")}
             </Button>
-          </>
-        ))}
-    </div>
+          ) : (
+            <Hstack gap="8" justify="end" max>
+              <Button
+                theme={ThemButton.OUTLINE_RED}
+                className={cls.editBtn}
+                onClick={onCancelEdit}
+              >
+                {t("Cancel")}
+              </Button>
+              <Button
+                theme={ThemButton.OUTLINE}
+                className={cls.saveBtn}
+                onClick={onSave}
+              >
+                {t("Save")}
+              </Button>
+            </Hstack>
+          )}
+        </>
+      )}
+    </Hstack>
   );
 };

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared";
+import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
 import { Text, TextAlign } from "shared/ui/Text/Text";
 import { Comment } from "../../model/types/Comment";
 import { CommentCard } from "../CommentCard/CommentCard";
@@ -18,7 +19,11 @@ export const CommentList = ({
 }: CommentListProps) => {
   const { t } = useTranslation();
   return (
-    <div className={classNames(cls.CommentList, {}, [className])}>
+    <Vstack
+      gap="16"
+      className={classNames(cls.CommentList, {}, [className])}
+      max
+    >
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard
@@ -30,6 +35,6 @@ export const CommentList = ({
       ) : (
         <Text text={t("Not found")} align={TextAlign.LEFT} />
       )}
-    </div>
+    </Vstack>
   );
 };
