@@ -14,6 +14,7 @@ import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Page } from "widgets/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { getArticleRecommendations } from "../../model/slice/articleDetailsPageRecommendations/articleDetailsPageRecommendations";
