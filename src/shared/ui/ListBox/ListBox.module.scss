@@ -31,14 +31,26 @@
   opacity: 0.7;
 }
 
-.bottom {
-  top: 100%;
-}
-
-.top {
-  bottom: 100%;
-}
-
 .label {
   margin-right: 5px;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 100%;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 100%;
+}
+
+.topLeft {
+  bottom: 100%;
+  right: 100%;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 100%;
 }
