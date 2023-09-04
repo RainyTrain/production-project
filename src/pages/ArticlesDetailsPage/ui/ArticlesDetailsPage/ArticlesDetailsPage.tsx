@@ -15,6 +15,7 @@ import { Page } from "widgets/Page/Page";
 import { Text } from "shared/ui/Text/Text";
 import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
 import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ArticleRecommendationList } from "features/ArticleRecommendationList/ui/ArticleRecommendationList";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { getArticleRecommendations } from "../../model/slice/articleDetailsPageRecommendations/articleDetailsPageRecommendations";
@@ -78,15 +79,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
-        <Text title={t("Recommendations")} className={cls.commentTitle} />
-        <ArticleList
-          isTarget
-          target="_blank"
-          articles={recommendations}
-          isLoading={isLoadingRecommends}
-          className={cls.recommendations}
-          height="300px"
-        />
+        <ArticleRecommendationList />
         <Text title={t("Comments")} className={cls.commentTitle} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />

@@ -7,6 +7,7 @@ import {
 import { userReducer } from "entities/User";
 import { UIReducer } from "features/UI";
 import { $api } from "shared/api/api";
+import { rtlApi } from "shared/api/rtk";
 import { createReducerManager } from "./reducerManager";
 import { StateSchema, ThunkExtraArgs } from "./StateSchema";
 
@@ -18,6 +19,7 @@ export const createReduxStore = (
     ...asyncReducer,
     user: userReducer,
     ui: UIReducer,
+    [rtlApi.reducerPath]: rtlApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);
@@ -35,7 +37,7 @@ export const createReduxStore = (
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtlApi.middleware),
   });
   console.log("created store");
   // @ts-ignore

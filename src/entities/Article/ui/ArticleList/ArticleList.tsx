@@ -19,7 +19,7 @@ import cls from "./ArticleList.module.scss";
 
 interface ArticleListProps {
   className?: string;
-  articles: Article[];
+  articles?: Article[];
   isLoading?: boolean;
   view?: ArticleView;
   isTarget?: boolean;
@@ -92,7 +92,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return null;
   });
 
-  if (!isLoading && !articles.length) {
+  if (!isLoading && !articles?.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
         <Text

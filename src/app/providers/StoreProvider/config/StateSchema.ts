@@ -14,10 +14,12 @@ import { LoginShema } from "features/AuthByUsername";
 import { UISchema } from "features/UI";
 import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
+import { rtlApi } from "shared/api/rtk";
 
 export interface StateSchema {
   user: UserSchema;
   ui: UISchema;
+  [rtlApi.reducerPath]: ReturnType<typeof rtlApi.reducer>;
   loginForm?: LoginShema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
