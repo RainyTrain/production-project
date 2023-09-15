@@ -54,6 +54,12 @@
       "userId": "2",
       "text": "hi",
       "id": 8
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "qwerty",
+      "id": 9
     }
   ],
   "users": [

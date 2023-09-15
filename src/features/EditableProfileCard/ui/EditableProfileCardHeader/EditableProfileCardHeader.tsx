@@ -1,9 +1,3 @@
-import {
-  getProfileData,
-  getProfileReadOnly,
-  profileActions,
-  updateProfileData,
-} from "entities/Profile";
 import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,13 +7,18 @@ import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Text } from "shared/ui/Text/Text";
-import cls from "./ProfilePageHeader.module.scss";
+import { profileActions } from "../../model/slice/profileSlice";
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
+import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
+import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({
+  className,
+}: EditableProfileCardHeaderProps) => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -45,37 +44,21 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [auth?.id, dispatch]);
 
   return (
-    <Hstack
-      max
-      justify="between"
-      className={classNames(cls.ProfilePageHeader, {}, [className])}
-    >
+    <Hstack max justify="between">
       <Text title={t("Profile")} />
       {canEdit && (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
           {readOnly ? (
-            <Button
-              theme={ThemButton.OUTLINE}
-              className={cls.editBtn}
-              onClick={onEdit}
-            >
+            <Button theme={ThemButton.OUTLINE} onClick={onEdit}>
               {t("Edit")}
             </Button>
           ) : (
             <Hstack gap="8" justify="end" max>
-              <Button
-                theme={ThemButton.OUTLINE_RED}
-                className={cls.editBtn}
-                onClick={onCancelEdit}
-              >
+              <Button theme={ThemButton.OUTLINE_RED} onClick={onCancelEdit}>
                 {t("Cancel")}
               </Button>
-              <Button
-                theme={ThemButton.OUTLINE}
-                className={cls.saveBtn}
-                onClick={onSave}
-              >
+              <Button theme={ThemButton.OUTLINE} onClick={onSave}>
                 {t("Save")}
               </Button>
             </Hstack>

@@ -1,7 +1,6 @@
 import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/AddCommentForm";
 import { useSelector } from "react-redux";
-import { classNames } from "shared";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
@@ -10,7 +9,6 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentByArt
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { getArticleComments } from "../../model/slice/articleDetailsComment/articleDetailsCommentSlice";
-import cls from "./ArticlesDetailsComments.module.scss";
 import { getArticleCommentsIsLoading } from "../../model/selectors/commentSelectors";
 
 interface ArticlesDetailsCommentsProps {
@@ -45,8 +43,8 @@ export const ArticlesDetailsComments = ({
   };
 
   return (
-    <div className={classNames(cls.ArticlesDetailsComments, {}, [className])}>
-      <Text title={t("Comments")} className={cls.commentTitle} />
+    <div>
+      <Text title={t("Comments")} />
       <AddCommentForm onSendComment={onSendComment} />
       <CommentList isLoading={isLoading} comments={comments} />
     </div>

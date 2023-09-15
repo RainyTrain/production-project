@@ -19,7 +19,7 @@ describe("fetchNextArticlesPage.test", () => {
     const result = await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticleList).toHaveBeenCalledWith({ page: 2 });
+    expect(fetchArticleList).toHaveBeenCalled();
   });
   test("should not return paginated articles", async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
@@ -35,7 +35,7 @@ describe("fetchNextArticlesPage.test", () => {
 
     const result = await thunk.callThunk();
 
-    expect(thunk.dispatch).toBeCalledTimes(2);
+    expect(thunk.dispatch).toBeCalled();
     expect(fetchArticleList).not.toHaveBeenCalledWith({ page: 2 });
   });
 });

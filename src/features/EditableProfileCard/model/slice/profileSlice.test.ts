@@ -1,7 +1,10 @@
 import { Currency } from "entities/Currency";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
-import { ProfileSchema, ValidateProfileError } from "../types/profile";
+import {
+  ProfileSchema,
+  ValidateProfileError,
+} from "../types/editableprofileCardSchema/editableProfileTypeSchema";
 import { profileActions, profileReducer } from "./profileSlice";
 
 describe("testing profile slice", () => {
