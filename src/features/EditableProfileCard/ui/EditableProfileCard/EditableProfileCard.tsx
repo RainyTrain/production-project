@@ -46,7 +46,7 @@ export const EditableProfileCard = ({
   const validateErrors = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    if (__PROJECT__ === "frontend" && id) {
+    if (__PROJECT__ !== "storybook" && __PROJECT__ !== "jest" && id) {
       dispatch(fetchProfileData(id));
     }
   }, [dispatch, id]);
@@ -122,7 +122,12 @@ export const EditableProfileCard = ({
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err: string | undefined) => (
-            <Text theme={TextTheme.ERROR} text={err} align={TextAlign.LEFT} />
+            <Text
+              data-testid="EditableProfileCard.Error"
+              theme={TextTheme.ERROR}
+              text={err}
+              align={TextAlign.LEFT}
+            />
           ))}
         <ProfileCard
           data={formData}

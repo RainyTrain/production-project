@@ -99,6 +99,7 @@ export const ProfileCard = ({
         className={cls.input}
         onChange={onChangeFirstName}
         readOnly={readOnly}
+        data-testid="ProfileCard.FirstName"
       />
       <Input
         value={data?.second}
@@ -106,6 +107,7 @@ export const ProfileCard = ({
         className={cls.input}
         onChange={onChangeLastName}
         readOnly={readOnly}
+        data-testid="ProfileCard.LastName"
       />
       <Input
         value={data?.age}

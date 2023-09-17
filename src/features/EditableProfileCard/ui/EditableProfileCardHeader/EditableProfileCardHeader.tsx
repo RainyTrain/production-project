@@ -2,7 +2,6 @@ import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNames } from "shared";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
@@ -50,15 +49,27 @@ export const EditableProfileCardHeader = ({
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
           {readOnly ? (
-            <Button theme={ThemButton.OUTLINE} onClick={onEdit}>
+            <Button
+              theme={ThemButton.OUTLINE}
+              onClick={onEdit}
+              data-testid="EditableProfileCardHeader.EditButton"
+            >
               {t("Edit")}
             </Button>
           ) : (
             <Hstack gap="8" justify="end" max>
-              <Button theme={ThemButton.OUTLINE_RED} onClick={onCancelEdit}>
+              <Button
+                theme={ThemButton.OUTLINE_RED}
+                onClick={onCancelEdit}
+                data-testid="EditableProfileCardHeader.CancelButton"
+              >
                 {t("Cancel")}
               </Button>
-              <Button theme={ThemButton.OUTLINE} onClick={onSave}>
+              <Button
+                theme={ThemButton.OUTLINE}
+                onClick={onSave}
+                data-testid="EditableProfileCardHeader.SaveButton"
+              >
                 {t("Save")}
               </Button>
             </Hstack>

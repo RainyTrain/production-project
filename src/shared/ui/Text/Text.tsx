@@ -25,6 +25,7 @@ interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+  "data-testid"?: string;
 }
 
 export const Text = ({
@@ -34,6 +35,7 @@ export const Text = ({
   size = TextSize.M,
   theme = TextTheme.PRIMARY,
   align = TextAlign.LEFT,
+  "data-testid": datTestId = "Text",
 }: TextProps) => {
   const mods = {
     [cls[theme]]: true,
@@ -43,8 +45,16 @@ export const Text = ({
 
   return (
     <div className={classNames(cls.Text, mods, [className])}>
-      {title && <p className={cls.title}>{title}</p>}
-      {text && <p className={cls.text}>{text}</p>}
+      {title && (
+        <p className={cls.title} data-testid={`${datTestId}.Header`}>
+          {title}
+        </p>
+      )}
+      {text && (
+        <p className={cls.text} data-testid={`${datTestId}.Paragraph`}>
+          {text}
+        </p>
+      )}
     </div>
   );
 };
