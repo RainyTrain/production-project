@@ -1,3 +1,4 @@
+import { UserRole } from "entities/User/model/types/userSchema";
 import { memo, Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig } from "shared";
