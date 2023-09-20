@@ -7,8 +7,8 @@ import { ProfilePage } from "pages/ProfilePage";
 import { RouteProps } from "react-router-dom";
 import { ArticleEditPage } from "pages/ArticleEditPage";
 import { AdminPanelPage } from "pages/AdminPanelPage";
-import { UserRole } from "entities/User/model/types/userSchema";
 import { ForbiddenPage } from "pages/ForbiddenPage";
+import { UserRole } from "entities/User";
 
 export type AppRouterProps = RouteProps & {
   authOnly?: boolean;

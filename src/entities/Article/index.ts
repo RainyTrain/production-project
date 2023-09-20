@@ -1,6 +1,6 @@
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
-export { Article } from "./model/types/article";
-export { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
+export type { Article } from "./model/types/article";
+export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
 export {
   getArticleData,
   getArticleIsLoading,
@@ -8,3 +8,8 @@ export {
 } from "./model/selectors/getArticleSelector";
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
 export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
+export {
+  ArticleBlockType,
+  ArticleType,
+  ArticleSortField,
+} from "./model/consts/consts";

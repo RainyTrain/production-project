@@ -15,9 +15,10 @@ import ViewIcon from "shared/assets/icons/View.svg";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
+import { ArticleBlockType } from "../../model/consts/consts";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice/articleDetailsSlice";
 import { getArticleById } from "../../model/services/getArticleById/getArticleById";
-import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
+import { ArticleBlock } from "../../model/types/article";
 import {
   getArticleData,
   getArticleError,

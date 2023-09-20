@@ -1,13 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StoreProvider } from "app/providers/StoreProvider";
-import { Article } from "entities/Article";
-import {
-  ArticleBlockType,
-  ArticleType,
-} from "entities/Article/model/types/article";
-import { UserRole } from "entities/User/model/types/userSchema";
+import { Article, ArticleType } from "entities/Article";
+import { UserRole } from "entities/User";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-// import withMock from "storybook-addon-mock";
 import { ArticleRecommendationList } from "./ArticleRecommendationList";
 
 const meta: Meta<typeof ArticleRecommendationList> = {

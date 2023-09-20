@@ -11,12 +11,12 @@ import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import {
   Article,
-  ArticleBlockType,
   ArticleTextBlock,
   ArticleView,
 } from "../../model/types/article";
 import cls from "./ArticleListIem.module.scss";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { ArticleBlockType } from "../../model/consts/consts";
 
 interface ArticleListItemProps {
   className?: string;

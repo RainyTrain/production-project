@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared";
 import { ListBox } from "shared/ui/ListBox/ListBox";
-import { Currency } from "../../model/types/currency";
+import { Currency } from "../../model/consts/consts";
 
 interface CurrencySelectProps {
   className?: string;

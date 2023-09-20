@@ -1,5 +1,4 @@
-import { getUserAuthData, getUserRoles } from "entities/User";
-import { UserRole } from "entities/User/model/types/userSchema";
+import { getUserAuthData, getUserRoles, UserRole } from "entities/User";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
@@ -12,11 +11,11 @@ interface RequiredAuthProps {
 
 export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
   const isAuth = useSelector(getUserAuthData);
-  console.log(isAuth,'auth')
+  console.log(isAuth, "auth");
 
   const userRoles = useSelector(getUserRoles);
 
-  console.log('GET ROLES',userRoles)
+  console.log("GET ROLES", userRoles);
   const location = useLocation();
 
   const hasRequiredRoles = useMemo(() => {
@@ -31,7 +30,7 @@ export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
     });
   }, [roles, userRoles]);
 
-  console.log('hasRequiredRoles',hasRequiredRoles)
+  console.log("hasRequiredRoles", hasRequiredRoles);
 
   if (!isAuth) {
     return <Navigate to={RoutePath.main} state={{ from: location }} replace />;

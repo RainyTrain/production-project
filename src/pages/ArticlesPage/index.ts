@@ -1,5 +1,5 @@
 export { ArticlesLazy as Articles } from "./ui/Articles/Articles.lazy";
-export { ArticlePageSchema } from "./model/types/articlesPageSchema";
+export type { ArticlePageSchema } from "./model/types/articlesPageSchema";
 export {
   getArticlesPageSearch,
   getArticlesPageSort,
