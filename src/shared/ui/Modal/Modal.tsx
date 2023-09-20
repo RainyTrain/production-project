@@ -1,5 +1,6 @@
 import React, {
   MutableRefObject,
+  ReactNode,
   useCallback,
   useEffect,
   useRef,
@@ -16,6 +17,7 @@ interface ModalProps {
   isOpen?: boolean;
   lazy?: boolean;
   onClose?: () => void;
+  children: ReactNode;
 }
 
 export const Modal: React.FC<ModalProps> = ({

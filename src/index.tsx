@@ -1,5 +1,5 @@
 import "app/styles/index.scss";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "shared/ui/ThemeProvider";
 import "shared/config/i18n/i18n";
@@ -7,7 +7,11 @@ import { ErrorBoundary } from "app/providers/ErrorBoundary";
 import App from "app/app";
 import { StoreProvider } from "app/providers/StoreProvider";
 
-render(
+const container = document.getElementById("root");
+
+const root = createRoot(container!);
+
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -16,6 +20,5 @@ render(
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );

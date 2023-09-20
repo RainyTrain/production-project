@@ -9,8 +9,10 @@ interface RequiredAuthProps {
   children: JSX.Element;
   roles?: UserRole[];
 }
+
 export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
   const isAuth = useSelector(getUserAuthData);
+  console.log(isAuth,'auth')
 
   const userRoles = useSelector(getUserRoles);
 
@@ -28,6 +30,8 @@ export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
       return hasRole;
     });
   }, [roles, userRoles]);
+
+  console.log('hasRequiredRoles',hasRequiredRoles)
 
   if (!isAuth) {
     return <Navigate to={RoutePath.main} state={{ from: location }} replace />;

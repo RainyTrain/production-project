@@ -4,7 +4,7 @@ import {
   StateSchema,
   StateSchemaKey,
 } from "app/providers/StoreProvider/config/StateSchema";
-import { FC, useEffect } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import { useStore } from "react-redux";
 import { useAppDispatch } from "../../hooks/UseAppDispatch/UseAppDispatch";
 
@@ -15,6 +15,7 @@ export type ReducerList = {
 interface DynamicModuleProps {
   reducers: ReducerList;
   removeAfterUnmount?: boolean;
+  children: ReactNode;
 }
 
 export const DynamicModule: FC<DynamicModuleProps> = (props) => {

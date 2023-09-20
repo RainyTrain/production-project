@@ -10,7 +10,7 @@ export const useThrottle = (
   const timerRef = useRef<any>(null);
 
   const throttledCallback = useCallback(
-    (...args) => {
+    (...args: any[]) => {
       if (!throttleRef.current) {
         callback(...args);
         throttleRef.current = true;

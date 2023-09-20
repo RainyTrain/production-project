@@ -1,4 +1,3 @@
-import { UserRole } from "entities/User/model/types/userSchema";
 import { memo, Suspense, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 import { routeConfig } from "shared";
@@ -16,7 +15,11 @@ const AppRouter = () => {
         path={route.path}
         key={route.path}
         element={
-          route.authOnly ? <RequiredAuth>{element}</RequiredAuth> : element
+          route.authOnly ? (
+            <RequiredAuth roles={route.roles}>{element}</RequiredAuth>
+          ) : (
+            element
+          )
         }
       />
     );
