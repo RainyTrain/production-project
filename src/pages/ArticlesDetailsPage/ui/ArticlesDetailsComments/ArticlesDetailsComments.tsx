@@ -12,12 +12,10 @@ import { getArticleComments } from "../../model/slice/articleDetailsComment/arti
 import { getArticleCommentsIsLoading } from "../../model/selectors/commentSelectors";
 
 interface ArticlesDetailsCommentsProps {
-  className?: string;
   id: string;
 }
 
 export const ArticlesDetailsComments = ({
-  className,
   id,
 }: ArticlesDetailsCommentsProps) => {
   const { t } = useTranslation();
