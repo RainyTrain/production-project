@@ -3,7 +3,7 @@ import { Currency } from "entities/Currency";
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { ProfileCard } from "entities/Profile/ui/ProfileCard/ProfileCard";

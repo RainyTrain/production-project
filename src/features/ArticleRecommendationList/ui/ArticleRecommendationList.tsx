@@ -1,6 +1,6 @@
 import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
 import { Text } from "shared/ui/Text/Text";
 import { useArticleRecommendationsList } from "../api/articleRecommendationsApi";

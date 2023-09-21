@@ -1,10 +1,10 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { json } from "stream/consumers";
 import webpack from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
+import CircularDependencyPlugin from "circular-dependency-plugin";
 import { BuildOptions } from "./types/config";
 
 export const buildPlugins = ({
@@ -38,6 +38,10 @@ export const buildPlugins = ({
       new webpack.HotModuleReplacementPlugin(),
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
+      }),
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: true,
       })
     );
   }

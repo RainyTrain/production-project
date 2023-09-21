@@ -2,7 +2,7 @@ import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModule,
   ReducerList,

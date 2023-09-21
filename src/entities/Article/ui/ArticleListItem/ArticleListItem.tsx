@@ -1,4 +1,4 @@
-import { AppLink, classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Text } from "shared/ui/Text/Text";
 import View from "shared/assets/icons/View.svg";
@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
 import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import {
   Article,
   ArticleTextBlock,

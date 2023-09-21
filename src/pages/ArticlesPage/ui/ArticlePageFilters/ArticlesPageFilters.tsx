@@ -8,7 +8,7 @@ import { ArticleView } from "entities/Article/model/types/article";
 import { ArticleSortSelect } from "entities/Article/ui/ArticleSortSelect/ArticleSortSelect";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";

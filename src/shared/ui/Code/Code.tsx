@@ -1,4 +1,4 @@
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import CopyIcon from "shared/assets/icons/Copy.svg";
 import { memo, useCallback } from "react";
 import { Button, ThemButton } from "../Button/Button";

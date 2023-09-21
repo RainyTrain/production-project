@@ -1,4 +1,4 @@
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Text, TextAlign } from "shared/ui/Text/Text";
 import { ArticleTextBlock } from "../../model/types/article";
 import cls from "./ArticleTextBlockComponent.module.scss";

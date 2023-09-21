@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from "react-virtuoso";
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { Article, ArticleView } from "../../model/types/article";

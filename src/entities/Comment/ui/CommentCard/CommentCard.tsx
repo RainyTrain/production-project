@@ -1,8 +1,9 @@
-import { AppLink, classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { Text, TextAlign } from "shared/ui/Text/Text";
+import { Text } from "shared/ui/Text/Text";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Comment } from "../../model/types/Comment";
 import cls from "./CommentCard.module.scss";
 

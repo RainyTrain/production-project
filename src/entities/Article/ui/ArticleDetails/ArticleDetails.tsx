@@ -1,7 +1,6 @@
 import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNames } from "shared";
 import {
   DynamicModule,
   ReducerList,
@@ -15,6 +14,7 @@ import ViewIcon from "shared/assets/icons/View.svg";
 import { Icon } from "shared/ui/Icon/Icon";
 import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
+import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleBlockType } from "../../model/consts/consts";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice/articleDetailsSlice";
 import { getArticleById } from "../../model/services/getArticleById/getArticleById";

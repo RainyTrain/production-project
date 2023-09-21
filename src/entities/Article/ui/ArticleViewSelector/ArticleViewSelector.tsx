@@ -1,4 +1,4 @@
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import Big from "shared/assets/icons/Big.svg";
 import Small from "shared/assets/icons/Small.svg";

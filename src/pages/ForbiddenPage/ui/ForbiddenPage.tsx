@@ -1,4 +1,4 @@
-import { classNames } from "shared";
+import { classNames } from "shared/lib/classNames/classNames";
 import { Page } from "widgets/Page/Page";
 import cls from "./ForbiddenPage.module.scss";
 
