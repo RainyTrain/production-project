@@ -3,10 +3,10 @@ import { BuildOptions } from "./types/config";
 import { buildCssLoader } from "./loaders/buildCssLoader";
 import { buildBabelLoader } from "./loaders/buildBabelLoader";
 
-export const buildLoaders = ({
-  isDev,
-}: BuildOptions): webpack.RuleSetRule[] => {
-  const babelLoader = buildBabelLoader(isDev);
+export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+  const { isDev } = options;
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -26,5 +26,12 @@ export const buildLoaders = ({
     exclude: /node_modules/,
   };
 
-  return [svgLoader, fileLoader, babelLoader, typescriptLoader, cssLoader];
+  return [
+    svgLoader,
+    fileLoader,
+    codeBabelLoader,
+    tsxBabelLoader,
+    // typescriptLoader,
+    cssLoader,
+  ];
 };

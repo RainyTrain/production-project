@@ -11,7 +11,7 @@ export const buildWebpackConfig = (
   const { mode, paths, isDev } = options;
   return {
     mode,
-    entry: paths.entry,
+    entry: paths?.entry,
     module: {
       rules: buildLoaders(options),
     },
@@ -19,7 +19,7 @@ export const buildWebpackConfig = (
     plugins: buildPlugins(options),
     output: {
       filename: "[name].[contenthash].js",
-      path: paths.output,
+      path: paths?.output,
       clean: true,
       publicPath: "/",
     },
