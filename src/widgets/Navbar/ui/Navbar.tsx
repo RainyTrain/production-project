@@ -14,8 +14,11 @@ import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ThemButton } from "shared/ui/Button/Button";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Dropdown } from "shared/ui/Popups/ui/Dropdown/Dropdown";
+import { Icon } from "shared/ui/Icon/Icon";
+import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import Notification from "shared/assets/icons/Notification.svg";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -65,18 +68,23 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           New article
         </AppLink>
-        <Dropdown
-          items={[
-            ...(isAdminPanelAvailable
-              ? [{ content: "Admin", href: RoutePath.admin_panel }]
-              : []),
-            { content: "Profile", href: RoutePath.profile + authData.id },
-            { content: "Sign out", onClick: onLogout },
-          ]}
-          className={cls.dropdown}
-          trigger={<Avatar size="30px" src={authData.avatar} />}
-          direction="bottom left"
-        />
+        <Hstack gap="16" className={cls.actions} align="center">
+          <Button theme={ThemButton.CLEAR}>
+            <Icon Icon={Notification} inverted />
+          </Button>
+          <Dropdown
+            items={[
+              ...(isAdminPanelAvailable
+                ? [{ content: "Admin", href: RoutePath.admin_panel }]
+                : []),
+              { content: "Profile", href: RoutePath.profile + authData.id },
+              { content: "Sign out", onClick: onLogout },
+            ]}
+            className={cls.dropdown}
+            trigger={<Avatar size="30px" src={authData.avatar} />}
+            direction="bottom left"
+          />
+        </Hstack>
       </div>
     );
   }

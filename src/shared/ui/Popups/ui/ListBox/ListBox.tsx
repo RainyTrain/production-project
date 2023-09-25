@@ -3,21 +3,16 @@ import { Listbox as HListBox } from "@headlessui/react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { DropDownDirection } from "shared/types/ui";
 import cls from "./ListBox.module.scss";
-import { Button } from "../Button/Button";
-import { Hstack } from "../Stack/Hstack/Hstack";
+import { Button } from "../../../Button/Button";
+import { Hstack } from "../../../Stack/Hstack/Hstack";
+import { mapDirectionClass } from "../../styles/const";
+import popupCls from "../../styles/popup.module.scss";
 
 interface SelectOption<T extends string> {
   value: T;
   content: ReactNode;
   disabled?: boolean;
 }
-
-const DirectionClass: Record<DropDownDirection, string> = {
-  "bottom left": cls.bottomLeft,
-  "bottom right": cls.bottomRight,
-  "top left": cls.topLeft,
-  "top right": cls.topRight,
-};
 
 interface ListBoxProps<T extends string> {
   options: SelectOption<T>[];
@@ -42,7 +37,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     direction = "top right",
   } = props;
 
-  const optionsMods = [cls.options, DirectionClass[direction]];
+  const optionsMods = [cls.options, mapDirectionClass[direction]];
 
   return (
     <Hstack align="center">
@@ -52,7 +47,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         as="div"
         value={value}
         onChange={onChange}
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
       >
         <HListBox.Button as={Fragment}>
           <Button disabled={readonly}>{value ?? defaultValue}</Button>
@@ -68,8 +63,8 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active]: active,
-                    [cls.disabled]: option.disabled,
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: option.disabled,
                   })}
                 >
                   {selected && "!!!"}
