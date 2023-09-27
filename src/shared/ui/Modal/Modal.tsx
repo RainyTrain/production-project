@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { Overlay } from "../Overlay/Overlay";
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "../ThemeProvider";
 import cls from "./Modal.module.scss";
@@ -87,10 +88,9 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
       >
-        <div className={cls.overlay} onClick={closeHandler}>
-          <div className={cls.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={closeHandler} />
+        <div className={cls.content} onClick={onContentClick}>
+          {children}
         </div>
       </div>
     </Portal>
