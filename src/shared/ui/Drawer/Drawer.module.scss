@@ -1,16 +1,27 @@
+// .Drawer {
+//   background: var(--overlay-color);
+//   display: flex;
+//   align-items: flex-end;
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: -1;
+//   cursor: pointer;
+//   opacity: 0;
+//   pointer-events: none;
+// }
+
 .Drawer {
-  background: var(--overlay-color);
-  display: flex;
-  align-items: flex-end;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: -1;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
 }
 
 .content {
@@ -54,4 +65,16 @@
   .content {
     transform: translateY(100%);
   }
+}
+
+.sheet {
+  z-index: 100000;
+  left: 2vw;
+  position: fixed;
+  height: calc(100vh + 100px);
+  width: 96vw;
+  border-radius: 12px 12px 0;
+  background: var(--bg-color);
+  touch-action: none;
+  padding: 15px;
 }
