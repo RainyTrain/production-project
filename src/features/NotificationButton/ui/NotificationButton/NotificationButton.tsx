@@ -46,11 +46,13 @@ export const NotificationButton = memo(
         ) : (
           <>
             {trigger}
-            <AnimationProvider>
-              <Drawer onClose={onCloseDrawer} isOpen={open}>
-                <NotificationList />
-              </Drawer>
-            </AnimationProvider>
+            {open && (
+              <AnimationProvider>
+                <Drawer onClose={onCloseDrawer} isOpen={open}>
+                  <NotificationList />
+                </Drawer>
+              </AnimationProvider>
+            )}
           </>
         )}
       </div>

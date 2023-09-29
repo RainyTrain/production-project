@@ -25,13 +25,13 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
   const { closeHandler, isClosing, isMounted } = useModal({
-    animationDelay: 200,
+    animationDelay: 0,
     onClose,
     isOpen,
   });
 
   const mods: Mods = {
-    [cls.opened]: isOpen,
+    // [cls.opened]: isOpen,
     // [cls.isClosing]: isClosing,
   };
 
