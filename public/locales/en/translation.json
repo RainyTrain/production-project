@@ -34,6 +34,10 @@
   "Read": "Read",
   "Back": "Back",
   "Recommendations": "Recommendations",
+<<<<<<< HEAD
   "Main Page": "Main page",
   "Your feedback": "Your feedback"
+=======
+  "Main Page": "Main page"
+>>>>>>> c9bc05cbfc69ffb9958a83f3a833d78e0c1873d5
 }
