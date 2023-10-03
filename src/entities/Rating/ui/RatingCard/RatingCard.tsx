@@ -9,7 +9,7 @@ import { Input } from "shared/ui/Input/Input";
 import { Modal } from "shared/ui/Modal/Modal";
 import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
-import { StarRating } from "shared/ui/StarRating/StarRating";
+import { StarRating }from "shared/ui/StarRating/StarRating";
 import { Text } from "shared/ui/Text/Text";
 import cls from "./RatingCard.module.scss";
 
