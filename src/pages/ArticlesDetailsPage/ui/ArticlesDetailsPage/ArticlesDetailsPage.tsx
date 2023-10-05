@@ -8,6 +8,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { Page } from "widgets/Page/Page";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList/ui/ArticleRecommendationList";
+import { ArticleRating } from "features/ArticleRating/ui/ArticleRating";
 import { articleDetailsPageReducer } from "../../model/slice";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
@@ -35,6 +36,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationList />
         <ArticlesDetailsComments id={id} />
       </Page>

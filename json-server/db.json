@@ -616,5 +616,63 @@
         }
       ]
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Perfect article",
+      "articleId": 1,
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "feedback": "Bad article",
+      "articleId": 3,
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 4,
+      "feedback": "Good article",
+      "articleId": 1,
+      "userId": "2",
+      "profileId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 5,
+      "feedback": "great job",
+      "id": "aijTCHY"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 1,
+      "feedback": "worst article!",
+      "id": "fvDeqQ_"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 5,
+      "id": "Z3pZL-8"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 3,
+      "id": "nFglzBY"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 3,
+      "id": "z9B5Ae4"
+    }
   ]
 }

@@ -8,17 +8,17 @@ interface StarRatingProps {
   className?: string;
   onSelect?: (starsCount: number) => void;
   size?: number;
-  selectedStart?: number;
+  selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = (props: StarRatingProps) => {
-  const { className, onSelect, size = 30, selectedStart = 0 } = props;
+  const { className, onSelect, size = 30, selectedStars = 0 } = props;
 
   const [hovered, setHovered] = useState(false);
-  const [currentStarsCount, setCurrentStarsCount] = useState(0);
-  const [isSelected, setIsSelected] = useState(Boolean(selectedStart));
+  const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
+  const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const onHover = (startCount: number) => () => {
     if (!isSelected) {
