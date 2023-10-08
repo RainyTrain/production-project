@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
-import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
+import { RoutePath } from "app/providers/router/config/RouteConfig";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { articleDetailsHeaderSelector } from "../../model/selectors/articleDetailsHeaderSelector";
 import cls from "./ArticleDetailsHeader.module.scss";

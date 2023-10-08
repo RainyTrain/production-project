@@ -6,7 +6,7 @@ import {
 } from "entities/User";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
+import { RoutePath } from "app/providers/router/config/RouteConfig";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Dropdown } from "shared/ui/Popups";

@@ -3,7 +3,7 @@ import { LoginModal } from "features/AuthByUsername";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { RoutePath } from "shared/config/RouteConfig/RouteConfig";
+import { RoutePath } from "app/providers/router/config/RouteConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button, ThemButton } from "shared/ui/Button/Button";
