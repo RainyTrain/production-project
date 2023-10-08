@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { RoutePath } from "app/providers/router/config/RouteConfig";
+import { RoutePath } from "shared/const/router";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Text } from "shared/ui/Text/Text";

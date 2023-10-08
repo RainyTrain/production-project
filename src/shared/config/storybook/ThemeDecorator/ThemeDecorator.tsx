@@ -1,5 +1,6 @@
 import { StoryFn } from "@storybook/react";
-import { Theme, ThemeProvider } from "shared/ui/ThemeProvider";
+import { Theme } from "../../../const/theme";
+import { ThemeProvider } from "../../../ui/ThemeProvider";
 
 export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) =>
   (

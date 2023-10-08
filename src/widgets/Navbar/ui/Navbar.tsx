@@ -3,7 +3,6 @@ import { LoginModal } from "features/AuthByUsername";
 import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { RoutePath } from "app/providers/router/config/RouteConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { Button, ThemButton } from "shared/ui/Button/Button";
@@ -11,6 +10,7 @@ import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";
+import { RoutePath } from "shared/const/router";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {

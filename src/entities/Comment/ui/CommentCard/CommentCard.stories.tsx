@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "shared/ui/ThemeProvider";
+import { Theme } from "shared/const/theme";
 import { CommentCard } from "./CommentCard";
 
 const meta: Meta<typeof CommentCard> = {
@@ -33,5 +33,5 @@ export const withDataDark: Story = {
     isLoading: false,
     comment: { id: "1", text: "test", user: { id: "1", username: "user" } },
   },
-  decorators:[ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

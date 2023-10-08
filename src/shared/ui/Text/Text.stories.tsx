@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "../ThemeProvider";
+import { Theme } from "../../const/theme";
 import { Text, TextTheme } from "./Text";
 
 const meta: Meta<typeof Text> = {
@@ -35,9 +35,9 @@ export const TextTitle: Story = {
 };
 
 export const Error: Story = {
-    args: {
-      text: "text",
-      title: "title",
-      theme: TextTheme.ERROR
-    },
-  };
+  args: {
+    text: "text",
+    title: "title",
+    theme: TextTheme.ERROR,
+  },
+};

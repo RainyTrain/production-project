@@ -7,7 +7,7 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, ThemButton } from "shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
-import { RoutePath } from "app/providers/router/config/RouteConfig";
+import { RoutePath } from "shared/const/router";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import {
