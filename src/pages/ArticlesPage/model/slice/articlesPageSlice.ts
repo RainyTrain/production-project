@@ -4,8 +4,12 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
-import { Article, ArticleSortField, ArticleType } from "entities/Article";
-import { ArticleView } from "entities/Article/model/types/article";
+import {
+  Article,
+  ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from "entities/Article";
 import { ARTICLES_VIEW_LOCALSOTRAGE_KEY } from "shared/const/localstorage";
 import { SortOrder } from "shared/types";
 import { fetchArticleList } from "../services/fetchArticleList";

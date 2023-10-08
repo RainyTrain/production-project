@@ -1,8 +1,8 @@
-import { RatingCard } from "entities/Rating";
 import {
+  RatingCard,
   useGetArticleRating,
   useRateArticle,
-} from "entities/Rating/api/articleRatingApi";
+} from "entities/Rating";
 import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";

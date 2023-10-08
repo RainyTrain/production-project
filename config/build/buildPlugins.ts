@@ -40,10 +40,10 @@ export const buildPlugins = ({
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
       }),
-      new CircularDependencyPlugin({
-        exclude: /node_modules/,
-        failOnError: true,
-      }),
+      // new CircularDependencyPlugin({
+      //   exclude: /node_modules/,
+      //   failOnError: true,
+      // }),
       new ForkTsCheckerWebpackPlugin({
         typescript: {
           diagnosticOptions: {

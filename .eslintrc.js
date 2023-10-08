@@ -53,6 +53,7 @@ module.exports = {
     "no-param-reassign": "off",
     "no-undef": "off",
     "rainytrain-fsd-plugin/path-checker": "error",
+    "rainytrain-fsd-plugin/public-api-imports": "error",
   },
   globals: {
     __IS_DEV__: true,

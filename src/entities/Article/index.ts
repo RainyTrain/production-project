@@ -13,3 +13,10 @@ export {
   ArticleType,
   ArticleSortField,
 } from "./model/consts/consts";
+export {
+  articleDetailsAction,
+  articleDetailsReducer,
+} from "./model/slice/articleDetailsSlice/articleDetailsSlice";
+export { ArticleList } from "./ui/ArticleList/ArticleList";
+export type { ArticleView } from "./model/types/article";
+export { ArticleSortSelect } from "./ui/ArticleSortSelect/ArticleSortSelect";

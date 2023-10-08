@@ -1,4 +1,4 @@
-import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
+import { ArticleList } from "entities/Article";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";

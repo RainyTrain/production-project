@@ -10,7 +10,7 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { UserSchema } from "entities/User";
 import { AddCommentSchema } from "features/AddCommentForm";
 import { LoginShema } from "features/AuthByUsername";
-import { ProfileSchema } from "features/EditableProfileCard/model/types/editableprofileCardSchema/editableProfileTypeSchema";
+import { ProfileSchema } from "features/EditableProfileCard";
 import { UISchema } from "features/UI";
 import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";

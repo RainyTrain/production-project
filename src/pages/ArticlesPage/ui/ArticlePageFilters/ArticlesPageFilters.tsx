@@ -3,9 +3,9 @@ import {
   ArticleType,
   ArticleTypeTabs,
   ArticleViewSelector,
+  ArticleView,
+  ArticleSortSelect,
 } from "entities/Article";
-import { ArticleView } from "entities/Article/model/types/article";
-import { ArticleSortSelect } from "entities/Article/ui/ArticleSortSelect/ArticleSortSelect";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";

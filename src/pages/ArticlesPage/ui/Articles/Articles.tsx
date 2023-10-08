@@ -1,4 +1,4 @@
-import { ArticleList } from "entities/Article/ui/ArticleList/ArticleList";
+import { ArticleList } from "entities/Article";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Page } from "widgets/Page/Page";
+import { Page } from "widgets/Page";
 import { initArticlePage } from "../../model/services/initArticlesPage/initAticlesPage";
 import {
   getArticlesPageError,

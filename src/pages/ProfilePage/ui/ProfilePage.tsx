@@ -4,10 +4,12 @@ import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
-import { Page } from "widgets/Page/Page";
 import { Vstack } from "shared/ui/Stack/Vstack/Vstack";
-import { EditableProfileCard } from "features/EditableProfileCard/ui/EditableProfileCard/EditableProfileCard";
-import { profileReducer } from "features/EditableProfileCard/model/slice/profileSlice";
+import {
+  EditableProfileCard,
+  profileReducer,
+} from "features/EditableProfileCard";
+import { Page } from "widgets/Page";
 
 interface ProfilePageProps {
   className?: string;

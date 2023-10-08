@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
-import { ProfileCard } from "entities/Profile/ui/ProfileCard/ProfileCard";
+import { ProfileCard } from "entities/Profile";
 import {
   DynamicModule,
   ReducerList,
