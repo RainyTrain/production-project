@@ -7,9 +7,9 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Button, ThemButton } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
-import { Hstack } from "shared/ui/Stack/Hstack/Hstack";
+import { Button, ThemButton } from "shared/ui/Button";
+import { Input } from "shared/ui/Input";
+import { Hstack } from "shared/ui/Stack";
 import {
   addCommentActions,
   addCommentReducer,

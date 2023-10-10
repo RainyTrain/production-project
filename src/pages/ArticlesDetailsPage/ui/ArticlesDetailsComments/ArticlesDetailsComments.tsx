@@ -2,7 +2,7 @@ import { CommentList } from "entities/Comment";
 import { AddCommentForm } from "features/AddCommentForm";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Text } from "shared/ui/Text/Text";
+import { Text } from "shared/ui/Text";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentByArticleId/fetchCommentByArticleId";

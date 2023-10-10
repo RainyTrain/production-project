@@ -1,8 +1,8 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { Button, ThemButton } from "shared/ui/Button/Button";
+import { Button, ThemButton } from "shared/ui/Button";
 import Big from "shared/assets/icons/Big.svg";
 import Small from "shared/assets/icons/Small.svg";
-import { Icon } from "shared/ui/Icon/Icon";
+import { Icon } from "shared/ui/Icon";
 import { ArticleView } from "../../model/types/article";
 import cls from "./ArticleViewSelector.module.scss";
 

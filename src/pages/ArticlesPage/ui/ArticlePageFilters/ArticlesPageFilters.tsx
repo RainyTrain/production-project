@@ -12,8 +12,8 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
-import { Card } from "shared/ui/Card/Card";
-import { Input } from "shared/ui/Input/Input";
+import { Card } from "shared/ui/Card";
+import { Input } from "shared/ui/Input";
 import { articlesPageAction } from "../../model/slice/articlesPageSlice";
 import { fetchArticleList } from "../../model/services/fetchArticleList";
 import {
