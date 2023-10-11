@@ -24,6 +24,7 @@ module.exports = {
     "i18next",
     "react-hooks",
     "rainytrain-fsd-plugin",
+    "unused-imports",
   ],
   rules: {
     "react/jsx-filename-extension": [
@@ -54,6 +55,7 @@ module.exports = {
     "no-undef": "off",
     "rainytrain-fsd-plugin/path-checker": "error",
     "rainytrain-fsd-plugin/public-api-imports": "error",
+    "unused-imports/no-unused-imports": "error",
   },
   globals: {
     __IS_DEV__: true,
