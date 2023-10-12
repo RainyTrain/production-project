@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 export const buildCssLoader = (isDev: boolean) => {
   const cssLoader = {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       !isDev ? MiniCssExtractPlugin.loader : "style-loader",
       {
@@ -17,7 +18,7 @@ export const buildCssLoader = (isDev: boolean) => {
           },
         },
       },
-      
+
       "sass-loader",
     ],
   };

@@ -12,6 +12,7 @@ export const buildBabelLoader = ({ isTsx, isDev }: BuildBabelLoader) => {
     use: {
       loader: "babel-loader",
       options: {
+        cacheDirectory: true,
         presets: ["@babel/preset-env"],
         plugins: [
           [
@@ -20,7 +21,8 @@ export const buildBabelLoader = ({ isTsx, isDev }: BuildBabelLoader) => {
           ],
           ["@babel/plugin-transform-runtime"],
           ["@babel/plugin-transform-typescript", { isTsx }],
-          isTsx && [babelRemovePropPlugin, { props: ["data-testid"] }],
+          isTsx &&
+            !isDev && [babelRemovePropPlugin, { props: ["data-testid"] }],
           isDev && require.resolve("react-refresh/babel"),
         ].filter(Boolean),
       },

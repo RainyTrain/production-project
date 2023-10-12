@@ -13,22 +13,18 @@ export const buildPlugins = ({
   apiUrl,
   project,
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
+  const isProd = !isDev;
+
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash].css",
-      chunkFilename: "css/[name].[contenthash].css",
-    }),
+
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
-    }),
-    new CopyPlugin({
-      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
   ];
 
@@ -39,10 +35,12 @@ export const buildPlugins = ({
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
       }),
+
       // new CircularDependencyPlugin({
       //   exclude: /node_modules/,
       //   failOnError: true,
       // }),
+
       new ForkTsCheckerWebpackPlugin({
         typescript: {
           diagnosticOptions: {
@@ -51,6 +49,18 @@ export const buildPlugins = ({
           },
           mode: "write-references",
         },
+      })
+    );
+  }
+
+  if (!isDev) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: "css/[name].[contenthash].css",
+        chunkFilename: "css/[name].[contenthash].css",
+      }),
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
       })
     );
   }
