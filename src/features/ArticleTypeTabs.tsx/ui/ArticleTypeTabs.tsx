@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { Tab, TabItem } from "shared/ui/Tab";
-import { ArticleType } from "../../model/consts/consts";
+import { ArticleType } from "../../../entities/Article/model/consts/consts";
 
 interface ArticleTypeTabsProps {
   value: ArticleType;

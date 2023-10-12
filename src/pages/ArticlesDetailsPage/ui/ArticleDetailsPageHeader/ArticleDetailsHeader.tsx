@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { getArticlesEditPage, getArticlesPage } from "shared/const/router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ThemButton } from "shared/ui/Button";
 import { articleDetailsHeaderSelector } from "../../model/selectors/articleDetailsHeaderSelector";
@@ -24,12 +24,13 @@ export const ArticleDetailsHeader = ({
   const article = useSelector(getArticleData);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getArticlesPage());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    // eslint-disable-next-line no-unsafe-optional-chaining
-    navigate(`${`${RoutePath.articles}/${article?.id}`}/edit`);
+    if (article) {
+      navigate(getArticlesEditPage(article.id));
+    }
   }, [navigate, article]);
 
   return (

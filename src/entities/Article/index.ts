@@ -6,8 +6,6 @@ export {
   getArticleIsLoading,
   getArticleError,
 } from "./model/selectors/getArticleSelector";
-export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
-export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
 export {
   ArticleBlockType,
   ArticleType,
@@ -19,4 +17,3 @@ export {
 } from "./model/slice/articleDetailsSlice/articleDetailsSlice";
 export { ArticleList } from "./ui/ArticleList/ArticleList";
 export type { ArticleView } from "./model/types/article";
-export { ArticleSortSelect } from "./ui/ArticleSortSelect/ArticleSortSelect";

@@ -1,11 +1,4 @@
-import {
-  ArticleSortField,
-  ArticleType,
-  ArticleTypeTabs,
-  ArticleViewSelector,
-  ArticleView,
-  ArticleSortSelect,
-} from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -14,6 +7,9 @@ import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { SortOrder } from "shared/types";
 import { Card } from "shared/ui/Card";
 import { Input } from "shared/ui/Input";
+import { ArticleViewSelector } from "features/ArticleViewSelector";
+import { ArticleSortSelect } from "features/ArticleSortSelect";
+import { ArticleTypeTabs } from "features/ArticleTypeTabs.tsx";
 import { articlesPageAction } from "../../model/slice/articlesPageSlice";
 import { fetchArticleList } from "../../model/services/fetchArticleList";
 import {

@@ -1,11 +1,11 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { RoutePath } from "shared/const/router";
 import { Avatar } from "shared/ui/Avatar";
 import { Skeleton } from "shared/ui/Skeleton";
 import { Text } from "shared/ui/Text";
 import { AppLink } from "shared/ui/AppLink";
 import { Comment } from "../../model/types/Comment";
 import cls from "./CommentCard.module.scss";
+import { getProfilePage } from "shared/const/router";
 
 interface commentCardProps {
   className?: string;
@@ -32,7 +32,7 @@ export const CommentCard = ({
 
   return (
     <div className={classNames(cls.CommentCard, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment.id}`} className={cls.header}>
+      <AppLink to={getProfilePage(comment.id)} className={cls.header}>
         {comment.user.avatar && (
           <Avatar size="30px" src={comment.user.avatar} />
         )}

@@ -7,9 +7,9 @@ import { Avatar } from "shared/ui/Avatar";
 import { Button, ThemButton } from "shared/ui/Button";
 import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
-import { RoutePath } from "shared/const/router";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { AppLink } from "shared/ui/AppLink";
+import { getArticlesDetailsPage } from "shared/const/router";
 import {
   Article,
   ArticleTextBlock,
@@ -70,7 +70,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           <div className={cls.footer}>
             <AppLink
               target={isTarget ? target : undefined}
-              to={`${RoutePath.articles_details}${article.id}`}
+              to={getArticlesDetailsPage(article.id)}
             >
               <Button onClick={setPositionIndex} theme={ThemButton.OUTLINE}>
                 {t("Read")}
@@ -87,7 +87,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   return (
     <AppLink
       target={isTarget ? target : undefined}
-      to={`${RoutePath.articles_details}${article.id}`}
+      to={getArticlesDetailsPage(article.id)}
     >
       <div
         onClick={setPositionIndex}

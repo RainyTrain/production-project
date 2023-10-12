@@ -2,7 +2,7 @@ import { getUserAuthData, getUserRoles, UserRole } from "entities/User";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RoutePath } from "shared/const/router";
+import { getMainPage, getMForbiddenPage } from "shared/const/router";
 
 interface RequiredAuthProps {
   children: JSX.Element;
@@ -33,16 +33,12 @@ export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
   console.log("hasRequiredRoles", hasRequiredRoles);
 
   if (!isAuth) {
-    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+    return <Navigate to={getMainPage()} state={{ from: location }} replace />;
   }
 
   if (!hasRequiredRoles) {
     return (
-      <Navigate
-        to={RoutePath.forbidden_page}
-        state={{ from: location }}
-        replace
-      />
+      <Navigate to={getMForbiddenPage()} state={{ from: location }} replace />
     );
   }
 

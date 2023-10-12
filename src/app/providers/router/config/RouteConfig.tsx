@@ -8,55 +8,67 @@ import { ArticleEditPage } from "pages/ArticleEditPage";
 import { AdminPanelPage } from "pages/AdminPanelPage";
 import { ForbiddenPage } from "pages/ForbiddenPage";
 import { UserRole } from "entities/User";
-import { AppRoutes, RoutePath } from "shared/const/router";
+import {
+  AppRoutes,
+  getAboutPage,
+  getAdminPanelPage,
+  getArticleCreatePage,
+  getArticlesDetailsPage,
+  getArticlesEditPage,
+  getArticlesPage,
+  getMainPage,
+  getMForbiddenPage,
+  getNotFoundPage,
+  getProfilePage,
+} from "shared/const/router";
 import { AppRouterProps } from "shared/types/router";
 
 export const routeConfig: Record<AppRoutes, AppRouterProps> = {
   [AppRoutes.MAIN]: {
-    path: RoutePath.main,
+    path: getMainPage(),
     element: <MainPage />,
   },
   [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
+    path: getAboutPage(),
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
+    path: getProfilePage(":id"),
     element: <ProfilePage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLES]: {
-    path: RoutePath.articles,
+    path: getArticlesPage(),
     element: <Articles />,
     authOnly: true,
   },
   [AppRoutes.ARTICLES_DETAILS]: {
-    path: `${RoutePath.articles_details}:id`,
+    path: getArticlesDetailsPage(":id"),
     element: <ArticlesDetailsPage />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.not_found,
+    path: getNotFoundPage(),
     element: <NotFoundPage />,
   },
   [AppRoutes.ARTICLE_EDIT]: {
-    path: RoutePath.article_edit,
+    path: getArticlesEditPage(":id"),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {
-    path: RoutePath.article_create,
+    path: getArticleCreatePage(),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: RoutePath.admin_panel,
+    path: getAdminPanelPage(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.MANAGER],
   },
   [AppRoutes.FORBIDDEN_PAGE]: {
-    path: RoutePath.forbidden_page,
+    path: getMForbiddenPage(),
     element: <ForbiddenPage />,
   },
 };
