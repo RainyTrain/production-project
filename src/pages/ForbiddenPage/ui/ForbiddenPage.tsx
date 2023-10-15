@@ -7,7 +7,10 @@ interface ForbiddenPageProps {
 }
 
 const ForbiddenPage = ({ className }: ForbiddenPageProps) => (
-  <Page className={classNames(cls.ForbiddenPage, {}, [className])}>
+  <Page
+    data-testid="ForbiddenPage"
+    className={classNames(cls.ForbiddenPage, {}, [className])}
+  >
     Forbidden page
   </Page>
 );

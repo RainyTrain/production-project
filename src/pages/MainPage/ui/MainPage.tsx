@@ -23,16 +23,19 @@ const MainPage = () => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  useInfiniteScroll({
-    callback: () => {
-      console.log("Load new items!");
-    },
-    triggerRef,
-    wrapperRef,
-  });
+  if (__PROJECT__ !== "jest") {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useInfiniteScroll({
+      callback: () => {
+        console.log("Load new items!");
+      },
+      triggerRef,
+      wrapperRef,
+    });
+  }
 
   return (
-    <Page>
+    <Page data-testid="MainPage">
       <div ref={wrapperRef} className="wrapper">
         {t("Main Page")}
         <RatingCard

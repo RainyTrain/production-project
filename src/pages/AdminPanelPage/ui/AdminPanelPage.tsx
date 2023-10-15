@@ -1,4 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
+import { Page } from "widgets/Page";
 import cls from "./AdminPanelPage.module.scss";
 
 interface AdminPanelPageProps {
@@ -6,9 +7,12 @@ interface AdminPanelPageProps {
 }
 
 const AdminPanelPage = ({ className }: AdminPanelPageProps) => (
-  <div className={classNames(cls.AdminPanelPage, {}, [className])}>
+  <Page
+    data-testid="AdminPage"
+    className={classNames(cls.AdminPanelPage, {}, [className])}
+  >
     Admin Panel
-  </div>
+  </Page>
 );
 
 export default AdminPanelPage;
