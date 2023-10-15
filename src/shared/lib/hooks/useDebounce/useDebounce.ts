@@ -21,12 +21,9 @@ export const useDebounce = ({ callback, delay }: UseDebounce) => {
     [callback, delay]
   );
 
-  useEffect(
-    () => () => {
-      clearTimeout(timerRef.current);
-    },
-    []
-  );
+  useEffect(() => () => {
+    clearTimeout(timerRef.current);
+  });
 
   return callbackFunction;
 };

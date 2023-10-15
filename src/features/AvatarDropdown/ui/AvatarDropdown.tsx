@@ -43,7 +43,7 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
         { content: "Profile", href: getProfilePage(authData?.id) },
         { content: "Sign out", onClick: onLogout },
       ]}
-      trigger={<Avatar size="30px" src={authData.avatar} />}
+      trigger={<Avatar fallbackInverted size="30px" src={authData.avatar} />}
       direction="bottom left"
     />
   );

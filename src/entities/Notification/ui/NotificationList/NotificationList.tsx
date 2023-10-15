@@ -36,8 +36,8 @@ export const NotificationList = ({ className }: NotificationListProps) => {
       gap="16"
       className={classNames(cls.NotificationList, {}, [className])}
     >
-      {notifcations?.map((notification: any) => (
-        <NotificationItem item={notification} />
+      {notifcations?.map((notification) => (
+        <NotificationItem key={notification.id} item={notification} />
       ))}
     </Vstack>
   );

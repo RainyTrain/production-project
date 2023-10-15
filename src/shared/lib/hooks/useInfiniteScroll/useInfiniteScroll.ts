@@ -16,11 +16,11 @@ export const useInfiniteScroll = ({
 
     const ref = triggerRef.current;
 
-    if (callback) {
+    if (callback && wrapperRef) {
       const options = {
-        root: wrapperRef.current,
+        root: null,
         rootMargin: "1px",
-        threshold: 1,
+        threshold: 0,
       };
 
       observer = new IntersectionObserver(([entry]) => {
@@ -28,7 +28,6 @@ export const useInfiniteScroll = ({
           callback();
         }
       }, options);
-
       observer.observe(ref);
     }
 

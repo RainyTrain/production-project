@@ -10,6 +10,8 @@ import { HTMLAttributeAnchorTarget } from "react";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { AppLink } from "shared/ui/AppLink";
 import { getArticlesDetailsPage } from "shared/const/router";
+import { AppImage } from "shared/ui/AppImage/AppImage";
+import { Skeleton } from "shared/ui/Skeleton";
 import {
   Article,
   ArticleTextBlock,
@@ -63,7 +65,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           </div>
           <Text text={article.title} className={cls.title} />
           <Text text={article.type.join(", ")} className={cls.types} />
-          <img src={article.img} alt={article.title} className={cls.img} />
+          <AppImage
+            src={article.img}
+            alt={article.title}
+            className={cls.img}
+            fallback={<Skeleton width="100%" height="250px" />}
+          />
           {text && (
             <ArticleTextBlockComponent block={text} className={cls.textBlock} />
           )}
@@ -95,7 +102,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
       >
         <Card>
           <div className={cls.imageWrapper}>
-            <img src={article.img} className={cls.img} alt={article.title} />
+            <AppImage
+              src={article.img}
+              className={cls.img}
+              alt={article.title}
+              fallback={<Skeleton width="200px" height="200px" />}
+            />
             <Text text={article.createdAt} className={cls.date} />
           </div>
           <div className={cls.inforWrapper}>
