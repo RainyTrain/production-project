@@ -10,7 +10,6 @@ import { Modal } from "shared/ui/Modal";
 import { Hstack, Vstack } from "shared/ui/Stack";
 import { StarRating } from "shared/ui/StarRating";
 import { Text } from "shared/ui/Text";
-import cls from "./RatingCard.module.scss";
 
 interface RatingCardProps {
   className?: string;
@@ -65,7 +64,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [onCanel, starsCount]);
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card className={classNames("", {}, [className])}>
       <Vstack align="center" gap="8">
         <Text title={starsCount ? "Thank you!" : title} />
         <StarRating

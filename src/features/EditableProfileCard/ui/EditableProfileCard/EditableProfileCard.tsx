@@ -19,7 +19,6 @@ import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/get
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
-import cls from "./EditableProfileCard.module.scss";
 import { EditableProfileCardHeader } from "../EditableProfileCardHeader/EditableProfileCardHeader";
 
 const initialReducers: ReducerList = {
@@ -114,11 +113,7 @@ export const EditableProfileCard = ({
 
   return (
     <DynamicModule reducers={initialReducers}>
-      <Vstack
-        gap="8"
-        max
-        className={classNames(cls.EditableProfileCard, {}, [className])}
-      >
+      <Vstack gap="8" max className={classNames("", {}, [className])}>
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err: string | undefined) => (
