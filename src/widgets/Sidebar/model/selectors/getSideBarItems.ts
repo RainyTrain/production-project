@@ -4,13 +4,13 @@ import MainIcon from "shared/assets/icons/MainIcon.svg";
 import AboutIcon from "shared/assets/icons/AboutIcon.svg";
 import ProfileIcon from "shared/assets/icons/Profile.svg";
 import ArticlesIcon from "shared/assets/icons/Articles.svg";
-import { SidebarItemType } from "../types/SidebarItemType";
 import {
   getAboutPage,
   getArticlesPage,
   getMainPage,
   getProfilePage,
 } from "shared/const/router";
+import { SidebarItemType } from "../types/SidebarItemType";
 
 export const getSideBarItems = createSelector(getUserAuthData, (data) => {
   const SidebarItemsList: SidebarItemType[] = [

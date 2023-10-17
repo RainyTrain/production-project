@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "storybook-addon-mock",
   ],
+  staticDirs: ["../../public"],
   framework: {
     name: "@storybook/react-webpack5",
     options: {},

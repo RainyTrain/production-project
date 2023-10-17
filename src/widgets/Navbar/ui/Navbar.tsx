@@ -10,8 +10,8 @@ import { Hstack } from "shared/ui/Stack";
 import { Text, TextTheme } from "shared/ui/Text";
 import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";
-import cls from "./Navbar.module.scss";
 import { getArticleCreatePage } from "shared/const/router";
+import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
   className?: string;

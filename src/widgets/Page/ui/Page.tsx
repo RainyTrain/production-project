@@ -7,7 +7,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle";
-import { TestProps } from "shared/types/test";
+import { TestProps } from "shared/types/forTest";
 import cls from "./Page.module.scss";
 
 interface PageProps extends TestProps {

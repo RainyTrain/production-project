@@ -1,7 +1,7 @@
 import { StoryFn } from "@storybook/react";
 import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
 import { articleDetailsReducer } from "entities/Article";
-import { addCommentReducer } from "features/AddCommentForm/model/slice/addCommentSlice";
+import { addCommentReducer } from "features/AddCommentForm";
 import { loginReducer } from "features/AuthByUsername";
 import { profileReducer } from "features/EditableProfileCard";
 import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage";
