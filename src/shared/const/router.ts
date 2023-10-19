@@ -12,10 +12,10 @@ export enum AppRoutes {
 }
 
 export const getAboutPage = () => "/about";
-export const getProfilePage = (id: string) => `/profile/:${id}`;
+export const getProfilePage = (id: string) => `/profile/${id}`;
 export const getMainPage = () => "/";
-export const getArticlesDetailsPage = (id: string) => `/articles/:${id}`;
-export const getArticlesEditPage = (id: string) => `/articles/:${id}/edit`;
+export const getArticlesDetailsPage = (id: string) => `/articles/${id}`;
+export const getArticlesEditPage = (id: string) => `/articles/${id}/edit`;
 export const getArticleCreatePage = () => "/articles/new";
 export const getAdminPanelPage = () => "/admin";
 export const getMForbiddenPage = () => "/forbidden";
