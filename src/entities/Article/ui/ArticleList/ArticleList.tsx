@@ -51,7 +51,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     if (view === "SMALL") {
       timeOut.current = setTimeout(() => {
         if (ref.current) {
@@ -106,6 +105,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   return (
     <div
+      data-testId="ArticleList"
       style={{ height: height || "calc(100vh - var(--navbar-height))" }}
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
     >

@@ -20,7 +20,10 @@ export const CommentCard = ({
 }: commentCardProps) => {
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentCard, {}, [className])}>
+      <div
+        data-testId="CommentCard"
+        className={classNames(cls.CommentCard, {}, [className])}
+      >
         <div className={cls.header}>
           <Skeleton height={30} width={30} border="50%" />
           <Skeleton height={16} width={100} className={cls.username} />
@@ -31,7 +34,10 @@ export const CommentCard = ({
   }
 
   return (
-    <div className={classNames(cls.CommentCard, {}, [className])}>
+    <div
+      className={classNames(cls.CommentCard, {}, [className])}
+      data-testId="CommentCard"
+    >
       <AppLink to={getProfilePage(comment.id)} className={cls.header}>
         {comment.user.avatar && (
           <Avatar size="30px" src={comment.user.avatar} />

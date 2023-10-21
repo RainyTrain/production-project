@@ -21,7 +21,11 @@ export const ArticleRecommendationList = ({
   }
 
   return (
-    <Vstack gap="8" className={classNames("", {}, [className])}>
+    <Vstack
+      data-testId="ArticleRecommendationList"
+      gap="8"
+      className={classNames("", {}, [className])}
+    >
       <Text title={t("Recommendations")} />
       <ArticleList
         isTarget

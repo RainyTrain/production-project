@@ -110,7 +110,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
           size={TextSize.M}
         />
         <div />
-        <Hstack className={cls.articleInfo}>
+        <Hstack className={cls.articleInfo} data-testId="ArticleDetails.Info">
           <Icon Icon={ViewIcon} className={cls.icon} />
           <Text
             text={String(article?.views)}

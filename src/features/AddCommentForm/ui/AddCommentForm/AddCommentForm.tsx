@@ -54,6 +54,7 @@ const AddCommentForm = memo(
           className={classNames(cls.AddCommentForm, {}, [className])}
           align="center"
           justify="between"
+          data-testId="AddCommentForm"
         >
           <Input
             value={text}

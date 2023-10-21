@@ -56,7 +56,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     ) as ArticleTextBlock;
 
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <div
+        data-testId="ArticleListItem"
+        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+      >
         <Card>
           <div className={cls.header}>
             <Avatar size="30px" src={article.img} />
@@ -93,6 +96,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      data-testId="ArticleListItem"
       target={isTarget ? target : undefined}
       to={getArticlesDetailsPage(article.id)}
     >
