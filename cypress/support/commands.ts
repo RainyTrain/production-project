@@ -1,13 +1,7 @@
-import { login } from "./commands/login";
+import { getByTestId, login } from "./commands/common";
+import { resetProfile, updateProfile } from "./commands/profile";
 
 Cypress.Commands.add("login", login);
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(email: string, password: string): Chainable<void>;
-    }
-  }
-}
-
-export {};
+Cypress.Commands.add("getByTestId", getByTestId);
+Cypress.Commands.add("resetProfile", resetProfile);
+Cypress.Commands.add("updateProfile", updateProfile);

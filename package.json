@@ -21,7 +21,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "prepare": "husky install",
-    "vite": "vite"
+    "vite": "vite",
+    "cypress": "cypress open"
   },
   "keywords": [],
   "author": "",
