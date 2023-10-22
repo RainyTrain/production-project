@@ -39,11 +39,18 @@ export const deleteArticle = (articleId: string) => {
   });
 };
 
+export const setRating = (startsCount = 5, feedback = "feedback") => {
+  cy.getByTestId(`StarRating.${startsCount}`).click();
+  cy.getByTestId("RatingCard.Input").type(feedback);
+  cy.getByTestId("RatingCard.Send").click();
+};
+
 declare global {
   namespace Cypress {
     interface Chainable {
       createArticle(): Chainable<Article>;
       deleteArticle(articleId: string): Chainable<void>;
+      setRating(startsCount: number, feedback: string): Chainable<void>;
     }
   }
 }

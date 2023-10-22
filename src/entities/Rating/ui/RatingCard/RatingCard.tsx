@@ -64,7 +64,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [onCanel, starsCount]);
 
   return (
-    <Card className={classNames("", {}, [className])}>
+    <Card data-testId="RatingCard" className={classNames("", {}, [className])}>
       <Vstack align="center" gap="8">
         <Text title={starsCount ? "Thank you!" : title} />
         <StarRating
@@ -78,16 +78,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
           <Vstack max gap="32">
             <Text title={feedbackTitle} />
             <Input
+              data-testId="RatingCard.Input"
               placeholder={t("Your feedback")}
               value={feedback}
               onChange={setFeedback}
             />
           </Vstack>
           <Hstack max gap="16" justify="end">
-            <Button theme={ThemButton.OUTLINE_RED} onClick={cancelHandler}>
+            <Button
+              data-testId="RatingCard.Close"
+              theme={ThemButton.OUTLINE_RED}
+              onClick={cancelHandler}
+            >
               {t("Close")}
             </Button>
-            <Button onClick={acceptHandler}>{t("Save")} </Button>
+            <Button data-testId="RatingCard.Send" onClick={acceptHandler}>
+              {t("Save")}{" "}
+            </Button>
           </Hstack>
         </Modal>
       ) : (

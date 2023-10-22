@@ -31,4 +31,11 @@ describe("articles", () => {
     cy.getByTestId("AddCommentForm").scrollIntoView();
     cy.getByTestId("CommentCard").should("exist");
   });
+
+  it("rate article", () => {
+    cy.getByTestId("ArticleDetails.Info");
+    cy.getByTestId("RatingCard").scrollIntoView();
+    cy.setRating(4, "test feedback");
+    cy.get("[data-selected=true").should("have.length", 4);
+  });
 });
