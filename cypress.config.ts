@@ -6,4 +6,11 @@ export default defineConfig({
     baseUrl: "http://localhost:3000/",
     // defaultCommandTimeout: 15000,
   },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "webpack",
+    },
+  },
 });

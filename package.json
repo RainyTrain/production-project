@@ -22,7 +22,7 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "prepare": "husky install",
     "vite": "vite",
-    "cypress": "cypress open"
+    "cypress:run": "cypress open"
   },
   "keywords": [],
   "author": "",
