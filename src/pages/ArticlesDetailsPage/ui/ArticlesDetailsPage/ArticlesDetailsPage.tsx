@@ -9,6 +9,8 @@ import {
 import { Page } from "widgets/Page";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList";
 import { ArticleRating } from "features/ArticleRating";
+import { getFeatureFlags } from "shared/features";
+import { useEffect } from "react";
 import { articleDetailsPageReducer } from "../../model/slice";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
@@ -26,6 +28,12 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   const { t } = useTranslation();
 
   const { id } = useParams<{ id: string }>();
+
+  const isArticleRatingEnabled = getFeatureFlags("isArtcileRatingEnabled");
+
+  useEffect(() => {
+    console.log(isArticleRatingEnabled, 'flag');
+  }, [isArticleRatingEnabled]);
 
   if (!id) {
     return <div>{t("Article is not found")}</div>;
