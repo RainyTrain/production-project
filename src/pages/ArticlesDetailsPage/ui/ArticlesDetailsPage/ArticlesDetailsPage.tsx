@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { ArticleDetails } from "entities/Article";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -32,8 +33,10 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   const isArticleRatingEnabled = getFeatureFlags("isArtcileRatingEnabled");
 
   useEffect(() => {
-    console.log(isArticleRatingEnabled, 'flag');
+    console.log(isArticleRatingEnabled, "flag");
   }, [isArticleRatingEnabled]);
+
+  const rating = <ArticleRating articleId={id!} />;
 
   if (!id) {
     return <div>{t("Article is not found")}</div>;
@@ -44,7 +47,7 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        {rating}
         <ArticleRecommendationList />
         <ArticlesDetailsComments id={id} />
       </Page>
