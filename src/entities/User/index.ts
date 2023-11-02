@@ -8,3 +8,6 @@ export {
   isUserAdmin,
   isUserManager,
 } from "./model/selectors/getUserRole/getUserRole";
+export { useJsonSettingByKey } from "./model/selectors/getJsonSetting/getJsonSetings";
+export { saveJsonSettings } from "./model/services/saveJsonSettings";
+export { initAuthData } from "./model/services/initAuthData";

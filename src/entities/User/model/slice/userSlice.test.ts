@@ -21,14 +21,14 @@ describe("userSlice", () => {
     });
   });
 
-  test("initAuthData", () => {
-    expect(
-      userReducer(initialState as UserSchema, userActions.initAuthData)
-    ).toStrictEqual({
-      _inited: true,
-      authData: undefined,
-    });
-  });
+  // test("initAuthData", () => {
+  //   expect(
+  //     userReducer(initialState as UserSchema, userActions.initAuthData)
+  //   ).toStrictEqual({
+  //     _inited: true,
+  //     authData: undefined,
+  //   });
+  // });
 
   test("logout", () => {
     expect(

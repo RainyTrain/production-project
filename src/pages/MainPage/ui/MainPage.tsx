@@ -1,7 +1,5 @@
 import { RatingCard } from "entities/Rating";
-// eslint-disable-next-line rainytrain-fsd-plugin/public-api-imports
-import { userUseActions } from "entities/User/model/slice/userSlice";
-import { MutableRefObject, useCallback, useEffect, useRef } from "react";
+import { MutableRefObject, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
 import { Page } from "widgets/Page";
@@ -9,16 +7,6 @@ import "./style.scss";
 
 const MainPage = () => {
   const { t } = useTranslation();
-
-  const { sayHi } = userUseActions();
-
-  const hadleGreet = useCallback(() => {
-    sayHi();
-  }, [sayHi]);
-
-  useEffect(() => {
-    hadleGreet();
-  }, [hadleGreet]);
 
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
