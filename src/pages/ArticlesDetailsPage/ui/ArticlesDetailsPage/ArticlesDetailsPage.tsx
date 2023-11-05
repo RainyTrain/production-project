@@ -10,8 +10,6 @@ import {
 import { Page } from "widgets/Page";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList";
 import { ArticleRating } from "features/ArticleRating";
-import { getFeatureFlags } from "shared/features";
-import { useEffect } from "react";
 import { articleDetailsPageReducer } from "../../model/slice";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
@@ -30,14 +28,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
   const { id } = useParams<{ id: string }>();
 
-  const isArticleRatingEnabled = getFeatureFlags("isArtcileRatingEnabled");
-
-  useEffect(() => {
-    console.log(isArticleRatingEnabled, "flag");
-  }, [isArticleRatingEnabled]);
-
-  const rating = <ArticleRating articleId={id!} />;
-
   if (!id) {
     return <div>{t("Article is not found")}</div>;
   }
@@ -47,7 +37,12 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
-        {rating}
+        {/* <ToggleFeatures
+          feature="isArtcileRatingEnabled"
+          off={<Card>Content</Card>}
+          on={<ArticleRating articleId={id!} />}
+        /> */}
+        <ArticleRating articleId={id!} />
         <ArticleRecommendationList />
         <ArticlesDetailsComments id={id} />
       </Page>
