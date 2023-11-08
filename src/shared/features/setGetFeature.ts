@@ -1,6 +1,6 @@
 import { FeatureFlag } from "shared/types/featureFlags";
 
-let featureFlags: FeatureFlag;
+let featureFlags: FeatureFlag = {};
 
 export const setGetFeatureFlags = (newFeatureFlags: FeatureFlag) => {
   featureFlags = newFeatureFlags;

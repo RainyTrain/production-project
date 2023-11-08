@@ -37,11 +37,6 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetailsHeader />
         <ArticleDetails id={id} />
-        {/* <ToggleFeatures
-          feature="isArtcileRatingEnabled"
-          off={<Card>Content</Card>}
-          on={<ArticleRating articleId={id!} />}
-        /> */}
         <ArticleRating articleId={id!} />
         <ArticleRecommendationList />
         <ArticlesDetailsComments id={id} />

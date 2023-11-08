@@ -105,10 +105,11 @@
         "ADMIN"
       ],
       "feature": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppReDesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_color_theme",
         "isFirstVisit": true,
         "settingsPageBeenOpened": false
       },

@@ -17,7 +17,7 @@ const toggleComponentName = "ToggleFeatures";
 const project = new Project({});
 
 project.addSourceFilesAtPaths("src/**/*.ts");
-project.addSourceFilesAtPaths("src/**/*.tsx");
+project.addSourceFilesAtPaths("src/**/ArticlesDetailsPage.tsx");
 
 const sourceFiles = project.getSourceFiles();
 
@@ -71,7 +71,6 @@ const replaceToggleFunction = (node: Node) => {
 };
 
 const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) =>
-  // @ts-ignore
   jsxAttributes.find((node) => node.getName() === name);
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {
@@ -89,9 +88,11 @@ const getReplacedComponent = (attribute?: JsxAttribute) => {
 
 const replaceComponent = (node: Node) => {
   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
+
   const onAttribute = getAttributeNodeByName(attributes, "on");
   const offAttribute = getAttributeNodeByName(attributes, "off");
   const featureNameAttribute = getAttributeNodeByName(attributes, "feature");
+
   const featureName = featureNameAttribute
     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
     ?.getText()

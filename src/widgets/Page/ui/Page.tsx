@@ -3,6 +3,7 @@ import { getUIScrollByPath, UIActions } from "features/UI";
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { toggleFeature } from "shared/features/toggleFeature";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
@@ -54,7 +55,15 @@ export const Page = (props: PageProps) => {
   return (
     <div
       ref={wrapperRef}
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(
+        toggleFeature({
+          name: "isAppReDesigned",
+          off: () => cls.Page,
+          on: () => cls.PageRedesigned,
+        }),
+        {},
+        [className]
+      )}
       onScroll={onScroll}
       // eslint-disable-next-line react/destructuring-assignment
       data-testid={props["data-testid"] ?? "Page"}

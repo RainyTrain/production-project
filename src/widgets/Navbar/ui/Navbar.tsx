@@ -11,6 +11,7 @@ import { Text, TextTheme } from "shared/ui/Text";
 import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";
 import { getArticleCreatePage } from "shared/const/router";
+import { ToggleFeatures } from "shared/features";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -34,24 +35,37 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
-        <Text
-          text="Production"
-          className={cls.appName}
-          theme={TextTheme.INVERTED}
-        />
-        <AppLink
-          to={getArticleCreatePage()}
-          theme={AppLinkTheme.SECONDARY}
-          className={cls.createBtn}
-        >
-          New article
-        </AppLink>
-        <Hstack gap="16" className={cls.actions} align="center">
-          <NotificationButton />
-          <AvatarDropdown />
-        </Hstack>
-      </div>
+      <ToggleFeatures
+        feature="isAppReDesigned"
+        off={
+          <div className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              text="Production"
+              className={cls.appName}
+              theme={TextTheme.INVERTED}
+            />
+            <AppLink
+              to={getArticleCreatePage()}
+              theme={AppLinkTheme.SECONDARY}
+              className={cls.createBtn}
+            >
+              New article
+            </AppLink>
+            <Hstack gap="16" className={cls.actions} align="center">
+              <NotificationButton />
+              <AvatarDropdown />
+            </Hstack>
+          </div>
+        }
+        on={
+          <div className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <Hstack gap="16" className={cls.actions} align="center">
+              <NotificationButton />
+              <AvatarDropdown />
+            </Hstack>
+          </div>
+        }
+      />
     );
   }
 
