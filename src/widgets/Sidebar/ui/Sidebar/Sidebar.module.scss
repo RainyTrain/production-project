@@ -48,4 +48,9 @@
   height: 100%;
   width: 220px;
   border-radius: 32px;
+  display: flex;
+}
+
+.logo {
+  justify-self: center;
 }

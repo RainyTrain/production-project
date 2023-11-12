@@ -40,7 +40,7 @@ export const ArticlesPageFilters = ({
     dispatch(fetchArticleList({ replace: true }));
   }, [dispatch]);
 
-  const debouncedFetchData = useDebounce({ callback: fetchData, delay: 500 });
+  const debouncedFetchData = useDebounce({ callback: fetchData, delay: 100 });
 
   const onChangeView = useCallback(
     (view: ArticleView) => {

@@ -12,8 +12,9 @@
 
 .content {
   grid-area: content;
-  max-width: 1200px;
   padding: 32px;
+  width: 90%;
+  justify-self: center;
 }
 
 .rightbar {
@@ -30,6 +31,6 @@
 .rightbar,
 .sidebar {
   position: sticky;
+  height: 100vh;
   top: 0;
-  height: 100%;
 }

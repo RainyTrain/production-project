@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useEffect, useRef } from "react";
+import { MutableRefObject, useCallback, useRef } from "react";
 
 interface UseDebounce {
   callback: (...args: any[]) => void;
@@ -20,10 +20,6 @@ export const useDebounce = ({ callback, delay }: UseDebounce) => {
     },
     [callback, delay]
   );
-
-  useEffect(() => () => {
-    clearTimeout(timerRef.current);
-  });
 
   return callbackFunction;
 };

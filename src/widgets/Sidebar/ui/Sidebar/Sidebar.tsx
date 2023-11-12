@@ -5,6 +5,7 @@ import { Vstack } from "shared/ui/Stack";
 import { classNames } from "shared/lib/classNames/classNames";
 import { LangSwitcher } from "features/LangSwitcher";
 import { ToggleFeatures } from "shared/features";
+import { Avatar } from "shared/ui/Avatar";
 import { getSideBarItems } from "../../model/selectors/getSideBarItems";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
@@ -70,6 +71,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             [className]
           )}
         >
+          <Avatar
+            src="https://avatars.githubusercontent.com/u/89872191?s=400&u=64315979b5bb47a77ba4a25c5b33d28fa7854ada&v=4"
+            className={cls.logo}
+          />
           {/* <Button
             data-testid="sidebar-toggle"
             type="button"
@@ -83,11 +88,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           </Button>
           <Vstack gap="8" className={cls.items} align="start">
             {itemList}
-          </Vstack>
+          </Vstack> */}
           <div className={cls.switchers}>
             <ThemeSwitcher className="hello" />
             <LangSwitcher className={cls.lang} short={collapsed} />
-          </div> */}
+          </div>
         </aside>
       }
     />
