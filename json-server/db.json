@@ -109,7 +109,7 @@
         "isAppReDesigned": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_color_theme",
         "isFirstVisit": true,
         "settingsPageBeenOpened": false
       },
@@ -126,7 +126,7 @@
         "isArticleRatingEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_color_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageBeenOpened": false
       },

@@ -42,6 +42,8 @@ export const ArticleViewSelector = ({
       {viewTypes.map((viewType) => (
         <Button theme={ThemButton.CLEAR} onClick={onClick(viewType.view)}>
           <Icon
+            width={24}
+            height={24}
             Icon={viewType.icon}
             className={classNames(
               "",
