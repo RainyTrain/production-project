@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { SortOrder } from "shared/types/sort";
-import { Select, SelectOption } from "shared/ui/Select";
+import { Select, SelectOption } from "shared/ui/Deprecated/Select";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleSortField } from "entities/Article";
 import cls from "./ArticleSortSelect.module.scss";

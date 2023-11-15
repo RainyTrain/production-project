@@ -4,8 +4,14 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { saveJsonSettings } from "entities/User";
-import { Icon } from "shared/ui/Icon";
-import { Button, ThemButton } from "../../../shared/ui/Button/Button";
+import { Icon as IconDeprecated } from "shared/ui/Deprecated/Icon";
+import {
+  Button as ButtonDeprecated,
+  ThemButton,
+} from "shared/ui/Deprecated/Button";
+import { ToggleFeatures } from "shared/features";
+import { Icon } from "shared/ui/Redesigned/Icon";
+import ThemeIconNew from "shared/assets/icons/theme.svg";
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -23,13 +29,18 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [toggleTheme, dispatch]);
 
   return (
-    <Button
-      onClick={onToggleHandler}
-      className={classNames("", {}, [className])}
-      theme={ThemButton.CLEAR}
-    >
-      {/* {theme === "app_light_theme" ? <LightIcon /> : <DarlIcon />} */}
-      <Icon Icon={ThemeIcon} width={40} height={40} inverted />
-    </Button>
+    <ToggleFeatures
+      feature="isAppReDesigned"
+      off={
+        <ButtonDeprecated
+          onClick={onToggleHandler}
+          className={classNames("", {}, [className])}
+          theme={ThemButton.CLEAR}
+        >
+          <IconDeprecated Icon={ThemeIcon} width={40} height={40} inverted />
+        </ButtonDeprecated>
+      }
+      on={<Icon Icon={ThemeIconNew} clickable onClick={onToggleHandler} />}
+    />
   );
 });

@@ -1,9 +1,9 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Button, ThemButton } from "shared/ui/Button";
-import { Input } from "shared/ui/Input";
-import { Text, TextTheme } from "shared/ui/Text";
+import { Button, ThemButton } from "shared/ui/Deprecated/Button";
+import { Input } from "shared/ui/Deprecated/Input";
+import { Text, TextTheme } from "shared/ui/Deprecated/Text";
 import {
   DynamicModule,
   ReducerList,

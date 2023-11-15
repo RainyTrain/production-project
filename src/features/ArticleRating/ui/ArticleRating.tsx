@@ -6,7 +6,7 @@ import {
 import { getUserAuthData } from "entities/User";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import { Skeleton } from "shared/ui/Skeleton";
+import { Skeleton } from "shared/ui/Deprecated/Skeleton";
 
 interface ArticleRatingProps {
   className?: string;

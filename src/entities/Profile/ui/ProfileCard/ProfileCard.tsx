@@ -2,11 +2,11 @@ import { CountrySelect } from "entities/Country";
 import { CurrencySelect } from "entities/Currency";
 import { useTranslation } from "react-i18next";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
-import { Avatar } from "shared/ui/Avatar";
-import { Input } from "shared/ui/Input";
-import { Loader } from "shared/ui/Loader";
-import { Text, TextTheme } from "shared/ui/Text";
-import { Vstack , Hstack } from "shared/ui/Stack";
+import { Avatar } from "shared/ui/Deprecated/Avatar";
+import { Input } from "shared/ui/Deprecated/Input";
+import { Loader } from "shared/ui/Deprecated/Loader";
+import { Text, TextTheme } from "shared/ui/Deprecated/Text";
+import { Vstack , Hstack } from "shared/ui/Deprecated/Stack";
 import { Profile } from "../../model/types/profile";
 import cls from "./ProfileCard.module.scss";
 

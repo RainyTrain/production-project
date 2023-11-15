@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { Text, TextAlign } from "shared/ui/Text";
+import { Text, TextAlign } from "shared/ui/Deprecated/Text";
 import { ArticleTextBlock } from "../../model/types/article";
 import cls from "./ArticleTextBlockComponent.module.scss";
 

@@ -5,29 +5,29 @@
   position: relative;
   transition: width 0.3s;
   flex-shrink: 0;
-}
 
-.switchers {
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
+  .switchers {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
 
-.lang {
-  margin-left: 20px;
-}
+  .lang {
+    margin-left: 20px;
+  }
 
-.collapsedBtn {
-  position: absolute;
-  right: -32px;
-  bottom: 32px;
-}
+  .collapsedBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+  }
 
-.items {
-  margin-left: 30px;
-  margin-top: 20px;
+  .items {
+    margin-left: 30px;
+    margin-top: 20px;
+  }
 }
 
 .collapsed {
@@ -48,9 +48,57 @@
   height: 100%;
   width: 220px;
   border-radius: 32px;
-  display: flex;
+  position: relative;
+
+  .switchers {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .items {
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+
+  .collapsedBtn {
+    position: absolute;
+    right: -30px;
+    bottom: 50%;
+    transform: rotate(90deg);
+    z-index: 100;
+  }
+
+  .appLogo {
+    padding-top: 20px;
+  }
 }
 
-.logo {
-  justify-self: center;
+.collapsedRedesigned {
+  width: 80px;
+
+  .switchers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .collapsedBtn {
+    transform: rotate(-90deg);
+  }
 }
+
+

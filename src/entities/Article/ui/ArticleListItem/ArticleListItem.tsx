@@ -1,17 +1,17 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { Icon } from "shared/ui/Icon";
-import { Text } from "shared/ui/Text";
+import { Icon } from "shared/ui/Deprecated/Icon";
+import { Text } from "shared/ui/Deprecated/Text";
 import View from "shared/assets/icons/View.svg";
-import { Card } from "shared/ui/Card";
-import { Avatar } from "shared/ui/Avatar";
-import { Button, ThemButton } from "shared/ui/Button";
+import { Card } from "shared/ui/Deprecated/Card";
+import { Avatar } from "shared/ui/Deprecated/Avatar";
+import { Button, ThemButton } from "shared/ui/Deprecated/Button";
 import { useTranslation } from "react-i18next";
 import { HTMLAttributeAnchorTarget } from "react";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
-import { AppLink } from "shared/ui/AppLink";
+import { AppLink } from "shared/ui/Deprecated/AppLink";
 import { getArticlesDetailsPage } from "shared/const/router";
-import { AppImage } from "shared/ui/AppImage/AppImage";
-import { Skeleton } from "shared/ui/Skeleton";
+import { AppImage } from "shared/ui/Deprecated/AppImage/AppImage";
+import { Skeleton } from "shared/ui/Deprecated/Skeleton";
 import {
   Article,
   ArticleTextBlock,

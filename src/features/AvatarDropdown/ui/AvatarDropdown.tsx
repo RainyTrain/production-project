@@ -8,8 +8,8 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { getAdminPanelPage, getProfilePage } from "shared/const/router";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Avatar } from "shared/ui/Avatar";
-import { Dropdown } from "shared/ui/Popups";
+import { Avatar } from "shared/ui/Deprecated/Avatar";
+import { Dropdown } from "shared/ui/Deprecated/Popups";
 
 interface AvatarDropdownProps {
   className?: string;

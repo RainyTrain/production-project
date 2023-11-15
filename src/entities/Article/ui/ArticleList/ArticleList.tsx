@@ -11,7 +11,7 @@ import {
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from "react-virtuoso";
 import { classNames } from "shared/lib/classNames/classNames";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
-import { Text, TextAlign, TextTheme } from "shared/ui/Text";
+import { Text, TextAlign, TextTheme } from "shared/ui/Deprecated/Text";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItemSkeleton/ArticleListItemSkeleton";

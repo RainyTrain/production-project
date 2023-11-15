@@ -5,13 +5,13 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Text, TextAlign, TextTheme } from "shared/ui/Text";
+import { Text, TextAlign, TextTheme } from "shared/ui/Deprecated/Text";
 import { ProfileCard } from "entities/Profile";
 import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
-import { Vstack } from "shared/ui/Stack";
+import { Vstack } from "shared/ui/Deprecated/Stack";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateError/getProfileValidateError";

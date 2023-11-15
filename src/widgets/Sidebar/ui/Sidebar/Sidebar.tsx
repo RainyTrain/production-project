@@ -1,11 +1,13 @@
 import { memo, useMemo, useState } from "react";
-import { Button, ButtonSize, ThemButton } from "shared/ui/Button";
 import { useSelector } from "react-redux";
-import { Vstack } from "shared/ui/Stack";
+import { Vstack } from "shared/ui/Deprecated/Stack";
 import { classNames } from "shared/lib/classNames/classNames";
 import { LangSwitcher } from "features/LangSwitcher";
 import { ToggleFeatures } from "shared/features";
-import { Avatar } from "shared/ui/Avatar";
+import { Button, ButtonSize, ThemButton } from "shared/ui/Deprecated/Button";
+import { AppLogo } from "shared/ui/Redesigned/AppLogo";
+import { Icon } from "shared/ui/Redesigned/Icon";
+import ArrowIcon from "shared/assets/icons/arrow-bottom.svg";
 import { getSideBarItems } from "../../model/selectors/getSideBarItems";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
@@ -67,30 +69,25 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           data-testid="sidebar"
           className={classNames(
             cls.SidebarRedesigned,
-            { [cls.collapsed]: collapsed },
+            { [cls.collapsedRedesigned]: collapsed },
             [className]
           )}
         >
-          <Avatar
-            src="https://avatars.githubusercontent.com/u/89872191?s=400&u=64315979b5bb47a77ba4a25c5b33d28fa7854ada&v=4"
-            className={cls.logo}
+          <AppLogo
+            size={collapsed ? "50px" : "100px"}
+            className={cls.appLogo}
           />
-          {/* <Button
-            data-testid="sidebar-toggle"
-            type="button"
+          <Icon
             onClick={onToggle}
             className={cls.collapsedBtn}
-            square
-            size={ButtonSize.L}
-            theme={ThemButton.BACKGROUND_INVERTED}
-          >
-            {collapsed ? ">" : "<"}
-          </Button>
+            Icon={ArrowIcon}
+            clickable
+          />
           <Vstack gap="8" className={cls.items} align="start">
             {itemList}
-          </Vstack> */}
+          </Vstack>
           <div className={cls.switchers}>
-            <ThemeSwitcher className="hello" />
+            <ThemeSwitcher />
             <LangSwitcher className={cls.lang} short={collapsed} />
           </div>
         </aside>
