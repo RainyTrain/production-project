@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/Deprecated/AppLink";
-import { Hstack } from "shared/ui/Deprecated/Stack";
+import { Hstack } from "shared/ui/Redesigned/Stack";
 import { Text, TextTheme } from "shared/ui/Deprecated/Text";
 import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";

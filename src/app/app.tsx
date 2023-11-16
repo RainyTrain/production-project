@@ -44,7 +44,8 @@ const App = () => {
             <MainLayout
               sidebar={<Sidebar />}
               content={<AppRouter />}
-              toolbar={<div>Toolbar</div>}
+              // eslint-disable-next-line react/jsx-no-useless-fragment
+              toolbar={<></>}
               header={<Navbar />}
             />
           </Suspense>

@@ -11,7 +11,7 @@ import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
-import { Vstack } from "shared/ui/Deprecated/Stack";
+import { Vstack } from "shared/ui/Redesigned/Stack";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateError/getProfileValidateError";

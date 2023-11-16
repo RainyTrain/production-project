@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Deprecated/Button";
 import { Input } from "shared/ui/Deprecated/Input";
-import { Hstack } from "shared/ui/Deprecated/Stack";
+import { Hstack } from "shared/ui/Redesigned/Stack";
 import {
   addCommentActions,
   addCommentReducer,

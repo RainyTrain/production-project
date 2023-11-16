@@ -10,7 +10,7 @@ import { HTMLAttributeAnchorTarget } from "react";
 import { USE_SESSIONSTORAGE_POSITION } from "shared/const/sessionStorage";
 import { AppLink } from "shared/ui/Deprecated/AppLink";
 import { getArticlesDetailsPage } from "shared/const/router";
-import { AppImage } from "shared/ui/Deprecated/AppImage/AppImage";
+import { AppImage } from "shared/ui/Redesigned/AppImage/AppImage";
 import { Skeleton } from "shared/ui/Deprecated/Skeleton";
 import {
   Article,

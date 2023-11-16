@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Button, ThemButton } from "shared/ui/Deprecated/Button";
-import { Hstack } from "shared/ui/Deprecated/Stack";
+import { Hstack } from "shared/ui/Redesigned/Stack";
 import { Text } from "shared/ui/Deprecated/Text";
 import { profileActions } from "../../model/slice/profileSlice";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";

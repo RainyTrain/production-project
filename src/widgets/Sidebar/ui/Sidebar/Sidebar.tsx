@@ -1,6 +1,6 @@
 import { memo, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { Vstack } from "shared/ui/Deprecated/Stack";
+import { Vstack } from "shared/ui/Redesigned/Stack";
 import { classNames } from "shared/lib/classNames/classNames";
 import { LangSwitcher } from "features/LangSwitcher";
 import { ToggleFeatures } from "shared/features";

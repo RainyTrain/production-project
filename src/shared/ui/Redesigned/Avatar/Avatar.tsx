@@ -3,7 +3,7 @@ import { classNames, Mods } from "shared/lib/classNames/classNames";
 import ProfileAvatar from "shared/assets/icons/ProfileAvatar.svg";
 import cls from "./Avatar.module.scss";
 import { Icon } from "../Icon";
-import { Skeleton } from "../Skeleton";
+import { Skeleton } from "../../Deprecated/Skeleton";
 import { AppImage } from "../../Redesigned/AppImage/AppImage";
 
 interface AvatartProps {
@@ -11,11 +11,10 @@ interface AvatartProps {
   src?: string;
   alt?: string;
   size?: string;
-  fallbackInverted?: boolean;
 }
 
 export const Avatar = memo((props: AvatartProps) => {
-  const { className, src, alt, size = "100px", fallbackInverted } = props;
+  const { className, src, alt, size = "100px" } = props;
 
   const mods: Mods = {};
 
@@ -31,7 +30,6 @@ export const Avatar = memo((props: AvatartProps) => {
 
   const errorFallback = (
     <Icon
-      inverted={fallbackInverted}
       width={size}
       height={size}
       Icon={ProfileAvatar}

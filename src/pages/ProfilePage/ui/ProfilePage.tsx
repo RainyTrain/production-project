@@ -4,7 +4,7 @@ import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
-import { Vstack } from "shared/ui/Deprecated/Stack";
+import { Vstack } from "shared/ui/Redesigned/Stack";
 import {
   EditableProfileCard,
   profileReducer,

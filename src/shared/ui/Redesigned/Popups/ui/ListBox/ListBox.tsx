@@ -37,7 +37,11 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     direction = "top right",
   } = props;
 
-  const optionsMods = [cls.options, mapDirectionClass[direction]];
+  const optionsMods = [
+    cls.options,
+    mapDirectionClass[direction],
+    popupCls.menu,
+  ];
 
   return (
     <Hstack align="center">

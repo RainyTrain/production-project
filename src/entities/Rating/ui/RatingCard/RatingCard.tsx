@@ -7,7 +7,7 @@ import { Card } from "shared/ui/Deprecated/Card";
 import { Drawer } from "shared/ui/Deprecated/Drawer";
 import { Input } from "shared/ui/Deprecated/Input";
 import { Modal } from "shared/ui/Deprecated/Modal";
-import { Hstack, Vstack } from "shared/ui/Deprecated/Stack";
+import { Hstack, Vstack } from "shared/ui/Redesigned/Stack";
 import { StarRating } from "shared/ui/Deprecated/StarRating";
 import { Text } from "shared/ui/Deprecated/Text";
 

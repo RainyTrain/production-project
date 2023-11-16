@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { Avatar } from "../../Deprecated/Avatar";
-import { Hstack } from "../../Deprecated/Stack";
+import { Hstack } from "../Stack";
 import cls from "./AppLogo.module.scss";
 
 interface AppLogoProps {
