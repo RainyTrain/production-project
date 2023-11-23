@@ -9,6 +9,8 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { Page } from "widgets/Page";
+import { ToggleFeatures } from "shared/features";
+import { StickyContentLayout } from "shared/layouts";
 import { initArticlePage } from "../../model/services/initArticlesPage/initAticlesPage";
 import {
   getArticlesPageError,
@@ -22,6 +24,8 @@ import {
 } from "../../model/slice/articlesPageSlice";
 import { ArticlesPageFilters } from "../ArticlePageFilters/ArticlesPageFilters";
 import cls from "./Articles.module.scss";
+import { ViewSelectorContainer } from "../ViewSelectorContainer/ViewSelectorContainer";
+import { FiltersContainer } from "../FiltersCntainer/FiltersContainer";
 
 interface ArticlesProps {
   className?: string;
@@ -56,20 +60,46 @@ const Articles = ({ className }: ArticlesProps) => {
 
   return (
     <DynamicModule reducers={reducers}>
-      <Page
-        data-testid="ArticlesPage"
-        // onScrollEnd={isLoading ? undefined : onLoadNextPart}
-        className={classNames(cls.Articles, {}, [className])}
-      >
-        <ArticlesPageFilters />
-        <ArticleList
-          className={cls.list}
-          view={view}
-          articles={articles}
-          isLoading={isLoading}
-          onLoadNextPath={onLoadNextPart}
-        />
-      </Page>
+      <ToggleFeatures
+        feature="isAppReDesigned"
+        off={
+          <Page
+            data-testid="ArticlesPage"
+            // onScrollEnd={isLoading ? undefined : onLoadNextPart}
+            className={classNames(cls.Articles, {}, [className])}
+          >
+            <ArticlesPageFilters />
+            <ArticleList
+              className={cls.list}
+              view={view}
+              articles={articles}
+              isLoading={isLoading}
+              onLoadNextPath={onLoadNextPart}
+            />
+          </Page>
+        }
+        on={
+          <StickyContentLayout
+            left={<ViewSelectorContainer />}
+            contnent={
+              <Page
+                data-testid="ArticlesPage"
+                // onScrollEnd={isLoading ? undefined : onLoadNextPart}
+                className={classNames(cls.ArticlesRedesigned, {}, [className])}
+              >
+                <ArticleList
+                  className={cls.list}
+                  view={view}
+                  articles={articles}
+                  isLoading={isLoading}
+                  onLoadNextPath={onLoadNextPart}
+                />
+              </Page>
+            }
+            right={<FiltersContainer />}
+          />
+        }
+      />
     </DynamicModule>
   );
 };

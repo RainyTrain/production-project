@@ -3,6 +3,8 @@ import { SortOrder } from "shared/types/sort";
 import { Select, SelectOption } from "shared/ui/Deprecated/Select";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleSortField } from "entities/Article";
+import { ToggleFeatures } from "shared/features";
+import { ListBox } from "shared/ui/Redesigned/Popups";
 import cls from "./ArticleSortSelect.module.scss";
 
 interface ArticleSortSelectProps {
@@ -49,20 +51,40 @@ export const ArticleSortSelect = (props: ArticleSortSelectProps) => {
   );
 
   return (
-    <div className={classNames(cls.ArticleSortSelect, {}, [className])}>
-      <Select<ArticleSortField>
-        onChange={onChangeSort}
-        value={sort}
-        options={sortFieldOptions}
-        label="Sort by"
-      />
-      <Select<SortOrder>
-        onChange={onChangeOrder}
-        value={order}
-        options={orderOptions}
-        label="Order by"
-        className={cls.order}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppReDesigned"
+      off={
+        <div className={classNames(cls.ArticleSortSelect, {}, [className])}>
+          <Select<ArticleSortField>
+            onChange={onChangeSort}
+            value={sort}
+            options={sortFieldOptions}
+            label="Sort by"
+          />
+          <Select<SortOrder>
+            onChange={onChangeOrder}
+            value={order}
+            options={orderOptions}
+            label="Order by"
+            className={cls.order}
+          />
+        </div>
+      }
+      on={
+        <div className={classNames(cls.ArticleSortSelect, {}, [className])}>
+          <ListBox<ArticleSortField>
+            onChange={onChangeSort}
+            value={sort}
+            options={sortFieldOptions}
+          />
+          <ListBox<SortOrder>
+            onChange={onChangeOrder}
+            value={order}
+            options={orderOptions}
+            className={cls.order}
+          />
+        </div>
+      }
+    />
   );
 };
