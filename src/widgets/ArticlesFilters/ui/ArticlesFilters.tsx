@@ -3,9 +3,11 @@ import { ArticleSortSelect } from "features/ArticleSortSelect";
 import { ArticleTypeTabs } from "features/ArticleTypeTabs.tsx";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SortOrder } from "shared/types/sort";
-import { Input } from "shared/ui/Deprecated/Input";
 import { Card } from "shared/ui/Redesigned/Card";
+import { Input } from "shared/ui/Redesigned/Input";
 import { Vstack } from "shared/ui/Redesigned/Stack";
+import Search from "shared/assets/icons/search.svg";
+import { Icon } from "shared/ui/Redesigned/Icon";
 import cls from "./ArticlesFilters.module.scss";
 
 interface ArticlesFiltersProps {
@@ -31,9 +33,17 @@ export const ArticlesFilters = ({
   onChangeType,
   onChangeSort,
 }: ArticlesFiltersProps) => (
-  <Card className={classNames(cls.ArticlesFilters, {}, [className])} padding='24'>
+  <Card
+    className={classNames(cls.ArticlesFilters, {}, [className])}
+    padding="24"
+  >
     <Vstack gap="32">
-      <Input onChange={onChangeSearch} value={search} placeholder="Search" />
+      <Input
+        onChange={onChangeSearch}
+        value={search}
+        placeholder="Search"
+        addonLeft={<Icon Icon={Search} />}
+      />
 
       <ArticleSortSelect
         onChangeSort={onChangeSort}

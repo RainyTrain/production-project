@@ -1,5 +1,7 @@
 import { useCallback, useMemo } from "react";
-import { Tab, TabItem } from "shared/ui/Deprecated/Tab";
+import { ToggleFeatures } from "shared/features";
+import { Tab as TabDeprecated, TabItem } from "shared/ui/Deprecated/Tab";
+import { Tab } from "shared/ui/Redesigned/Tab";
 import { ArticleType } from "../../../entities/Article/model/consts/consts";
 
 interface ArticleTypeTabsProps {
@@ -28,5 +30,13 @@ export const ArticleTypeTabs = ({
     [onCnahgeType]
   );
 
-  return <Tab tabs={typeTabs} value={value} onTabClick={onTabClik} />;
+  return (
+    <ToggleFeatures
+      feature="isAppReDesigned"
+      off={
+        <TabDeprecated tabs={typeTabs} value={value} onTabClick={onTabClik} />
+      }
+      on={<Tab tabs={typeTabs} value={value} onTabClick={onTabClik} direction='column'/>}
+    />
+  );
 };

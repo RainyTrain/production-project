@@ -5,6 +5,8 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ArticleSortField } from "entities/Article";
 import { ToggleFeatures } from "shared/features";
 import { ListBox } from "shared/ui/Redesigned/Popups";
+import { Vstack } from "shared/ui/Redesigned/Stack";
+import { Text } from "shared/ui/Redesigned/Text";
 import cls from "./ArticleSortSelect.module.scss";
 
 interface ArticleSortSelectProps {
@@ -71,18 +73,22 @@ export const ArticleSortSelect = (props: ArticleSortSelectProps) => {
         </div>
       }
       on={
-        <div className={classNames(cls.ArticleSortSelect, {}, [className])}>
-          <ListBox<ArticleSortField>
-            onChange={onChangeSort}
-            value={sort}
-            options={sortFieldOptions}
-          />
-          <ListBox<SortOrder>
-            onChange={onChangeOrder}
-            value={order}
-            options={orderOptions}
-            className={cls.order}
-          />
+        <div className={classNames(cls.ArticleSortSelectRedesigned, {}, [className])}>
+          <Vstack gap="8">
+            <Text text="Sort by" />
+            <ListBox<ArticleSortField>
+              onChange={onChangeSort}
+              value={sort}
+              options={sortFieldOptions}
+              direction="top"
+            />
+            <ListBox<SortOrder>
+              onChange={onChangeOrder}
+              value={order}
+              options={orderOptions}
+              direction="top"
+            />
+          </Vstack>
         </div>
       }
     />

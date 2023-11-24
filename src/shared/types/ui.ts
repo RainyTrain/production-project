@@ -2,4 +2,6 @@ export type DropDownDirection =
   | "top left"
   | "top right"
   | "bottom left"
-  | "bottom right";
+  | "bottom right"
+  | "top"
+  | "bottom";
