@@ -7,6 +7,8 @@ import React, {
   useState,
 } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { Hstack } from "../Stack";
+import { Text } from "../Text";
 import cls from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
@@ -23,6 +25,7 @@ interface InputProps extends HTMLInputProps {
   readOnly?: boolean;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
+  label?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -36,6 +39,7 @@ export const Input = memo((props: InputProps) => {
     readOnly,
     addonLeft,
     addonRight,
+    label,
     ...otherProps
   } = props;
 
@@ -68,7 +72,7 @@ export const Input = memo((props: InputProps) => {
     }
   }, [autofocus]);
 
-  return (
+  const input = (
     <div className={classNames(cls.InputWrapper, mods, [className])}>
       <div className={cls.addonLeft}>{addonLeft}</div>
       <input
@@ -86,4 +90,14 @@ export const Input = memo((props: InputProps) => {
       <div className={cls.addonRight}>{addonRight}</div>
     </div>
   );
+
+  if (label) {
+    return (
+      <Hstack gap="8" max align="center">
+        <Text text={label}/>
+        {input}
+      </Hstack>
+    );
+  }
+  return input;
 });
