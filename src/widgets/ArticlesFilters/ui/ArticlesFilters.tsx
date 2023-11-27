@@ -43,6 +43,7 @@ export const ArticlesFilters = ({
         value={search}
         placeholder="Search"
         addonLeft={<Icon Icon={Search} />}
+        size="s"
       />
 
       <ArticleSortSelect
