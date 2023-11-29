@@ -8,18 +8,18 @@ interface AppLogoProps {
   size?: string;
 }
 
-export const AppLogo = ({ className, size = '100px' }: AppLogoProps) => (
+export const AppLogo = ({ className, size = "100px" }: AppLogoProps) => (
   <Hstack
-    className={classNames(cls.AppLogo, {}, [className])}
+    className={classNames(cls.appLogoWrapper, {}, [className])}
     max
     justify="center"
   >
-    <div className={cls.gradientBig} />
-    <div className={cls.gradientSmall} />
     <Avatar
       src="https://avatars.githubusercontent.com/u/89872191?s=400&u=64315979b5bb47a77ba4a25c5b33d28fa7854ada&v=4"
-      className={cls.appLogoWrapper}
+      className={cls.appLogo}
       size={size}
     />
+    <div className={cls.gradientBig} />
+    <div className={cls.gradientSmall} />
   </Hstack>
 );
