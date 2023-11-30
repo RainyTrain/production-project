@@ -1,1 +1,0 @@
-export const USE_SESSIONSTORAGE_POSITION = "position";
