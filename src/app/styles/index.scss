@@ -1,0 +1,27 @@
+@import "reset";
+@import "variables/global";
+@import "themes/dark";
+@import "themes/normal";
+@import "themes/color";
+
+.app,
+.app_modal,
+.app_drawer {
+  font: var(--font-m);
+  color: var(--primary-color);
+}
+
+.app {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.app_redesigned {
+  background-color: var(--bg-redesigned);
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+}
+
+.content-page {
+  display: flex;
+}

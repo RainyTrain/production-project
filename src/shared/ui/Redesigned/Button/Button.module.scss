@@ -1,0 +1,88 @@
+.Button {
+  cursor: pointer;
+  color: var(--text-redesigned);
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: var(--accent-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: (--accent-redesigned);
+    }
+  }
+}
+
+.clear {
+  outline: none;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.square {
+  padding: 0;
+
+  &.size_M {
+    width: var(--font-line-m);
+    height: var(--font-line-m);
+    font: var(--font-m);
+  }
+
+  &.size_L {
+    width: var(--font-line-l);
+    height: var(--font-line-l);
+    font: var(--font-l);
+  }
+
+  &.size_XL {
+    width: var(--font-line-xl);
+    height: var(--font-line-xl);
+    font: var(--font-l);
+  }
+}
+
+.size_M {
+  font: var(--font-m-redesigned);
+}
+
+.size_L {
+  font: var(--font-l-redesigned);
+}
+
+.size_XL {
+  font: var(--font-l-redesigned);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.filled {
+  background: var(--light-bg-redesigned);
+  border: none;
+  outline: none;
+  border-radius: 34px;
+}
+
+.outline {
+  background: none;
+  border: 1px solid var(--icon-redesigned);
+  border-radius: 34px;
+
+  &:hover {
+    border: 1px solid var(--accent-redesigned);
+  }
+}
+
+.addonLeft,
+.addonRight {
+  color: (--hint-redesigned);
+  display: flex;
+}
+
+.withAddon {
+  padding: 0 16px;
+}

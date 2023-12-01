@@ -1,0 +1,15 @@
+.trigger {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  background-color: brown;
+  color: white;
+  opacity: 0;
+  height: 200px;
+  z-index: -2;
+}
+
+.wrapper {
+  height: 1000px;
+  position: relative;
+}

@@ -1,0 +1,19 @@
+.Page {
+  width: 100%;
+  flex-grow: 1;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+  padding: 20px 20px 20px 40px;
+}
+
+.PageRedesigned {
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+}
+
+.trigger {
+  height: 20px;
+  width: 20px;
+}
