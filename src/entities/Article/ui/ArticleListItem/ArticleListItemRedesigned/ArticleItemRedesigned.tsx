@@ -95,29 +95,29 @@ export const ArticleItemRedesigned = (props: ArticleListItemProps) => {
       data-testId="ArticleListItem"
       target={isTarget ? target : undefined}
       to={getArticlesDetailsPage(article.id)}
+      className={classNames(cls.ArticleList, {}, [className, cls[view]])}
     >
-      <div
-        onClick={setPositionIndex}
-        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      >
-        <Card>
-          <div className={cls.imageWrapper}>
-            <AppImage
-              src={article.img}
-              className={cls.img}
-              alt={article.title}
-              fallback={<Skeleton width="200px" height="200px" />}
-            />
-            <Text text={article.createdAt} className={cls.date} />
-          </div>
-          <div className={cls.inforWrapper}>
-            <Text text={article.type.join(", ")} className={cls.types} />
-            <Text text={String(article.views)} className={cls.views} />
-            <Icon Icon={View} />
-          </div>
+      <Card onClick={setPositionIndex} border="round" className={cls.card}>
+        <AppImage
+          src={article.img}
+          className={cls.img}
+          alt={article.title}
+          fallback={<Skeleton width="200px" height="200px" />}
+        />
+        <Vstack className={cls.info}>
           <Text text={article.title} className={cls.title} />
-        </Card>
-      </div>
+          <Vstack gap="4" className={cls.footer} max>
+            <Hstack justify="between" max>
+              <Text text={article.createdAt} className={cls.date} />
+              {article.views}
+            </Hstack>
+            <Hstack gap="4">
+              <Avatar size="32px" src={article.user.avatar} />
+              <Text text={article.user.username} bold />
+            </Hstack>
+          </Vstack>
+        </Vstack>
+      </Card>
     </AppLink>
   );
 };

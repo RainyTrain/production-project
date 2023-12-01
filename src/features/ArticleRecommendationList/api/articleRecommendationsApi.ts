@@ -6,7 +6,7 @@ export const recommendationsApi = rtlApi.injectEndpoints({
     getRecommendationsList: builder.query<Article[], number>({
       query: (limit) => ({
         url: "/articles",
-        params: { _limit: limit },
+        params: { _limit: limit, _expand: "user" },
       }),
     }),
   }),
