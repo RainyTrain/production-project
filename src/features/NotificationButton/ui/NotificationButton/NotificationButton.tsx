@@ -9,7 +9,7 @@ import { Popover as PopoverDeprecated } from "shared/ui/Deprecated/Popups";
 import NotificationDeprecated from "shared/assets/icons/Notification.svg";
 import Notification from "shared/assets/icons/notificationNew.svg";
 import { memo, useCallback, useState } from "react";
-import { Drawer } from "shared/ui/Deprecated/Drawer";
+import { Drawer } from "shared/ui/Redesigned/Drawer";
 import { useDetectDevice } from "shared/lib/hooks/useDetectDevice/useDetectDevice";
 import { AnimationProvider } from "shared/lib/components/AnimationProvider";
 import { ToggleFeatures } from "shared/features";

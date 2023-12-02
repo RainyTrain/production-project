@@ -7,9 +7,10 @@ import React, {
   useState,
 } from "react";
 import { classNames, Mods } from "shared/lib/classNames/classNames";
-import { Portal } from "../../Redesigned/Portal";
+import { toggleFeature } from "shared/features/lib/toggleFeature";
+import { Portal } from "../Portal";
 import { useTheme } from "../../../lib/hooks/useTheme/useTheme";
-import { Overlay } from "../../Redesigned/Overlay";
+import { Overlay } from "../Overlay";
 import cls from "./Modal.module.scss";
 
 interface ModalProps {
@@ -84,9 +85,18 @@ export const Modal: React.FC<ModalProps> = ({
   }
 
   return (
-    <Portal>
+    <Portal element={document.getElementById("app") ?? document.body}>
       <div
-        className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
+        className={classNames(cls.Modal, mods, [
+          className,
+          theme,
+          "app_modal",
+          toggleFeature({
+            name: "isAppReDesigned",
+            on: () => cls.modalNew,
+            off: () => cls.modalOld,
+          }),
+        ])}
       >
         <Overlay onClick={closeHandler} />
         <div className={cls.content} onClick={onContentClick}>
