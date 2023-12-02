@@ -10,10 +10,14 @@ import {
 import { Page } from "widgets/Page";
 import { ArticleRecommendationList } from "features/ArticleRecommendationList";
 import { ArticleRating } from "features/ArticleRating";
+import { ToggleFeatures } from "shared/features";
+import { StickyContentLayout } from "shared/layouts";
 import { articleDetailsPageReducer } from "../../model/slice";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
 import { ArticlesDetailsComments } from "../ArticlesDetailsComments/ArticlesDetailsComments";
+import { AdditionalInfo } from "../AdditionalInfo/AdditionalInfo";
+import { DetailsContainer } from "../DetailsContainer/DetailsContainer";
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -34,13 +38,33 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
 
   return (
     <DynamicModule reducers={reducerList} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsHeader />
-        <ArticleDetails id={id} />
-        <ArticleRating articleId={id!} />
-        <ArticleRecommendationList />
-        <ArticlesDetailsComments id={id} />
-      </Page>
+      <ToggleFeatures
+        feature="isAppReDesigned"
+        off={
+          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <ArticleDetailsHeader />
+            <ArticleDetails id={id} />
+            <ArticleRating articleId={id} />
+            <ArticleRecommendationList />
+            <ArticlesDetailsComments id={id} />
+          </Page>
+        }
+        on={
+          <StickyContentLayout
+            contnent={
+              <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+              >
+                <DetailsContainer />
+                <ArticleRating articleId={id} />
+                <ArticleRecommendationList />
+                <ArticlesDetailsComments id={id} />
+              </Page>
+            }
+            right={<AdditionalInfo />}
+          />
+        }
+      />
     </DynamicModule>
   );
 };
