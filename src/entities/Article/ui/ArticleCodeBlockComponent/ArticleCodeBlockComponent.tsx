@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import { Code } from "shared/ui/Deprecated/Code";
+import { Code } from "shared/ui/Redesigned/Code";
 import { ArticleCodeBlock } from "../../model/types/article";
 
 interface ArticleCodeBlockComponentProps {

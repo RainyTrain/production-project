@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Vstack } from "shared/ui/Redesigned/Stack";
 import { Text } from "shared/ui/Deprecated/Text";
+import { useEffect } from "react";
 import { useArticleRecommendationsList } from "../api/articleRecommendationsApi";
 
 interface ArticleRecommendationListProps {
@@ -15,6 +16,12 @@ export const ArticleRecommendationList = ({
   const { t } = useTranslation();
 
   const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
+
+  useEffect(() => {
+    if (articles) {
+      console.log(articles, "artiles");
+    }
+  }, [articles]);
 
   if (isLoading || error) {
     return null;
@@ -32,7 +39,7 @@ export const ArticleRecommendationList = ({
         target="_blank"
         articles={articles}
         isLoading={isLoading}
-        height="300px"
+        height="500px"
       />
     </Vstack>
   );

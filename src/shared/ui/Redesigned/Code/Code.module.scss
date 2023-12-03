@@ -6,6 +6,15 @@
   overflow-y: auto;
 }
 
+.CodeRedesigned {
+  padding: 20px;
+  border: 2px solid var(--accent-redesigned);
+  position: relative;
+  background: var(--light-bg-redesigned);
+  overflow: auto;
+  border-radius: 16px;
+}
+
 .copyBtn {
   position: absolute;
   right: 20px;

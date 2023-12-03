@@ -157,7 +157,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <div
           data-testId="ArticleList"
           style={{ height: height || "calc(100vh - var(--navbar-height))" }}
-          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          className={classNames(cls.ArticleList, {}, [])}
         >
           {view === "BIG" ? (
             <Virtuoso

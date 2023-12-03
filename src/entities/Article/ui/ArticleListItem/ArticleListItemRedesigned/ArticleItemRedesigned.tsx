@@ -53,7 +53,11 @@ export const ArticleItemRedesigned = (props: ArticleListItemProps) => {
       >
         <Vstack max gap="16">
           <Hstack gap="8">
-            <Avatar size="32px" src={article.user.avatar} />
+            <Avatar
+              size="32px"
+              src={article.user.avatar}
+              className={cls.avatar}
+            />
             <Text text={article.user.username} bold />
             <Text text={article.createdAt} bold />
           </Hstack>
@@ -97,12 +101,17 @@ export const ArticleItemRedesigned = (props: ArticleListItemProps) => {
       to={getArticlesDetailsPage(article.id)}
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
     >
-      <Card onClick={setPositionIndex} border="round" className={cls.card}>
+      <Card
+        onClick={setPositionIndex}
+        border="round"
+        className={cls.card}
+        padding="0"
+      >
         <AppImage
           src={article.img}
           className={cls.img}
           alt={article.title}
-          fallback={<Skeleton width="200px" height="200px" />}
+          fallback={<Skeleton width="100%" height="200px" />}
         />
         <Vstack className={cls.info}>
           <Text text={article.title} className={cls.title} />
@@ -112,7 +121,11 @@ export const ArticleItemRedesigned = (props: ArticleListItemProps) => {
               {article.views}
             </Hstack>
             <Hstack gap="4">
-              <Avatar size="32px" src={article.user.avatar} />
+              <Avatar
+                size="32px"
+                src={article.user.avatar}
+                className={cls.avatar}
+              />
               <Text text={article.user.username} bold />
             </Hstack>
           </Vstack>
