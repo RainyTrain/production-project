@@ -19,7 +19,7 @@ export const ArticleRating = ({ className, articleId }: ArticleRatingProps) => {
   const { data: rating, isLoading } = useGetArticleRating({
     articleId,
     userId: userData?.id ?? "",
-  });
+  }); 
 
   const [rateArticleMutation] = useRateArticle({});
 

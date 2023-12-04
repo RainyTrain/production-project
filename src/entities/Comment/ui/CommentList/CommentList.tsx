@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Vstack } from "shared/ui/Redesigned/Stack";
-import { Text, TextAlign } from "shared/ui/Deprecated/Text";
+import { Text as TextDeprecated, TextAlign } from "shared/ui/Deprecated/Text";
+import { ToggleFeatures } from "shared/features";
+import { Text } from "shared/ui/Redesigned/Text";
 import { Comment } from "../../model/types/Comment";
 import { CommentCard } from "../CommentCard/CommentCard";
 import cls from "./CommentList.module.scss";
@@ -33,7 +35,11 @@ export const CommentList = ({
           />
         ))
       ) : (
-        <Text text={t("Not found")} align={TextAlign.LEFT} />
+        <ToggleFeatures
+          feature="isAppReDesigned"
+          off={<TextDeprecated text={t("Not found")} align={TextAlign.LEFT} />}
+          on={<Text text={t("Not found")} align="left" />}
+        />
       )}
     </Vstack>
   );

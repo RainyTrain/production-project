@@ -22,7 +22,8 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { ToggleFeatures } from "shared/features";
 import { Text } from "shared/ui/Redesigned/Text";
 import { AppImage } from "shared/ui/Redesigned/AppImage/AppImage";
-import { Skeleton } from "shared/ui/Redesigned/Skeleton";
+import { Skeleton as SkeletonRedesigned } from "shared/ui/Redesigned/Skeleton";
+import { toggleFeature } from "shared/features/lib/toggleFeature";
 import { ArticleBlockType } from "../../model/consts/consts";
 import { ArticleBlock } from "../../model/types/article";
 import { getArticleById } from "../../model/services/getArticleById/getArticleById";
@@ -102,12 +103,35 @@ const Redesigned = () => {
       <Text title={article?.title} align={TextAlign.LEFT} size="l" bold />
       <Text title={article?.subtitle} align={TextAlign.LEFT} />
       <AppImage
-        fallback={<Skeleton width="100%" height="420px" border="16px" />}
+        fallback={<SkeletonRedesigned width="100%" height="420px" border="16px" />}
         src={article?.img}
         className={cls.img}
       />
       <div>{article?.blocks?.map(renderArticleBlock)}</div>
     </>
+  );
+};
+
+const Skeletons = () => {
+  const Skeleton = toggleFeature({
+    name: "isAppReDesigned",
+    off: () => SkeletonDeprecated,
+    on: () => SkeletonRedesigned,
+  });
+
+  return (
+    <Vstack gap="16" max>
+      <Skeleton
+        className={cls.avatar}
+        border="50%"
+        height="200px"
+        width="200px"
+      />
+      <Skeleton className={cls.title} height="32px" width="300px" />
+      <Skeleton className={cls.skeleton} height="24px" width="600px" />
+      <Skeleton className={cls.skeleton} height="200px" width="100%" />
+      <Skeleton className={cls.skeleton} height="200px" width="100%" />
+    </Vstack>
   );
 };
 
@@ -128,32 +152,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   let content;
 
   if (isLoading) {
-    content = (
-      <>
-        <SkeletonDeprecated
-          className={cls.avatar}
-          border="50%"
-          height="200px"
-          width="200px"
-        />
-        <SkeletonDeprecated className={cls.title} height="32px" width="300px" />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          height="24px"
-          width="600px"
-        />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          height="200px"
-          width="100%"
-        />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          height="200px"
-          width="100%"
-        />
-      </>
-    );
+    content = <Skeletons />;
   } else if (error) {
     content = (
       <TextDeprecated

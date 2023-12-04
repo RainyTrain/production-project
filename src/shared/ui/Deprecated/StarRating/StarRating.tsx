@@ -1,6 +1,9 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { useState } from "react";
-import { Icon } from "../Icon/Icon";
+import { ToggleFeatures } from "shared/features";
+import { toggleFeature } from "shared/features/lib/toggleFeature";
+import { Icon } from "../../Redesigned/Icon";
+import { Icon as IconDeprecated } from "../Icon/Icon";
 import cls from "./StarRating.module.scss";
 import StarRatingIcon from "../../../assets/icons/StarRating.svg";
 
@@ -41,24 +44,47 @@ export const StarRating = (props: StarRatingProps) => {
   };
 
   return (
-    <div className={classNames(cls.StarRating, {}, [className])}>
-      {stars.map((starNumber) => (
-        <Icon
-          Icon={StarRatingIcon}
-          className={classNames(
+    <div
+      className={classNames(
+        toggleFeature({
+          name: "isAppReDesigned",
+          off: () => cls.StarRating,
+          on: () => cls.StarRatingRedesigned,
+        }),
+        {},
+        [className]
+      )}
+    >
+      {stars.map((starNumber) => {
+        const commonProps = {
+          className: classNames(
             cls.starIcon,
             { [cls.hovered]: hovered, [cls.selected]: isSelected },
             [currentStarsCount >= starNumber ? cls.hovered : cls.normal]
-          )}
-          width={size}
-          height={size}
-          onMouseLeave={onLeave}
-          onMouseEnter={onHover(starNumber)}
-          onClick={onClick(starNumber)}
-          data-testId={`StarRating.${starNumber}`}
-          data-selected={currentStarsCount >= starNumber}
-        />
-      ))}
+          ),
+          width: size,
+          height: size,
+          onMouseLeave: onLeave,
+          onMouseEnter: onHover(starNumber),
+          onClick: onClick(starNumber),
+          "data-testId": `StarRating.${starNumber}`,
+          "data-selected": currentStarsCount >= starNumber,
+        };
+
+        return (
+          <ToggleFeatures
+            feature="isAppReDesigned"
+            off={<IconDeprecated Icon={StarRatingIcon} {...commonProps} />}
+            on={
+              <Icon
+                Icon={StarRatingIcon}
+                {...commonProps}
+                clickable={!isSelected}
+              />
+            }
+          />
+        );
+      })}
     </div>
   );
 };

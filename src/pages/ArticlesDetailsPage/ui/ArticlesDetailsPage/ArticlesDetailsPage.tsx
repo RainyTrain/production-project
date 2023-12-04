@@ -12,6 +12,7 @@ import { ArticleRecommendationList } from "features/ArticleRecommendationList";
 import { ArticleRating } from "features/ArticleRating";
 import { ToggleFeatures } from "shared/features";
 import { StickyContentLayout } from "shared/layouts";
+import { Vstack } from "shared/ui/Redesigned/Stack";
 import { articleDetailsPageReducer } from "../../model/slice";
 import cls from "./ArticleDetailsPage.module.scss";
 import { ArticleDetailsHeader } from "../ArticleDetailsPageHeader/ArticleDetailsHeader";
@@ -55,10 +56,12 @@ const ArticlesDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
               <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
               >
-                <DetailsContainer />
-                <ArticleRating articleId={id} />
-                <ArticleRecommendationList />
-                <ArticlesDetailsComments id={id} />
+                <Vstack gap='32'>
+                  <DetailsContainer />
+                  <ArticleRating articleId={id} />
+                  <ArticleRecommendationList />
+                  <ArticlesDetailsComments id={id} />
+                </Vstack>
               </Page>
             }
             right={<AdditionalInfo />}

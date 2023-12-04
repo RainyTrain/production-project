@@ -7,9 +7,16 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Button, ThemButton } from "shared/ui/Deprecated/Button";
-import { Input } from "shared/ui/Deprecated/Input";
+import {
+  Button as ButtonDeprecated,
+  ThemButton,
+} from "shared/ui/Deprecated/Button";
+import { Input as InputDeprecated } from "shared/ui/Deprecated/Input";
 import { Hstack } from "shared/ui/Redesigned/Stack";
+import { ToggleFeatures } from "shared/features";
+import { Input } from "shared/ui/Redesigned/Input";
+import { Button } from "shared/ui/Redesigned/Button";
+import { Card } from "shared/ui/Redesigned/Card";
 import {
   addCommentActions,
   addCommentReducer,
@@ -50,22 +57,51 @@ const AddCommentForm = memo(
 
     return (
       <DynamicModule reducers={reducers} removeAfterUnmount>
-        <Hstack
-          className={classNames(cls.AddCommentForm, {}, [className])}
-          align="center"
-          justify="between"
-          data-testId="AddCommentForm"
-        >
-          <Input
-            value={text}
-            onChange={onCommentTextChange}
-            placeholder={t("Print your comment")}
-            className={cls.input}
-          />
-          <Button theme={ThemButton.OUTLINE} onClick={sendCommentHandler}>
-            {t("Add")}
-          </Button>
-        </Hstack>
+        <ToggleFeatures
+          feature="isAppReDesigned"
+          off={
+            <Hstack
+              className={classNames(cls.AddCommentForm, {}, [className])}
+              align="center"
+              justify="between"
+              data-testId="AddCommentForm"
+            >
+              <InputDeprecated
+                value={text}
+                onChange={onCommentTextChange}
+                placeholder={t("Print your comment")}
+                className={cls.input}
+              />
+              <ButtonDeprecated
+                theme={ThemButton.OUTLINE}
+                onClick={sendCommentHandler}
+              >
+                {t("Add")}
+              </ButtonDeprecated>
+            </Hstack>
+          }
+          on={
+            <Card padding="24" border="round" fulllWidth>
+              <Hstack
+                className={classNames(cls.AddCommentFormRedesigned, {}, [className])}
+                align="center"
+                justify="between"
+                data-testId="AddCommentForm"
+                gap="16"
+              >
+                <Input
+                  value={text}
+                  onChange={onCommentTextChange}
+                  placeholder={t("Print your comment")}
+                  className={cls.input}
+                />
+                <Button variant="outline" onClick={sendCommentHandler}>
+                  {t("Add")}
+                </Button>
+              </Hstack>
+            </Card>
+          }
+        />
       </DynamicModule>
     );
   }
