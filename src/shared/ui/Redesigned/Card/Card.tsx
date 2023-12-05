@@ -6,7 +6,7 @@ export type CardVariant = "normal" | "outlined" | "light";
 
 export type CardPaddigns = "0" | "8" | "16" | "24";
 
-export type CardBorder = "round" | "normal";
+export type CardBorder = "round" | "normal" | "halfRound";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -29,6 +29,7 @@ const mapPaddingToClass: Record<CardPaddigns, string> = {
 const mapBorderToClass: Record<CardBorder, string> = {
   normal: "normalBorder",
   round: "roundBorder",
+  halfRound: "halfRoundBorder",
 };
 
 export const Card = (props: CardProps) => {

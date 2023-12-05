@@ -5,13 +5,19 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { Text, TextAlign, TextTheme } from "shared/ui/Deprecated/Text";
+import {
+  Text as TextDeprecated,
+  TextAlign,
+  TextTheme,
+} from "shared/ui/Deprecated/Text";
 import { ProfileCard } from "entities/Profile";
 import {
   DynamicModule,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModule";
 import { Vstack } from "shared/ui/Redesigned/Stack";
+import { ToggleFeatures } from "shared/features";
+import { Text } from "shared/ui/Redesigned/Text";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateError/getProfileValidateError";
@@ -117,11 +123,24 @@ export const EditableProfileCard = ({
         <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((err: string | undefined) => (
-            <Text
-              data-testid="EditableProfileCard.Error"
-              theme={TextTheme.ERROR}
-              text={err}
-              align={TextAlign.LEFT}
+            <ToggleFeatures
+              feature="isAppReDesigned"
+              off={
+                <TextDeprecated
+                  data-testid="EditableProfileCard.Error"
+                  theme={TextTheme.ERROR}
+                  text={err}
+                  align={TextAlign.LEFT}
+                />
+              }
+              on={
+                <Text
+                  data-testid="EditableProfileCard.Error"
+                  variant="error"
+                  text={err}
+                  align={TextAlign.LEFT}
+                />
+              }
             />
           ))}
         <ProfileCard

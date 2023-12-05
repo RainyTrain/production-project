@@ -11,7 +11,12 @@ import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";
 import { getArticleCreatePage } from "shared/const/router";
 import { ToggleFeatures } from "shared/features";
-import { Button, ThemButton } from "shared/ui/Deprecated/Button";
+import {
+  Button as ButtonDeprecated,
+  ThemButton,
+} from "shared/ui/Deprecated/Button";
+import { toggleFeature } from "shared/features/lib/toggleFeature";
+import { Button } from "shared/ui/Redesigned/Button";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -33,12 +38,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(true);
   }, []);
 
+  const mainClass = toggleFeature({
+    name: "isAppReDesigned",
+    off: () => cls.Navbar,
+    on: () => cls.NavbarRedesigned,
+  });
+
   if (authData) {
     return (
       <ToggleFeatures
         feature="isAppReDesigned"
         off={
-          <div className={classNames(cls.Navbar, {}, [className])}>
+          <div className={classNames(mainClass, {}, [className])}>
             <Text
               text="Production"
               className={cls.appName}
@@ -58,7 +69,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           </div>
         }
         on={
-          <div className={classNames(cls.NavbarRedesigned, {}, [className])}>
+          <div className={classNames(mainClass, {}, [className])}>
             <Hstack gap="16" className={cls.actions} align="center">
               <NotificationButton />
               <AvatarDropdown />
@@ -70,14 +81,24 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   }
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
-      <Button
-        theme={ThemButton.CLEAR_INVERTED}
-        className={cls.links}
-        onClick={onShowModal}
-      >
-        {t("Sign in")}
-      </Button>
+    <div className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppReDesigned"
+        off={
+          <ButtonDeprecated
+            theme={ThemButton.CLEAR_INVERTED}
+            className={cls.links}
+            onClick={onShowModal}
+          >
+            {t("Sign in")}
+          </ButtonDeprecated>
+        }
+        on={
+          <Button variant="clear" className={cls.links} onClick={onShowModal}>
+            {t("Sign in")}
+          </Button>
+        }
+      />
       {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onClose} />}
     </div>
   );

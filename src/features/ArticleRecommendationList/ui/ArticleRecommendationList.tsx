@@ -34,6 +34,7 @@ export const ArticleRecommendationList = ({
       data-testId="ArticleRecommendationList"
       gap="8"
       className={classNames("", {}, [className])}
+      max
     >
       <ToggleFeatures
         feature="isAppReDesigned"
