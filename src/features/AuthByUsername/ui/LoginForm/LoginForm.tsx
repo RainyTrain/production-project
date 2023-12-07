@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { memo, useCallback, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import {
@@ -18,6 +18,7 @@ import { Input } from "shared/ui/Redesigned/Input";
 import { Button } from "shared/ui/Redesigned/Button";
 import { Text } from "shared/ui/Redesigned/Text";
 import { Vstack } from "shared/ui/Redesigned/Stack";
+import { ForceUpdateContext } from "shared/lib/rerender/forceUpdate";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
@@ -44,6 +45,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const isLoading = useSelector(getLoginLoading);
   const error = useSelector(getLoginError);
 
+  const { forceUpdate } = useContext(ForceUpdateContext);
+
   const onChangeUsername = useCallback(
     (value: string) => {
       dispatch(loginActions.setUserName(value));
@@ -62,8 +65,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess();
+      forceUpdate();
     }
-  }, [dispatch, username, password, onSuccess]);
+  }, [dispatch, username, password, onSuccess, forceUpdate]);
 
   return (
     <DynamicModule reducers={initialReducers} removeAfterUnmount>

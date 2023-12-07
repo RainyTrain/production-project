@@ -4,7 +4,7 @@ import {
   isUserManager,
   userActions,
 } from "entities/User";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useSelector } from "react-redux";
 import {
   getAdminPanelPage,
@@ -13,6 +13,7 @@ import {
 } from "shared/const/router";
 import { ToggleFeatures } from "shared/features";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
+import { ForceUpdateContext } from "shared/lib/rerender/forceUpdate";
 import { Avatar as AvatarDeprecated } from "shared/ui/Deprecated/Avatar";
 import { Dropdown as DropdownDeprecated } from "shared/ui/Deprecated/Popups";
 import { Avatar } from "shared/ui/Redesigned/Avatar";
@@ -33,9 +34,12 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
 
   const isAdminPanelAvailable = isAdmin || isManager;
 
+  const { forceUpdate } = useContext(ForceUpdateContext);
+
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+    forceUpdate();
+  }, [dispatch, forceUpdate]);
 
   if (!authData) {
     return null;

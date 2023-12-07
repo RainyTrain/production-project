@@ -14,9 +14,7 @@ const MainPage = () => {
   if (__PROJECT__ !== "jest") {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useInfiniteScroll({
-      callback: () => {
-        console.log("Load new items!");
-      },
+      callback: () => {},
       triggerRef,
       wrapperRef,
     });
