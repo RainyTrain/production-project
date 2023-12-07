@@ -15,10 +15,19 @@
   gap: 10px 50px;
 }
 
+.skeletonsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-content: stretch;
+}
+
 .itemContainer {
   width: 200px;
   display: flex;
   align-content: stretch;
+  flex-wrap: wrap;
 
   @media (max-width: 1024px) {
     width: 50%;

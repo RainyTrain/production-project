@@ -15,7 +15,7 @@ import { Text, TextAlign, TextTheme } from "shared/ui/Deprecated/Text";
 import { ToggleFeatures } from "shared/features";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
-import { ArticleListItemSkeleton } from "../ArticleListItemSkeleton/ArticleListItemSkeleton";
+import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton/ArticleListItemSkeleton";
 import cls from "./ArticleList.module.scss";
 
 interface ArticleListProps {
@@ -92,7 +92,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   });
 
   if (view === "SMALL" && isLoading) {
-    return <div className={cls.itemContainer}>{getSkeletons(view)}</div>;
+    return <div className={cls.skeletonsContainer}>{getSkeletons(view)}</div>;
   }
 
   if (!isLoading && !articles?.length) {

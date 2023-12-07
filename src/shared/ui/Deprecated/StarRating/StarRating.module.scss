@@ -1,10 +1,14 @@
 .StarRating {
+  stroke: var(--primary-color);
+
   .hovered {
     fill: var(--primary-color);
   }
 }
 
 .StarRatingRedesigned {
+  stroke: var(--icon-redesigned);
+
   .hovered {
     fill: var(--icon-redesigned);
   }

@@ -1,5 +1,4 @@
 .SMALL {
-  // width: 200px;
   transition: 0.2s;
 
   .date {
@@ -113,5 +112,19 @@
   &.SMALL {
     width: 240px;
     height: 350px;
+
+    .card {
+      width: 240px;
+      height: 350px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .imageWrapper {
+      align-self: center;
+      height: 180px;
+      position: relative;
+    }
   }
 }

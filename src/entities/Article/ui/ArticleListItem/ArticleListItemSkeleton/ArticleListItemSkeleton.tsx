@@ -4,8 +4,9 @@ import { Card as CardDeprecated } from "shared/ui/Deprecated/Card";
 import { Card as CardRedesigned } from "shared/ui/Redesigned/Card";
 import { Skeleton as SkeletonDeprecated } from "shared/ui/Deprecated/Skeleton";
 import { Skeleton as SkeletonRedesigned } from "shared/ui/Redesigned/Skeleton";
-import { ArticleView } from "../../model/types/article";
-import cls from "../ArticleListItem/ArticleListIem.module.scss";
+import { ToggleFeatures } from "shared/features";
+import { ArticleView } from "../../../model/types/article";
+import cls from "../ArticleListIem.module.scss";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -54,16 +55,43 @@ export const ArticleListItemSkeleton = (
   }
 
   return (
-    <div className={classNames(mainClass, {}, [className, cls[view]])}>
-      <Card>
-        <div className={cls.imageWrapper}>
-          <Skeleton width={150} height={150} border="50%" className={cls.img} />
+    // <div className={classNames(mainClass, {}, [className, cls[view]])}>
+    //   <Card>
+    //     <div className={cls.imageWrapper}>
+    //       <Skeleton width={150} height={150} border="50%" className={cls.img} />
+    //     </div>
+    //     <div className={cls.inforWrapper}>
+    //       <Skeleton width={130} height={16} className={cls.types} />
+    //     </div>
+    //     <Skeleton width={150} height={16} className={cls.title} />
+    //   </Card>
+    // </div>
+    <ToggleFeatures
+      feature="isAppReDesigned"
+      off={
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
+          <Card>
+            <div className={cls.imageWrapper}>
+              <Skeleton width={150} height="140px" className={cls.img} />
+            </div>
+            <div className={cls.inforWrapper}>
+              <Skeleton width={130} height={16} className={cls.types} />
+            </div>
+            <Skeleton width={150} height={16} className={cls.title} />
+          </Card>
         </div>
-        <div className={cls.inforWrapper}>
-          <Skeleton width={130} height={16} className={cls.types} />
+      }
+      on={
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
+          <Card className={cls.card} border='round'>
+            <Skeleton width="100%" height="50%" />
+            <div className={cls.inforWrapper}>
+              <Skeleton width={130} height={16} className={cls.types} />
+            </div>
+            <Skeleton width={150} height={16} className={cls.title} />
+          </Card>
         </div>
-        <Skeleton width={150} height={16} className={cls.title} />
-      </Card>
-    </div>
+      }
+    />
   );
 };
