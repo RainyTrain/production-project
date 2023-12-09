@@ -11,11 +11,14 @@ import { ToggleFeatures } from "shared/features";
 import { MainLayout } from "shared/layouts";
 import { AppLoaderLayout } from "shared/layouts/AppLoaderLayout/AppLoaderLayout";
 import { PageLoader } from "widgets/PageLoader";
+import { useAppToolbar } from "./lib/useAppToolbar";
 
 const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     dispatch(initAuthData());
@@ -56,7 +59,7 @@ const App = () => {
               sidebar={<Sidebar />}
               content={<AppRouter />}
               // eslint-disable-next-line react/jsx-no-useless-fragment
-              toolbar={<></>}
+              toolbar={toolbar}
               header={<Navbar />}
             />
           </Suspense>

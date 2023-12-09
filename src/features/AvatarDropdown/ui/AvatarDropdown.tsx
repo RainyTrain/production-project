@@ -50,8 +50,8 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
       ? [{ content: "Admin", href: getAdminPanelPage() }]
       : []),
     { content: "Profile", href: getProfilePage(authData?.id) },
-    { content: "Sign out", onClick: onLogout },
     { content: "Settings", href: getSettingPage() },
+    { content: "Sign out", onClick: onLogout },
   ];
 
   return (

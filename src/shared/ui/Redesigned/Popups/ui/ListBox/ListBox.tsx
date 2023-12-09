@@ -52,7 +52,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
 
   return (
     <Hstack align="center">
-      {label && <span className={cls.label}>{`${label}>`}</span>}
+      {label && <span className={cls.label}>{`${label}`}</span>}
       <HListBox
         disabled={readonly}
         as="div"

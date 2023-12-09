@@ -23,3 +23,17 @@ export const getMForbiddenPage = () => "/forbidden";
 export const getNotFoundPage = () => "/*";
 export const getArticlesPage = () => "/articles";
 export const getSettingPage = () => "/settings";
+
+export const AppRouteByPath: Record<string, AppRoutes> = {
+  [getAboutPage()]: AppRoutes.ABOUT,
+  [getProfilePage(":id")]: AppRoutes.PROFILE,
+  [getMainPage()]: AppRoutes.MAIN,
+  [getArticlesDetailsPage(":id")]: AppRoutes.ARTICLES_DETAILS,
+  [getArticlesEditPage(":id")]: AppRoutes.ARTICLE_EDIT,
+  [getArticleCreatePage()]: AppRoutes.ARTICLE_CREATE,
+  [getAdminPanelPage()]: AppRoutes.ADMIN_PANEL,
+  [getMForbiddenPage()]: AppRoutes.FORBIDDEN_PAGE,
+  [getArticlesPage()]: AppRoutes.ARTICLES,
+  [getSettingPage()]: AppRoutes.SETTING_PAGE,
+  [getNotFoundPage()]: AppRoutes.NOT_FOUND,
+};

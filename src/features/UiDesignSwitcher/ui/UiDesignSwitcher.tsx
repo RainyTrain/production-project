@@ -6,7 +6,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
 import { ListBox } from "shared/ui/Redesigned/Popups";
 import { Skeleton } from "shared/ui/Redesigned/Skeleton";
-import { Hstack } from "shared/ui/Redesigned/Stack";
+import { Vstack } from "shared/ui/Redesigned/Stack";
 import { Text } from "shared/ui/Redesigned/Text";
 
 interface UiDesignSwitcherProps {
@@ -44,8 +44,8 @@ export const UiDesignSwitcher = ({ className }: UiDesignSwitcherProps) => {
   );
 
   return (
-    <Hstack>
-      <Text text="Interface variant" />
+    <Vstack>
+      <Text text="Interface variant: " />
       {isLoading ? (
         <Skeleton width={100} height={40} />
       ) : (
@@ -58,6 +58,6 @@ export const UiDesignSwitcher = ({ className }: UiDesignSwitcherProps) => {
           direction="top"
         />
       )}
-    </Hstack>
+    </Vstack>
   );
 };
