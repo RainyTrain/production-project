@@ -7,9 +7,10 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
 import { Sidebar } from "widgets/Sidebar";
 import { useAppDispatch } from "shared/lib/hooks/UseAppDispatch/UseAppDispatch";
-import { PageLoader } from "widgets/PageLoader";
 import { ToggleFeatures } from "shared/features";
 import { MainLayout } from "shared/layouts";
+import { AppLoaderLayout } from "shared/layouts/AppLoaderLayout/AppLoaderLayout";
+import { PageLoader } from "widgets/PageLoader";
 
 const App = () => {
   const { theme } = useTheme();
@@ -21,7 +22,17 @@ const App = () => {
   }, [dispatch]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature="isAppReDesigned"
+        off={<PageLoader />}
+        on={
+          <div id="app" className={classNames("app_redesigned", {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+      />
+    );
   }
 
   return (

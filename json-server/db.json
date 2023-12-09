@@ -160,7 +160,7 @@
         "isArticleRatingEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_color_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageBeenOpened": false
       },
