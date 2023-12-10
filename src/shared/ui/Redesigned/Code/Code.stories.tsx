@@ -4,7 +4,7 @@ import { Theme } from "../../../const/theme";
 import { Code } from "./Code";
 
 const meta: Meta<typeof Code> = {
-  title: "shared/Code",
+  title: "shared/Redesigned/code",
   component: Code,
   tags: ["autodocs"],
   argTypes: {},

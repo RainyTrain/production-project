@@ -19,7 +19,7 @@ root.render(
         <ThemeProvider>
           <ForceUpdateProvider>
             <App />
-          </ForceUpdateProvider>
+           </ForceUpdateProvider>
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>

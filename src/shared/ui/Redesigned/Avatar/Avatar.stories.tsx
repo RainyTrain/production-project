@@ -4,7 +4,7 @@ import { Theme } from "../../../const/theme";
 import { Avatar } from "./Avatar";
 
 const meta: Meta<typeof Avatar> = {
-  title: "shared/Avatar",
+  title: "shared/Redesigned/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   argTypes: {},

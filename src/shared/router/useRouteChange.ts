@@ -10,22 +10,12 @@ export const useRouteChange = () => {
   useEffect(() => {
     Object.entries(AppRouteByPath).every(([pattern, route]) => {
       if (matchPath(pattern, location.pathname)) {
-        console.log("yeach", pattern, location.pathname);
         setAppRoute(route);
         return false;
       }
       return true;
     });
   }, [location.pathname]);
-
-  //   useEffect(() => {
-  //     Object.entries(AppRouteByPath).forEach(([pattern, route]) => {
-  //       if (matchPath(pattern, location.pathname)) {
-  //         console.log("yeach", pattern, location.pathname);
-  //         setAppRoute(route);
-  //       }
-  //     });
-  //   }, [location.pathname]);
 
   return appRoute;
 };

@@ -1,6 +1,6 @@
 import { AppRouter } from "app/providers/router";
 import { Navbar } from "widgets/Navbar";
-import { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getUserInited, initAuthData } from "entities/User";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -11,6 +11,7 @@ import { ToggleFeatures } from "shared/features";
 import { MainLayout } from "shared/layouts";
 import { AppLoaderLayout } from "shared/layouts/AppLoaderLayout/AppLoaderLayout";
 import { PageLoader } from "widgets/PageLoader";
+import { withTheme } from "shared/ui/Deprecated/ThemeProvider/ui/withTheme";
 import { useAppToolbar } from "./lib/useAppToolbar";
 
 const App = () => {
@@ -69,4 +70,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withTheme(App);

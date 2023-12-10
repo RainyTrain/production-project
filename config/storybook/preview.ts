@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import { StyleDecorator } from "../../src/shared/config/storybook/StyleDocorator/StyleDecorator";
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { RouterDecorator } from "../../src/shared/config/storybook/RouterDecorator/RouterDecorator";
+import { FeaturesFlagsDecorator } from "../../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator";
 import { Theme } from "../../src/shared/const/theme";
 
 const preview: Preview = {
@@ -15,7 +16,12 @@ const preview: Preview = {
     },
   },
 
-  decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator],
+  decorators: [
+    StyleDecorator,
+    ThemeDecorator(Theme.LIGHT),
+    RouterDecorator,
+    FeaturesFlagsDecorator({}),
+  ],
 };
 
 export default preview;

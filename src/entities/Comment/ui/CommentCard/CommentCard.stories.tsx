@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { FeaturesFlagsDecorator } from "shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "shared/const/theme";
 import { CommentCard } from "./CommentCard";
@@ -34,4 +35,15 @@ export const withDataDark: Story = {
     comment: { id: "1", text: "test", user: { id: "1", username: "user" } },
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const redesignedWithDataDark: Story = {
+  args: {
+    isLoading: false,
+    comment: { id: "1", text: "test", user: { id: "1", username: "user" } },
+  },
+  decorators: [
+    FeaturesFlagsDecorator({ isAppReDesigned: true }),
+    ThemeDecorator(Theme.DARK),
+  ],
 };
