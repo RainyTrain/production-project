@@ -36,6 +36,7 @@
   "Recommendations": "Recommendations",
   "Main Page": "Main page",
   "Your feedback": "Your feedback",
+  "View_zero": "{{count}} views",
   "View_one": "{{count}} view",
   "View_other": "{{count}} views"
 }

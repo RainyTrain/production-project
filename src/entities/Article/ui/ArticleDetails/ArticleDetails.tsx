@@ -103,7 +103,9 @@ const Redesigned = () => {
       <Text title={article?.title} align={TextAlign.LEFT} size="l" bold />
       <Text title={article?.subtitle} align={TextAlign.LEFT} />
       <AppImage
-        fallback={<SkeletonRedesigned width="100%" height="420px" border="16px" />}
+        fallback={
+          <SkeletonRedesigned width="100%" height="420px" border="16px" />
+        }
         src={article?.img}
         className={cls.img}
       />

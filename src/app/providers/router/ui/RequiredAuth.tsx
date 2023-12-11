@@ -11,11 +11,9 @@ interface RequiredAuthProps {
 
 export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
   const isAuth = useSelector(getUserAuthData);
-  console.log(isAuth, "auth");
 
   const userRoles = useSelector(getUserRoles);
 
-  console.log("GET ROLES", userRoles);
   const location = useLocation();
 
   const hasRequiredRoles = useMemo(() => {
@@ -29,8 +27,6 @@ export const RequiredAuth = ({ children, roles }: RequiredAuthProps) => {
       return hasRole;
     });
   }, [roles, userRoles]);
-
-  console.log("hasRequiredRoles", hasRequiredRoles);
 
   if (!isAuth) {
     return <Navigate to={getMainPage()} state={{ from: location }} replace />;

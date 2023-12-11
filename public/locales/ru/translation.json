@@ -34,6 +34,8 @@
   "Back": "Назад",
   "Main Page": "Главная страница",
   "Your feedback": "Ваш отзыв",
+  "View_zero": "{{count}} просмотров",
   "View_one": "{{count}} просмотр",
-  "View_other": "{{count}} просмотров"
+  "View_few": "{{count}} просмотра",
+  "View_many": "{{count}} просмотров"
 }

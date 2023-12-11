@@ -65,6 +65,7 @@ export const ArticleViewSelector = ({
             <ButtonDeprecated
               theme={ThemButton.CLEAR}
               onClick={onClick(viewType.view)}
+              key={viewType.view}
             >
               <IconDeprecated
                 width={24}
@@ -87,7 +88,11 @@ export const ArticleViewSelector = ({
         >
           <Hstack gap="8">
             {viewTypes.map((viewType) => (
-              <Button variant="clear" onClick={onClick(viewType.view)}>
+              <Button
+                variant="clear"
+                onClick={onClick(viewType.view)}
+                key={viewType.view}
+              >
                 <Icon
                   Icon={viewType.icon}
                   className={classNames(

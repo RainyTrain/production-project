@@ -60,16 +60,16 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         onChange={onChange}
         className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
       >
-        <HListBox.Button as={Fragment}>
-          <Button
-            variant="filled"
-            disabled={readonly}
-            addonRight={<Icon Icon={Arrow} />}
-          >
-            {selectedValue?.content ?? defaultValue}
-          </Button>
+        <HListBox.Button
+          as={Button}
+          // @ts-ignore
+          disabled={readonly}
+          addonRight={<Icon Icon={Arrow} />}
+          variant="filled"
+        >
+          {selectedValue?.content ?? defaultValue}
         </HListBox.Button>
-        <HListBox.Options className={classNames('', {}, optionsMods)}>
+        <HListBox.Options className={classNames("", {}, optionsMods)}>
           {options.map((option) => (
             <HListBox.Option
               key={option.value}
