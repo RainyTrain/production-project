@@ -1,5 +1,6 @@
 import { getUserAuthData } from "entities/User";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { getFeatureFlags, updateFeatureFlags } from "shared/features";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -21,6 +22,8 @@ export const UiDesignSwitcher = ({ className }: UiDesignSwitcherProps) => {
   const authData = useSelector(getUserAuthData);
 
   const [isLoading, setIsLOading] = useState(false);
+
+  const {t} = useTranslation()
 
   const options = [
     { value: "new", content: "new" },
@@ -45,7 +48,7 @@ export const UiDesignSwitcher = ({ className }: UiDesignSwitcherProps) => {
 
   return (
     <Vstack>
-      <Text text="Interface variant: " />
+      <Text text={t("Interface variant: ")} />
       {isLoading ? (
         <Skeleton width={100} height={40} />
       ) : (

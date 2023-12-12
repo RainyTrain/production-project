@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { ToggleFeatures } from "shared/features";
 import { Tab as TabDeprecated, TabItem } from "shared/ui/Deprecated/Tab";
 import { Tab } from "shared/ui/Redesigned/Tab";
@@ -13,14 +14,16 @@ export const ArticleTypeTabs = ({
   value,
   onCnahgeType,
 }: ArticleTypeTabsProps) => {
+  const { t } = useTranslation();
+
   const typeTabs = useMemo<TabItem[]>(
     () => [
-      { value: ArticleType.ALL, content: "All" },
-      { value: ArticleType.ECONOMICS, content: "Economics" },
+      { value: ArticleType.ALL, content: t("All") },
+      { value: ArticleType.ECONOMICS, content: t("Economics") },
       { value: ArticleType.IT, content: "IT" },
-      { value: ArticleType.SCIENCE, content: "Science" },
+      { value: ArticleType.SCIENCE, content: t("Science") },
     ],
-    []
+    [t]
   );
 
   const onTabClik = useCallback(
@@ -36,7 +39,14 @@ export const ArticleTypeTabs = ({
       off={
         <TabDeprecated tabs={typeTabs} value={value} onTabClick={onTabClik} />
       }
-      on={<Tab tabs={typeTabs} value={value} onTabClick={onTabClik} direction='column'/>}
+      on={
+        <Tab
+          tabs={typeTabs}
+          value={value}
+          onTabClick={onTabClik}
+          direction="column"
+        />
+      }
     />
   );
 };

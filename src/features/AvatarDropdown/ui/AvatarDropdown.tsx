@@ -5,6 +5,7 @@ import {
   userActions,
 } from "entities/User";
 import { useCallback, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import {
   getAdminPanelPage,
@@ -36,6 +37,8 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
 
   const { forceUpdate } = useContext(ForceUpdateContext);
 
+  const { t } = useTranslation();
+
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
     forceUpdate();
@@ -47,11 +50,11 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
 
   const item = [
     ...(isAdminPanelAvailable
-      ? [{ content: "Admin", href: getAdminPanelPage() }]
+      ? [{ content: t("Admin"), href: getAdminPanelPage() }]
       : []),
-    { content: "Profile", href: getProfilePage(authData?.id) },
-    { content: "Settings", href: getSettingPage() },
-    { content: "Sign out", onClick: onLogout },
+    { content: t("Profile"), href: getProfilePage(authData?.id) },
+    { content: t("Settings"), href: getSettingPage() },
+    { content: t("Sign out"), onClick: onLogout },
   ];
 
   return (

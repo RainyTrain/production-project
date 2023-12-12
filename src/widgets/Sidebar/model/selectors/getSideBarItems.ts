@@ -15,6 +15,7 @@ import {
   getProfilePage,
 } from "shared/const/router";
 import { toggleFeature } from "shared/features/lib/toggleFeature";
+import i18n from "shared/config/i18n/i18n";
 import { SidebarItemType } from "../types/SidebarItemType";
 
 export const getSideBarItems = createSelector(getUserAuthData, (data) => {
@@ -26,7 +27,7 @@ export const getSideBarItems = createSelector(getUserAuthData, (data) => {
         off: () => MainIcon,
         on: () => MainIconRedesigned,
       }),
-      text: "Main page",
+      text: i18n.t("Main page"),
     },
     {
       path: getAboutPage(),
@@ -35,7 +36,7 @@ export const getSideBarItems = createSelector(getUserAuthData, (data) => {
         off: () => AboutIcon,
         on: () => AboutIconRedesigned,
       }),
-      text: "About page",
+      text: i18n.t("About page"),
     },
   ];
 
@@ -48,7 +49,7 @@ export const getSideBarItems = createSelector(getUserAuthData, (data) => {
           off: () => ProfileIcon,
           on: () => ProfileIconRedesigned,
         }),
-        text: "Profile page",
+        text: i18n.t("Profile page"),
         authOnly: true,
       },
       {
@@ -58,7 +59,7 @@ export const getSideBarItems = createSelector(getUserAuthData, (data) => {
           off: () => ArticlesIcon,
           on: () => ArticlesIconRedesigned,
         }),
-        text: "Articles",
+        text: i18n.t("Articles"),
         authOnly: true,
       }
     );
